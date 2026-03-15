@@ -1,126 +1,148 @@
-import { ModeToggle } from "@/components/shared/theme-toggle";
-import { Button } from "@/components/ui/button";
+"use client";
+import { useEffect, useState } from "react";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { imagePath } from "@/constants/imagePath";
+import { imagePathForLanding } from "@/constants/imagePath";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-interface NavItem {
-  label: string;
-  href: string;
-}
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Products", href: "/products" },
+  { label: "Manufacturing", href: "/manufacturing" },
+  { label: "Certifications", href: "/certifications" },
+  { label: "Clients", href: "/clients" },
+  { label: "Gallery", href: "/gallery" },
+];
 
-export default function Navbar() {
-  const navLinks: NavItem[] = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Products", href: "/products" },
-    { label: "Manufacturing", href: "/manufacturing" },
-    { label: "Certifications", href: "/certifications" },
-    { label: "Clients", href: "/clients" },
-    { label: "News & Events", href: "/news-events" },
-    { label: "Career", href: "/career" },
-    { label: "Gallery", href: "/gallery" },
-  ];
+const Navbar = () => {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-        
+    <nav
+      className={`z-20 w-full px-4 md:px-8 transition-all duration-300
+      ${
+        isHomePage
+          ? `fixed pt-1 ${scrolled ? "bg-orange-500 shadow-md pb-2" : ""}`
+          : "sticky top-0 bg-orange-500 pb-2 shadow-md"
+      }
+      `}
+    >
+      <div className="relative mx-auto flex w-full max-w-[1400px] items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href={"/"} className="flex items-center gap-2 text-white">
           <Image
-            src={imagePath.noImage}
+            src={imagePathForLanding.logo}
             alt="Logo"
             width={150}
-            height={50}
-            className="h-10 w-auto"
-            priority
+            height={150}
+            className="h-14 md:h-16 w-auto"
           />
+          <span className="mt-1 text-lg md:text-xl font-semibold tracking-wide">
+            STEELTECH
+          </span>
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-10">
-          <ul className="flex items-center gap-7 text-[15px] font-medium text-white/90">
-            {navLinks.map((item, index) => (
-              <li key={item.href} className="group relative">
+        {/* Desktop Navbar */}
+        <div className="hidden xl:flex absolute left-1/2 -translate-x-1/2 items-center">
+          <div
+            className={`flex items-center gap-1 rounded-full ${
+              isHomePage && !scrolled
+                ? "border border-orange-300/20 bg-white/10 text-white px-3 py-1.5 backdrop-blur-xl"
+                : "bg-white text-black px-3 py-1.5 shadow-md"
+            }`}
+          >
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+
+              return (
                 <Link
+                  key={item.label}
                   href={item.href}
-                  className={`transition-colors duration-300 hover:text-white ${
-                    index === 0 ? "text-orange-400" : "text-white/85"
+                  className={`rounded-full px-3 py-1.5 text-[13px] font-medium transition
+                  ${
+                    active
+                      ? "bg-orange-500 text-white"
+                      : isHomePage && !scrolled
+                      ? "hover:bg-orange-500/40"
+                      : "hover:bg-orange-100"
                   }`}
                 >
                   {item.label}
                 </Link>
+              );
+            })}
+          </div>
+        </div>
 
-                <span
-                  className={`absolute left-0 -bottom-2 h-[2px] rounded-full bg-orange-500 transition-all duration-300 ${
-                    index === 0 ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </li>
-            ))}
-          </ul>
-
-          <ModeToggle />
+        {/* Request Button */}
+        <div className="hidden xl:flex">
+          <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-orange-600 transition hover:bg-orange-50">
+            Request a Quote
+          </button>
         </div>
 
         {/* Mobile Menu */}
-        <div className="lg:hidden flex items-center gap-2">
-          <ModeToggle />
-
+        <div className="xl:hidden ml-auto">
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="border-white/20 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
+              <button className="rounded-full bg-orange-500 p-2 text-white">
+                <Menu className="h-6 w-6" />
+              </button>
             </SheetTrigger>
 
             <SheetContent
               side="right"
-              className="w-[280px] sm:w-[340px] bg-black/90 text-white border-white/10"
+              className="w-[300px] border-l border-orange-100 bg-white text-black"
             >
               <SheetHeader>
-                <SheetTitle>
-                  <Image
-                    src={imagePath.noImage}
-                    alt="Logo"
-                    width={110}
-                    height={40}
-                    className="h-10 w-auto"
-                  />
+                <SheetTitle className="text-left text-orange-600 text-xl font-bold border-b border-orange-100 pb-4">
+                  STEELTECH
                 </SheetTitle>
               </SheetHeader>
 
-              <div className="mt-6 flex flex-col gap-2">
-                {navLinks.map((item) => (
-                  <SheetClose asChild key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="rounded-md px-3 py-2 text-sm text-white/85 hover:bg-white/10 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </SheetClose>
+              <div className="mt-8 flex flex-col gap-5 px-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-base font-medium text-gray-700 transition hover:text-orange-500"
+                  >
+                    {item.label}
+                  </Link>
                 ))}
+
+                <button className="mt-4 w-full rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-orange-600">
+                  Request a Quote
+                </button>
               </div>
             </SheetContent>
           </Sheet>
         </div>
-
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
-}
+};
+
+export default Navbar;

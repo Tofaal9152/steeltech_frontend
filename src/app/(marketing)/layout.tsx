@@ -1,5 +1,4 @@
-// import Footer from "@/components/layout/Footer/Footer";
-// import Navbar from "@/components/layout/Navbar/Navbar";
+import Navbar from "@/components/layout/Navbar/Navbar";
 
 export default function MarkettingLayout({
   children,
@@ -8,11 +7,8 @@ export default function MarkettingLayout({
 }) {
   return (
     <section>
-      {/* <Navbar /> */}
-      <section >
-        {children}
-      </section>
-      {/* <Footer /> */}
+      <Navbar />
+      {children}
     </section>
   );
 }

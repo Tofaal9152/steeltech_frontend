@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "This is the title of the page",
+  title: "SteelTech",
   description:
-    "This is the description of the page. It should be concise and informative, providing a clear overview of the content and purpose of the page.",
+    "SteelTech is a leading manufacturer and supplier of high-quality steel pipes, tubes, and fittings, serving a wide range of industries with durable and innovative solutions.",
 };
 
 export default function RootLayout({

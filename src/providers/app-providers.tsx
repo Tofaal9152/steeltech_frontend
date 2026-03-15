@@ -1,7 +1,5 @@
-import { Toaster } from "sonner";
+// import { Toaster } from "sonner";
 import QueryProvider from "./query-provider";
-
-import { ThemeProvider } from "./theme-provider";
 
 export default function AppProviders({
   children,
@@ -9,14 +7,16 @@ export default function AppProviders({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="light"
-      enableSystem
-      disableTransitionOnChange
-    >
+    <>
+      {/* <ThemeProvider
+        attribute="class"
+        defaultTheme="light"
+        enableSystem
+        disableTransitionOnChange
+      > */}
       <QueryProvider>{children}</QueryProvider>
-      <Toaster position="bottom-right" />
-    </ThemeProvider>
+      {/* <Toaster position="bottom-right" /> */}
+      {/* </ThemeProvider> */}
+    </>
   );
 }
