@@ -19,7 +19,7 @@ const navItems = [
   { label: "Products", href: "/products" },
   { label: "Manufacturing", href: "/manufacturing" },
   { label: "Certifications", href: "/certifications" },
-  { label: "Clients", href: "/clients" },
+  { label: "Clients", href: "#clients" },
   { label: "Gallery", href: "/gallery" },
 ];
 
@@ -41,14 +41,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-50 w-full px-4 md:px-8 transition-all duration-300
-      ${
-        isHomePage
-          ? `fixed pt-1 ${scrolled ? "bg-orange-500 shadow-md pb-2" : ""}`
-          : "sticky top-0 bg-orange-500 pb-2 shadow-md"
-      }
-      `}
-    >
+  className={`z-50 w-full px-4 md:px-8 transition-all duration-300 border-b border-transparent
+  ${
+    isHomePage
+      ? `fixed pt-1 ${
+          scrolled
+            ? "bg-black/20 backdrop-blur-xl shadow-md pb-2"
+            : "bg-transparent"
+        }`
+      : `sticky top-0 bg-black/20 backdrop-blur-xl  pb-2 shadow-md`
+  }
+  `}
+>
       <div className="relative mx-auto flex w-full max-w-[1400px] items-center justify-between">
         {/* Logo */}
         <Link href={"/"} className="flex items-center gap-2 text-white">
@@ -85,8 +89,8 @@ const Navbar = () => {
                     active
                       ? "bg-orange-500 text-white"
                       : isHomePage && !scrolled
-                      ? "hover:bg-orange-500/40"
-                      : "hover:bg-orange-100"
+                        ? "hover:bg-orange-500/40"
+                        : "hover:bg-orange-100"
                   }`}
                 >
                   {item.label}

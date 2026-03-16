@@ -1,10 +1,9 @@
-// import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
+import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
+import ClientsTrustedBy from "./ClientsTrustedBy";
 import CompanyIntro from "./CompanyIntro";
-// import CompanyTrust from "./CompanyTrust";
-import Footer from "./Footer";
+import GallerySection from "./GallerySection";
 import Hero from "./Hero";
-// import ManufacturingHighlights from "./ManufacturingHighlights";
-// import MediaSection from "./MediaSection";
+import ManufacturingHighlights from "./ManufacturingHighlights";
 import ProductCategories from "./ProductCategories";
 import ScrollImageSequence from "./ScrollImageSequence";
 import Stats from "./Stats";
@@ -19,11 +18,10 @@ const HomePage = () => {
       <ProductCategories />
       <WhyChooseUs />
       <Stats />
-      {/* <ManufacturingHighlights /> */}
-      {/* <CertificateAndRecognitaion /> */}
-      {/* <CompanyTrust /> */}
-      {/* <MediaSection /> */}
-      <Footer />
+      <ManufacturingHighlights />
+      <CertificateAndRecognitaion />
+      <ClientsTrustedBy />
+      <GallerySection />
     </div>
   );
 };

@@ -11,6 +11,11 @@ export const imagePathForLanding = {
   scrollVideo: "/videos/scroll-video.mp4",
   companyprofile: "/images/hero/company-profile.jpg",
   whyus: "/images/hero/why-us.jpg",
+
+  // manufacture
+  manufacturing: "/images/hero/manufacturing.jpg",
+  steelguard: "/images/hero/steelguard.jpg",
+  loadcell: "/images/hero/loadcell.jpg",
 } as const;
 
 export const imagePathForDashboard = {
