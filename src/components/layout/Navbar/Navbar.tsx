@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -12,6 +11,7 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-20 w-full px-4 md:px-8 transition-all duration-300
+      className={`z-50 w-full px-4 md:px-8 transition-all duration-300
       ${
         isHomePage
           ? `fixed pt-1 ${scrolled ? "bg-orange-500 shadow-md pb-2" : ""}`
@@ -65,7 +65,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navbar */}
-        <div className="hidden xl:flex absolute left-1/2 -translate-x-1/2 items-center">
+        <div className=" absolute left-1/2 -translate-x-1/2 items-center">
           <div
             className={`flex items-center gap-1 rounded-full ${
               isHomePage && !scrolled
@@ -97,11 +97,12 @@ const Navbar = () => {
         </div>
 
         {/* Request Button */}
-        <div className="hidden xl:flex">
+        {/* <div className="hidden xl:flex">
           <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-orange-600 transition hover:bg-orange-50">
-            Request a Quote
+            <PhoneCall className="w-4 h-4 inline-block mr-2" />
+            Contact Us
           </button>
-        </div>
+        </div> */}
 
         {/* Mobile Menu */}
         <div className="xl:hidden ml-auto">
@@ -133,9 +134,9 @@ const Navbar = () => {
                   </Link>
                 ))}
 
-                <button className="mt-4 w-full rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-orange-600">
-                  Request a Quote
-                </button>
+                {/* <button className="mt-4 w-full rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-orange-600">
+                  Contact Us
+                </button> */}
               </div>
             </SheetContent>
           </Sheet>

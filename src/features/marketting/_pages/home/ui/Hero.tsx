@@ -1,4 +1,3 @@
-import Navbar from "@/components/layout/Navbar/Navbar";
 import { imagePathForLanding } from "@/constants/imagePath";
 
 const Hero = () => {

@@ -1,9 +1,10 @@
+// import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
 import CompanyIntro from "./CompanyIntro";
-import CompanyTrust from "./CompanyTrust";
+// import CompanyTrust from "./CompanyTrust";
 import Footer from "./Footer";
 import Hero from "./Hero";
-import ManufacturingHighlights from "./ManufacturingHighlights";
-import MediaSection from "./MediaSection";
+// import ManufacturingHighlights from "./ManufacturingHighlights";
+// import MediaSection from "./MediaSection";
 import ProductCategories from "./ProductCategories";
 import ScrollImageSequence from "./ScrollImageSequence";
 import Stats from "./Stats";
@@ -14,14 +15,14 @@ const HomePage = () => {
     <div>
       <Hero />
       <ScrollImageSequence />
-  
       <CompanyIntro />
       <ProductCategories />
       <WhyChooseUs />
       <Stats />
-      <ManufacturingHighlights />
-      <CompanyTrust />
-      <MediaSection />
+      {/* <ManufacturingHighlights /> */}
+      {/* <CertificateAndRecognitaion /> */}
+      {/* <CompanyTrust /> */}
+      {/* <MediaSection /> */}
       <Footer />
     </div>
   );

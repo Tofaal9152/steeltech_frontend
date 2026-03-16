@@ -1,4 +1,3 @@
-
 import { ProductListItem } from "../types/types";
 import { ProductCard } from "./product-card";
 
@@ -8,11 +7,9 @@ type Props = {
 
 export function ProductsGrid({ products }: Props) {
   return (
-     <div className="columns-2 md:columns-3 gap-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {products.map((product) => (
-        <div key={product.slug} className="mb-4 break-inside-avoid">
-          <ProductCard product={product} />
-        </div>
+        <ProductCard key={product.slug} product={product} />
       ))}
     </div>
   );
