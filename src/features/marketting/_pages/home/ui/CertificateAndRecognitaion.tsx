@@ -1,5 +1,10 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  GraduationCap,
+  ShieldCheck,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -46,9 +51,8 @@ const recognitions = [
 ];
 
 const stats = [
-  { num: "8+", label: "Certificates" },
-  { num: "4", label: "Recognitions" },
-  
+  { num: "8+", label: "Certificates", icon: GraduationCap },
+  { num: "4", label: "Recognitions", icon: ShieldCheck },
 ];
 
 const CertificateAndRecognition = () => {
@@ -65,26 +69,40 @@ const CertificateAndRecognition = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif text-[clamp(30px,4.5vw,50px)] font-bold text-gray-900 text-center leading-[1.15] mb-4">
-          Our Certificates &{" "}
-          <span className="text-[#ed8c2f]">Industry Recognition</span>
+        <h2 className=" text-[clamp(30px,4.5vw,50px)] font-bold text-gray-900 text-center leading-[1.15] mb-4">
+          Our Certificates & <span className="text-[#ed8c2f]">Industry</span>{" "}
+          <div className="text-[#ed8c2f]"> Recognition</div>
         </h2>
-
-        {/* Stats */}
-        <div className="flex justify-center mb-11">
-          <div className="flex divide-x divide-[#f0d49a] bg-gradient-to-br from-[#fffaf2] to-[#fff5e4] border border-[#f0d49a] rounded-2xl overflow-hidden">
-            {stats.map((s, i) => (
-              <div key={i} className="px-9 py-4 text-center">
-                <p className="font-serif text-[30px] font-bold text-[#ed8c2f] leading-none">
-                  {s.num}
-                </p>
-                <p className="text-[10px] uppercase tracking-[.14em] text-gray-400 font-medium mt-1">
-                  {s.label}
-                </p>
-              </div>
-            ))}
+{/* Stats */}
+<div className="flex justify-center mb-12">
+  {/* Restored your background, but added a very soft, warm shadow */}
+  <div className="flex divide-x divide-[#f0d49a]/60 bg-gradient-to-br from-[#fffaf2] to-[#fff5e4] border border-[#f0d49a]/80 rounded-3xl overflow-hidden shadow-xl shadow-[#ed8c2f]/10">
+    {stats.map((s, i) => {
+      const Icon = s.icon;
+      return (
+        <div
+          key={i}
+          className="px-10 py-8 text-center flex flex-col items-center hover:bg-white/40 transition-colors duration-300"
+        >
+          {/* Restored your icon bg, but made it slightly larger with a squircle shape */}
+          <div className="w-14 h-14 rounded-2xl bg-[#fff1dc] flex items-center justify-center mb-4">
+            <Icon className="w-7 h-7 text-[#ed8c2f]" />
           </div>
+
+          {/* Kept your orange numbers, but made them bolder */}
+          <p className="text-3xl font-extrabold text-[#ed8c2f] tracking-tight mb-1">
+            {s.num}
+          </p>
+          
+          {/* Changed the gray text to a warmer, darker gold/brown tone for better contrast */}
+          <p className="text-xs uppercase tracking-widest text-[#b89b72] font-bold">
+            {s.label}
+          </p>
         </div>
+      );
+    })}
+  </div>
+</div>
 
         {/* Certificate Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
