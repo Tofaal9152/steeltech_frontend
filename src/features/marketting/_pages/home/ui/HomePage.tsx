@@ -6,7 +6,7 @@ import Hero from "./Hero";
 import ManufacturingHighlights from "./ManufacturingHighlights";
 import ProductCategories from "./ProductCategories";
 import ScrollImageSequence from "./ScrollImageSequence";
-import Stats from "./Stats";
+import Stats from "./stats/Stats";
 import WhyChooseUs from "./WhyChooseUs";
 
 const HomePage = () => {

@@ -6,7 +6,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { imagePathForLanding } from "@/constants/imagePath";
+import { imagePathForLanding, imagePathForNavbar } from "@/constants/imagePath";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +26,7 @@ const navItems = [
 const Navbar = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isGalleryPage = pathname === "/gallery";
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,29 +42,32 @@ const Navbar = () => {
 
   return (
     <nav
-  className={`z-50 w-full px-4 md:px-8 transition-all duration-300 border-b border-transparent
+      className={`z-50 w-full px-4 md:px-8 transition-all py-1 duration-300 border-b border-transparent
   ${
     isHomePage
-      ? `fixed pt-1 ${
+      ? `fixed  ${
           scrolled
-            ? "bg-black/20 backdrop-blur-xl shadow-md pb-2"
+            ? "bg-black/20 backdrop-blur-xl shadow-md "
             : "bg-transparent"
         }`
-      : `sticky top-0 bg-black/20 backdrop-blur-xl  pb-2 shadow-md`
+      : `sticky top-0 ${isGalleryPage ? "bg-black" : "bg-black/40"} backdrop-blur-xl  shadow-md`
   }
   `}
->
+    >
       <div className="relative mx-auto flex w-full max-w-[1400px] items-center justify-between">
         {/* Logo */}
-        <Link href={"/"} className="flex items-center gap-2 text-white">
+        <Link href={"/"} className="flex items-center gap-3 text-white">
           <Image
-            src={imagePathForLanding.logo}
+            src={imagePathForNavbar.navLogo}
             alt="Logo"
             width={150}
             height={150}
-            className="h-14 md:h-16 w-auto"
+            className="h-14 md:h-16 w-auto "
           />
-          <span className="mt-1 text-lg md:text-xl font-semibold tracking-wide">
+          <span
+            style={{ fontFamily: "var(--font-michroma)" }}
+            className={`text-lg  ${isHomePage ? "text-gray-300" : "text-white"} md:text-xl font-semibold tracking-[0.18rem] `}
+          >
             STEELTECH
           </span>
         </Link>
@@ -87,7 +91,7 @@ const Navbar = () => {
                   className={`rounded-full px-3 py-1.5 text-[13px] font-medium transition
                   ${
                     active
-                      ? "bg-orange-500 text-white"
+                      ? "bg-[#ed8c2f] text-white"
                       : isHomePage && !scrolled
                         ? "hover:bg-orange-500/40"
                         : "hover:bg-orange-100"
@@ -112,7 +116,7 @@ const Navbar = () => {
         <div className="xl:hidden ml-auto">
           <Sheet>
             <SheetTrigger asChild>
-              <button className="rounded-full bg-orange-500 p-2 text-white">
+              <button className="rounded-full bg-[#ed8c2f] p-2 text-white">
                 <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
@@ -122,7 +126,7 @@ const Navbar = () => {
               className="w-[300px] border-l border-orange-100 bg-white text-black"
             >
               <SheetHeader>
-                <SheetTitle className="text-left text-orange-600 text-xl font-bold border-b border-orange-100 pb-4">
+                <SheetTitle className="text-left text-[#ed8c2f] text-xl font-bold border-b border-orange-100 pb-4">
                   STEELTECH
                 </SheetTitle>
               </SheetHeader>
@@ -132,13 +136,13 @@ const Navbar = () => {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="text-base font-medium text-gray-700 transition hover:text-orange-500"
+                    className="text-base font-medium text-gray-700 transition hover:text-[#ed8c2f]"
                   >
                     {item.label}
                   </Link>
                 ))}
 
-                {/* <button className="mt-4 w-full rounded-full bg-orange-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-orange-600">
+                {/* <button className="mt-4 w-full rounded-full bg-[#ed8c2f] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#cc7014]">
                   Contact Us
                 </button> */}
               </div>

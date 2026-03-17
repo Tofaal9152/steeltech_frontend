@@ -57,7 +57,7 @@ const CertificationPage = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-orange-500 font-bold uppercase tracking-wider mb-3">
+          <p className="text-[#ed8c2f] font-bold uppercase tracking-wider mb-3">
             Certifications
           </p>
 

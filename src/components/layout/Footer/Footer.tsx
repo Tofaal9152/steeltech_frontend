@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Company */}
           <div>
-            <h2 className="text-3xl font-bold tracking-wide mb-6">STEELTECH</h2>
+            <h2 className="text-3xl font-bold tracking-wide mb-6 text-[#ed8c2f]">STEELTECH</h2>
 
             <p className="text-gray-400 mb-6">
               Steeltech Industries Ltd. manufactures high quality stainless
@@ -30,28 +30,28 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="https://www.facebook.com/steeltechltd"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#ed8c2f] transition"
               >
                 <Facebook size={18} />
               </a>
 
               <a
                 href="https://twitter.com/steeltechltd1"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#ed8c2f] transition"
               >
                 <Twitter size={18} />
               </a>
 
               <a
                 href="https://www.instagram.com/steeltechltd/"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#ed8c2f] transition"
               >
                 <Instagram size={18} />
               </a>
 
               <a
                 href="https://www.linkedin.com/company/8742169"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#ed8c2f] transition"
               >
                 <Linkedin size={18} />
               </a>
@@ -60,7 +60,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-orange-500">
+            <h3 className="text-lg font-bold mb-6 text-[#ed8c2f]">
               Quick Links
             </h3>
 
@@ -95,7 +95,7 @@ const Footer = () => {
 
           {/* Information */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-orange-500">
+            <h3 className="text-lg font-bold mb-6 text-[#ed8c2f]">
               Information
             </h3>
 
@@ -130,13 +130,13 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-orange-500">
+            <h3 className="text-lg font-bold mb-6 text-[#ed8c2f]">
               Head Office
             </h3>
 
             <ul className="space-y-4 text-gray-400">
               <li className="flex items-start gap-3">
-                <MapPin className="text-orange-500 w-5 h-5 mt-1" />
+                <MapPin className="text-[#ed8c2f] w-5 h-5 mt-1" />
                 <span>
                   Rangs Paramount, Plot 11, Road 17 Banani C/A, Dhaka 1213
                   (Behind Serena Hotel)
@@ -144,12 +144,12 @@ const Footer = () => {
               </li>
 
               <li className="flex items-center gap-3">
-                <Phone className="text-orange-500 w-5 h-5" />
+                <Phone className="text-[#ed8c2f] w-5 h-5" />
                 <span>+8802222297927</span>
               </li>
 
               <li className="flex items-center gap-3">
-                <Mail className="text-orange-500 w-5 h-5" />
+                <Mail className="text-[#ed8c2f] w-5 h-5" />
                 <span>info@steeltech-bd.com</span>
               </li>
             </ul>
@@ -161,7 +161,7 @@ const Footer = () => {
           <p>© 2026 KHAR. All rights reserved.</p>
           <p className="mt-2">
             Developed by{" "}
-            <span className="text-orange-500 font-semibold">Ongshak</span>
+            <span className="text-[#ed8c2f] font-semibold">Ongshak</span>
           </p>
         </div>
       </div>

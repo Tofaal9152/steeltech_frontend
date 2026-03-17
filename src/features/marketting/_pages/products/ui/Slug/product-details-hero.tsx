@@ -43,7 +43,7 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
                   onClick={() => setSelectedImage(image)}
                   className={`overflow-hidden rounded-xl border bg-white transition ${
                     isActive
-                      ? "border-orange-500 ring-2 ring-orange-200"
+                      ? "border-[#ed8c2f] ring-2 ring-orange-200"
                       : "border-slate-200 hover:border-orange-300"
                   }`}
                 >
@@ -124,7 +124,7 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
             <ul className="space-y-2 text-sm text-slate-700">
               {product.features.slice(0, 5).map((feature: string) => (
                 <li key={feature} className="flex gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#ed8c2f]" />
                   <span>{feature}</span>
                 </li>
               ))}

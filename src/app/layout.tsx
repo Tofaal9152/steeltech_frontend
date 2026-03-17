@@ -1,6 +1,7 @@
 import AppProviders from "@/providers/app-providers";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// add poppins font
+import { Geist, Geist_Mono, Michroma, Poppins } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +12,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+const michroma = Michroma({
+  variable: "--font-michroma",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning suppressContentEditableWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.className} ${geistMono.variable} ${michroma.variable}  antialiased`}
       >
         <AppProviders>{children}</AppProviders>
       </body>
