@@ -5,7 +5,8 @@ import dynamic from 'next/dynamic'
 
 const Preloader = dynamic(() => import('./Preloader'), { ssr: false })
 
-export default function PreloaderWrapper({
+// eslint-disable-next-line import/no-anonymous-default-export, react/display-name
+export default function     ({
   children,
 }: {
   children: React.ReactNode

@@ -9,7 +9,7 @@ export default function MarkettingLayout({
   return (
     <section>
       <Navbar />
-      {children}
+      <section className="min-h-screen">{children}</section>
       <Footer />
     </section>
   );
