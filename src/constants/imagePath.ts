@@ -23,13 +23,12 @@ export const imagePathForLanding = {
 
   // stats
 
-  stats1: "/images/stats/1.jpg",
-  stats2: "/images/stats/2.jpg",
-  stats3: "/images/stats/3.jpg",
-  stats4: "/images/stats/4.jpg",
-  stats5: "/images/stats/5.jpg",
-  stats6: "/images/stats/6.jpg",
-
+  stats1: "/images/stats/1.svg",
+  stats2: "/images/stats/2.svg",
+  stats3: "/images/stats/3.svg",
+  stats4: "/images/stats/4.svg",
+  stats5: "/images/stats/5.svg",
+  stats6: "/images/stats/6.svg",
 
   // gallary
   galary1: "/images/hero/galary/factory.jpg",

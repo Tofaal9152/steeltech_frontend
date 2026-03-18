@@ -47,10 +47,10 @@ const Navbar = () => {
     isHomePage
       ? `fixed  ${
           scrolled
-            ? "bg-black/20 backdrop-blur-xl shadow-md "
+            ? "border border-orange-300/20 bg-white/10 backdrop-blur-xl shadow-lg"
             : "bg-transparent"
         }`
-      : `sticky top-0 ${isGalleryPage ? "bg-black" : "bg-black/40"} backdrop-blur-xl  shadow-md`
+      : `sticky top-0 ${isGalleryPage ? "bg-black" : "bg-black/40"} backdrop-blur-sm`
   }
   `}
     >
@@ -65,8 +65,8 @@ const Navbar = () => {
             className="h-14 md:h-16 w-auto "
           />
           <span
-            style={{ fontFamily: "var(--font-michroma)" }}
-            className={`text-lg  ${isHomePage ? "text-gray-300" : "text-white"} md:text-xl font-semibold tracking-[0.18rem] `}
+            // style={{ fontFamily: "var(--font-michroma)" }}
+            className={`text-lg  ${isHomePage ? "text-white" : "text-white"} md:text-xl font-semibold tracking-[0.18rem] `}
           >
             STEELTECH
           </span>

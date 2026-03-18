@@ -2,12 +2,12 @@
 import dynamic from "next/dynamic";
 import Hero from "./Hero";
 
-const ScrollImageSequence = dynamic(() => import("./ScrollImageSequence"), {
+const ScrollImageSequence = dynamic(() => import("./CompanyProfile_ScrollImage/ScrollImageSequence"), {
   ssr: false,
 });
-const CompanyIntro = dynamic(() => import("./CompanyIntro"), {
-  ssr: false,
-});
+// const CompanyIntro = dynamic(() => import("./CompanyProfile_ScrollImage/CompanyIntro"), {
+//   ssr: false,
+// });
 const ProductCategories = dynamic(() => import("./ProductCategories"));
 const WhyChooseUs = dynamic(() => import("./WhyChooseUs"), {
   ssr: false,
@@ -39,7 +39,7 @@ const HomePage = () => {
     <div >
       <Hero />
       <ScrollImageSequence />
-      <CompanyIntro />
+      {/* <CompanyIntro /> */}
       <ProductCategories />
       <WhyChooseUs />
       <Stats />

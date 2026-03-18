@@ -3,9 +3,8 @@
 import { BD_DISTRICT_PATH } from "./bd-paths";
 
 export default function BangladeshMap() {
-  // ছবির সাথে মিল রেখে কালার কোড সেট করা হয়েছে
-  const MAP_FILL_COLOR = "#f0e7d3"; // হালকা ক্রিম/ঘিয়ে রঙ
-  const MAP_STROKE_COLOR = "#ed8c2f"; // গাঢ় ধূসর/খয়েরি বর্ডার
+  const MAP_FILL_COLOR = "#f6e7c8";
+  const MAP_STROKE_COLOR = "#ed8c2f";
 
   return (
     <div className="w-full flex items-center justify-center">

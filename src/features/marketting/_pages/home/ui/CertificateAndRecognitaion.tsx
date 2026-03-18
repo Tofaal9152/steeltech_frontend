@@ -50,11 +50,6 @@ const recognitions = [
   },
 ];
 
-const stats = [
-  { num: "8+", label: "Certificates", icon: GraduationCap },
-  { num: "4", label: "Recognitions", icon: ShieldCheck },
-];
-
 const CertificateAndRecognition = () => {
   return (
     <section className="py-8  border-t bg-gradient-to-b from-white via-[#fdfaf6] to-white">
@@ -73,62 +68,35 @@ const CertificateAndRecognition = () => {
           Our Certificates & <span className="text-[#ed8c2f]">Industry</span>{" "}
           <div className="text-[#ed8c2f]"> Recognition</div>
         </h2>
-{/* Stats */}
-<div className="flex justify-center mb-12">
-  {/* Restored your background, but added a very soft, warm shadow */}
-  <div className="flex divide-x divide-[#f0d49a]/60 bg-gradient-to-br from-[#fffaf2] to-[#fff5e4] border border-[#f0d49a]/80 rounded-3xl overflow-hidden shadow-xl shadow-[#ed8c2f]/10">
-    {stats.map((s, i) => {
-      const Icon = s.icon;
-      return (
-        <div
-          key={i}
-          className="px-10 py-8 text-center flex flex-col items-center hover:bg-white/40 transition-colors duration-300"
-        >
-          {/* Restored your icon bg, but made it slightly larger with a squircle shape */}
-          <div className="w-14 h-14 rounded-2xl bg-[#fff1dc] flex items-center justify-center mb-4">
-            <Icon className="w-7 h-7 text-[#ed8c2f]" />
-          </div>
-
-          {/* Kept your orange numbers, but made them bolder */}
-          <p className="text-3xl font-extrabold text-[#ed8c2f] tracking-tight mb-1">
-            {s.num}
-          </p>
-          
-          {/* Changed the gray text to a warmer, darker gold/brown tone for better contrast */}
-          <p className="text-xs uppercase tracking-widest text-[#b89b72] font-bold">
-            {s.label}
-          </p>
-        </div>
-      );
-    })}
-  </div>
-</div>
 
         {/* Certificate Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
-          {certificates.map((item, i) => (
-            <div
-              key={i}
-              className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[#f5c87a] hover:-translate-y-1.5 transition-all duration-300"
-              style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}
-            >
-              <div className="relative w-full h-[220px] bg-gray-50 overflow-hidden border-b border-gray-50">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[rgba(237,140,47,0)] group-hover:to-[rgba(237,140,47,0.05)] transition-all duration-300" />
-              </div>
-              <div className="p-4 text-center">
-                <p className="text-[13px] font-medium text-gray-700 leading-snug">
-                  {item.title}
-                </p>
-              </div>
-            </div>
-          ))}
+        {/* Certificate Cards */}
+<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
+  {certificates.map((item, i) => (
+    <div
+      key={i}
+      className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[#f5c87a] hover:-translate-y-1.5 transition-all duration-300"
+      style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}
+    >
+      <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#f8f8f8]">
+        <Image
+          src={item.img}
+          alt={item.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="bg-black/55 px-4 py-3">
+            <p className="text-white text-[13px] font-medium leading-snug text-center">
+              {item.title}
+            </p>
+          </div>
         </div>
+      </div>
+    </div>
+  ))}
+</div>
 
         {/* Recognition Divider */}
         <div className="flex items-center gap-3 my-7">

@@ -67,7 +67,7 @@ const StatsCard = ({
     <img
       src={item.img}
       alt={item.label}
-      className={`shrink-0 h-20 w-20 object-cover`}
+      className={`shrink-0 h-20 w-20 object-cover `}
     />
 
     <div className="min-w-0">
@@ -108,7 +108,7 @@ const Stats = () => {
         <div className="relative hidden min-h-[620px] lg:block">
           {/* Center map */}
           <div className="flex justify-center">
-            <div className="w-full max-w-[430px] xl:max-w-[480px]">
+            <div className="w-full ">
               <BangladeshMap />
             </div>
           </div>
