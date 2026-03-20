@@ -7,8 +7,9 @@ import { useGSAP } from "@gsap/react";
 import FloatingCompanyIntro from "./FloatingCompanyIntro";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+// 49-139
+const TOTAL_FRAMES = 139 - 49 + 1;
 
-const TOTAL_FRAMES = 92;
 const BLOCKING_FRAMES = 24;
 
 const INITIAL_CONCURRENCY = 8;
@@ -27,10 +28,16 @@ const ScrollImageSequence = () => {
   const [isReady, setIsReady] = useState(false);
 
   const frames = useMemo(() => {
-    const baseNumber = 86446;
+    const baseNumber = 49;
 
     return Array.from({ length: TOTAL_FRAMES }, (_, i) => {
-      return `/scroll-image/pngs000${baseNumber + i}.jpg`;
+      console.log(
+        "TOTAL_FRAMES:",
+        TOTAL_FRAMES,
+        "baseNumber + i:",
+        baseNumber + i,
+      );
+      return `/scroll-image/${baseNumber + i}.webp`;
     });
   }, []);
 
@@ -193,11 +200,6 @@ const ScrollImageSequence = () => {
         alt="Scroll sequence"
         className="absolute inset-0 h-full w-full select-none object-cover"
         draggable={false}
-        style={{
-          transform: "translateZ(0)",
-          backfaceVisibility: "hidden",
-          willChange: "transform",
-        }}
       />
 
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-black/70 to-transparent" />
@@ -215,11 +217,6 @@ const ScrollImageSequence = () => {
       <div
         ref={introRef}
         className="absolute bottom-10 left-0 right-0 z-30 flex justify-center px-4 opacity-0 md:px-10"
-        // style={{
-        //   transform: "translateZ(0)",
-        //   backfaceVisibility: "hidden",
-        //   willChange: "transform, opacity",
-        // }}
       >
         <FloatingCompanyIntro />
       </div>

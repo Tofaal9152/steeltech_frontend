@@ -1,8 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { productsList } from "../../products/data";
-import { ProductListItem } from "../../products/types/types";
-import { ProductCard } from "../../products/ui/product-card";
 import { ProductsGrid } from "../../products/ui/products-grid";
 
 export default function ProductCategories() {

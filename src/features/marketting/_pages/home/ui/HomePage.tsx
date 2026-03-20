@@ -1,42 +1,16 @@
-"use client";
-import dynamic from "next/dynamic";
 import Hero from "./Hero";
-
-const ScrollImageSequence = dynamic(() => import("./CompanyProfile_ScrollImage/ScrollImageSequence"), {
-  ssr: false,
-});
-// const CompanyIntro = dynamic(() => import("./CompanyProfile_ScrollImage/CompanyIntro"), {
-//   ssr: false,
-// });
-const ProductCategories = dynamic(() => import("./ProductCategories"));
-const WhyChooseUs = dynamic(() => import("./WhyChooseUs"), {
-  ssr: false,
-});
-const Stats = dynamic(() => import("./stats/Stats"), {
-  ssr: false,
-});
-const ManufacturingHighlights = dynamic(
-  () => import("./ManufacturingHighlights"),
-  {
-    ssr: false,
-  },
-);
-const CertificateAndRecognitaion = dynamic(
-  () => import("./CertificateAndRecognitaion"),
-  {
-    ssr: false,
-  },
-);
-const ClientsTrustedBy = dynamic(() => import("./ClientsTrustedBy"), {
-  ssr: false,
-});
-const GallerySection = dynamic(() => import("./GallerySection"), {
-  ssr: false,
-});
+import ScrollImageSequence from "./CompanyProfile_ScrollImage/ScrollImageSequence";
+import ProductCategories from "./ProductCategories";
+import WhyChooseUs from "./WhyChooseUs";
+import Stats from "./stats/Stats";
+import ManufacturingHighlights from "./ManufacturingHighlights";
+import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
+import ClientsTrustedBy from "./ClientsTrustedBy";
+import GallerySection from "./GallerySection";
 
 const HomePage = () => {
   return (
-    <div >
+    <div>
       <Hero />
       <ScrollImageSequence />
       {/* <CompanyIntro /> */}

@@ -11,9 +11,11 @@ const Hero = () => {
         loop
         muted
         playsInline
+        poster={imagePathForLanding.heroPoster}
         className="absolute inset-0 h-full w-full object-cover z-0"
       >
-        <source src={imagePathForLanding.heroVideo2} type="video/mp4" />
+        {/* <source src={imagePathForLanding.heroVideoWebm} type="video/webm" /> */}
+        <source src={imagePathForLanding.heroVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

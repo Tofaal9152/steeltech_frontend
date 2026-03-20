@@ -9,7 +9,8 @@ export const imagePathForNavbar = {
 
 export const imagePathForLanding = {
   // Hero Image
-  heroVideo2: "/images/hero/hero-video-low.mov",
+  heroVideo: "/images/hero/herovid.mov",
+  heroPoster: "/images/hero/hero-poster.webp",
   logo: "/images/logo.png",
   scrollVideo: "/videos/scroll-video.mp4",
   companyprofile: "/images/hero/company-profile/company-profile.jpg",

@@ -45,7 +45,7 @@ const Navbar = () => {
       className={`z-50 w-full px-4 md:px-8 transition-all py-1 duration-300 border-b border-transparent
   ${
     isHomePage
-      ? `fixed  ${
+      ? `absolute  ${
           scrolled
             ? "border border-orange-300/20 bg-white/10 backdrop-blur-xl shadow-lg"
             : "bg-transparent"
@@ -65,7 +65,6 @@ const Navbar = () => {
             className="h-14 md:h-16 w-auto "
           />
           <span
-            // style={{ fontFamily: "var(--font-michroma)" }}
             className={`text-lg  ${isHomePage ? "text-white" : "text-white"} md:text-xl font-semibold tracking-[0.18rem] `}
           >
             STEELTECH
