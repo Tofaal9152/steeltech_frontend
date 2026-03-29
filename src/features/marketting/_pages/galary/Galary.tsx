@@ -1,34 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import InfiniteMenu from "@/components/InfiniteMenu";
-import { imagePathForLanding } from "@/constants/imagePath";
-
-const items = [
-  {
-    image: imagePathForLanding.manufacturing,
-    link: "https://google.com/",
-    title: "Item 1",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image: imagePathForLanding.logo,
-    link: "https://google.com/",
-    title: "Item 2",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image: imagePathForLanding.steelguard,
-    link: "https://google.com/",
-    title: "Item 3",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image: imagePathForLanding.loadcell,
-    link: "https://google.com/",
-    title: "Item 4",
-    description: "This is pretty cool, right?",
-  },
-];
+import { useState } from "react";
+import GallaryContent from "./GallaryContent";
 
 const tabNames = [
   "Factory Images",
@@ -41,9 +13,8 @@ const Galary = () => {
   const [activeTab, setActiveTab] = useState(tabNames[0]);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
-      {/* Top Right Tabs */}
-      <div className="absolute top-2 right-4  z-20 flex flex-wrap justify-end gap-3 md:gap-4 max-w-full px-4">
+    <div className="relative w-full min-h-screen flex flex-col bg-black px-4 py-16">
+      <div className="absolute top-2 right-4 z-20 flex flex-wrap justify-end gap-3 md:gap-4 max-w-full px-4">
         {tabNames.map((tab) => (
           <button
             key={tab}
@@ -59,9 +30,8 @@ const Galary = () => {
         ))}
       </div>
 
-      {/* Gallery Content */}
-      <div className="w-full flex-1 flex items-center justify-center mt-24 md:mt-0">
-        <InfiniteMenu items={items} scale={1} />
+      <div className="mt-16 w-full">
+        <GallaryContent activeTab={activeTab} />
       </div>
     </div>
   );

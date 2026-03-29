@@ -19,14 +19,14 @@ const navItems = [
   { label: "Products", href: "/products" },
   { label: "Manufacturing", href: "/manufacturing" },
   { label: "Certifications", href: "/certifications" },
-  { label: "Clients", href: "#clients" },
+  { label: "Clients", href: "/clients" },
   { label: "Gallery", href: "/gallery" },
 ];
 
 const Navbar = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const isGalleryPage = pathname === "/gallery";
+  const isGalleryPage = pathname === "/gallsery";
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navbar */}
-        <div className=" absolute left-1/2 -translate-x-1/2 items-center">
+        <div className=" absolute left-1/2 -translate-x-1/2 items-center hidden xl:flex">
           <div
             className={`flex items-center gap-1 rounded-full ${
               isHomePage && !scrolled

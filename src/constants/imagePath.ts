@@ -13,9 +13,13 @@ export const imagePathForLanding = {
   heroPoster: "/images/hero/hero-poster.webp",
   logo: "/images/logo.png",
   scrollVideo: "/videos/scroll-video.mp4",
+  // company proile
   companyprofile: "/images/hero/company-profile/company-profile.jpg",
   companyprofileIsoImage: "/images/hero/company-profile/iso.jpg",
   whyus: "/images/hero/why-us.jpg",
+  since2003: "/images/hero/company-profile/since2003.jpg",
+  companyProfileBgImage:
+    "/images/hero/company-profile/company-prof-bg-image.jpg",
 
   // manufacture
   manufacturing: "/images/hero/manufacturing.jpg",

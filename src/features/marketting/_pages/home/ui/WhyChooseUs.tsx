@@ -6,50 +6,55 @@ const WhyChooseUs = () => {
   const features = [
     {
       icon: <Award className="w-6 h-6 text-[#ed8c2f]" />,
-      title: "Quality Certified Materials",
+      title: "Quality Certified Products",
       description:
-        "We provide certified stainless steel products ensuring durability and reliability for every project.",
+        "We have built a strong reputation by manufacturing quality certified stainless steel products that meet comprehensive customer requirements.",
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-[#ed8c2f]" />,
-      title: "Strong Quality Management",
+      title: "Comprehensive Quality Management",
       description:
-        "Our strict quality control system guarantees consistent product performance and reliability.",
+        "We are continuously strengthening our quality management system in a comprehensive way to ensure dependable product standards.",
     },
     {
       icon: <Settings className="w-6 h-6 text-[#ed8c2f]" />,
-      title: "Advanced Equipment",
+      title: "Top-of-the-Line Equipment",
       description:
-        "We use modern manufacturing machinery to maintain high standards and production efficiency.",
+        "To meet customer demand and maintain high standards, we always operate with top-of-the-line equipment and a trusted manufacturing process.",
     },
     {
       icon: <Wrench className="w-6 h-6 text-[#ed8c2f]" />,
-      title: "Advanced Technology",
+      title: "Advanced Technology & Service",
       description:
-        "Our organized operation and advanced technology ensure excellent stainless steel solutions.",
+        "We continue to produce excellent products through advanced technology, organized operations, and comprehensive service.",
     },
   ];
 
   return (
     <section className="pb-20 pt-8 bg-gray-50 border-t border-gray-200">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
-        {/* Center Header */}
         <div className="text-center mb-16">
           <h4 className="text-[#ed8c2f] font-bold uppercase tracking-wider mb-3">
             Why Choose Us
           </h4>
 
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-            The Trusted Name in Stainless Steel Manufacturing
+            Trusted SS Pipe Manufacturer
           </h2>
+
+          {/* <p className="mt-4 max-w-3xl mx-auto text-gray-600 text-base md:text-lg">
+            For the last 20 years, Steeltech Industries Limited has been
+            manufacturing and supplying regular stainless steel pipes, USA
+            standard SS pipes, and design & decorative SS pipes with a strong
+            focus on quality and customer satisfaction.
+          </p> */}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Image */}
           <div className="relative">
             <img
               src={imagePathForLanding.whyus}
-              alt="Steel Manufacturing"
+              alt="Stainless Steel Manufacturing"
               className="rounded-2xl shadow-xl object-cover w-full h-[500px] border-4 border-[#ed8c2f]"
             />
 
@@ -58,18 +63,17 @@ const WhyChooseUs = () => {
               className="absolute -bottom-6 -right-6 bg-[#ed8c2f]/80 text-white p-6 rounded-xl shadow-lg"
             >
               <h3 className="text-2xl font-bold">20+ Years</h3>
-              <p className="text-sm">Industry Experience</p>
+              <p className="text-sm">Experience in Bangladesh</p>
             </div>
           </div>
 
-          {/* Right Content */}
           <div className="space-y-6">
             {features.map((item, i) => (
               <div
                 key={i}
-                className="flex gap-4 p-4 rounded-xl hover:bg-white hover:shadow-md transition bg-white shadow-md border border-gray-100"
+                className="flex gap-3 p-4 rounded-xl hover:bg-white hover:shadow-md transition bg-white shadow-md border border-gray-100"
               >
-                <div className="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-lg">
+                <div className="w-10 h-10 flex p-2 items-center justify-center bg-orange-100 rounded-full">
                   {item.icon}
                 </div>
 
