@@ -349,7 +349,7 @@ const Masonry: React.FC<MasonryProps> = ({
               {(item.type ?? "image") === "video" && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg">
-                    <Play className="absolute left-1 text-white" size={20} />
+                    <div className="ml-1 h-0 w-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-white" />
                   </div>
                 </div>
               )}
