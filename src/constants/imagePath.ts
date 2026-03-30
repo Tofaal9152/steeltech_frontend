@@ -20,7 +20,12 @@ export const imagePathForLanding = {
   since2003: "/images/hero/company-profile/since2003.jpg",
   companyProfileBgImage:
     "/images/hero/company-profile/company-prof-bg-image.jpg",
-
+  premiumSteelIcon: "/images/hero/company-profile/icon/premium-steel-icon.png",
+  exportQualityIcon:
+    "/images/hero/company-profile/icon/export-quality-icon.png",
+  rustResistantIcon:
+    "/images/hero/company-profile/icon/rust-resistant-icon.png",
+  isoCertifiedIcon: "/images/hero/company-profile/icon/iso-certified-icon.png",
   // manufacture
   manufacturing: "/images/hero/manufacturing.jpg",
   steelguard: "/images/hero/steelguard.jpg",

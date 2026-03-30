@@ -1,330 +1,168 @@
-import { Badge } from "@/components/ui/badge";
 import { imagePathForLanding } from "@/constants/imagePath";
-import {
-  CheckCircle,
-  Factory,
-  Globe2,
-  ShieldCheck,
-  Award,
-  Building2,
-  Plane,
-  Tent,
-  GraduationCap,
-} from "lucide-react";
 import Image from "next/image";
 
 const features = [
   {
     title: "Premium Stainless Steel",
     description: "Manufactured with highest quality raw materials",
-    icon: Factory,
+    iconImage: imagePathForLanding.premiumSteelIcon,
   },
   {
     title: "Export Quality",
     description: "Strict adherence to international standards",
-    icon: Globe2,
+    iconImage: imagePathForLanding.exportQualityIcon,
   },
   {
     title: "Rust-Resistant Durability",
     description: "Engineered for the tropical climate of Bangladesh",
-    icon: ShieldCheck,
+    iconImage: imagePathForLanding.rustResistantIcon,
   },
   {
     title: "ISO 9001:2015 Certified",
     description: "Certified for quality management excellence",
-    icon: Award,
-    isIso: true,
+    iconImage: imagePathForLanding.isoCertifiedIcon,
   },
 ];
 
 const projects = [
-  { title: "Hatirjheel", icon: Building2 },
-  { title: "Hazrat Shahjalal Int. Airport", icon: Plane },
-  { title: "Bangladesh Army Tent Project", icon: Tent },
-  { title: "North South University", icon: GraduationCap },
+  {
+    title: "Hatirjheel",
+    image:
+      "https://media.licdn.com/dms/image/v2/D5622AQHI6USo8BQSBg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1680160683510?e=1776297600&v=beta&t=cE83hUjbPdh5PvXTU08jOw1iPNZNjV10cz4MYYjWTsU",
+  },
+  {
+    title: "Hazrat Shahjalal Int. Airport",
+    image:
+      "https://d2u0ktu8omkpf6.cloudfront.net/4951c0f5936563cda82b655106aac23cf5ba1b8d6efdeb7d.jpeg",
+  },
+  {
+    title: "Bangladesh Army Tent Project",
+    image: "https://senakalyan.org/dynamic_gallery/1706676717.jpg",
+  },
+  {
+    title: "North South University",
+    image: "https://myunigate.com/wp-content/uploads/2025/06/nsu-1024x538.jpeg",
+  },
 ];
 
 const FloatingCompanyIntro = () => {
   return (
-    <div className="relative w-full max-w-6xl overflow-hidden rounded-2xl ">
+    <section className="relative overflow-hidden rounded-[28px] border border-white/20 bg-[#d9d8da] px-4 py-8 shadow-xl md:px-8 md:py-12">
+      {/* Background */}
+      {/* Background */}
       <div
+        className="absolute inset-0 bg-cover bg-center opacity-100"
         style={{
-          backgroundColor: "#e0dedf",
+          backgroundImage: `url(${imagePathForLanding.companyProfileBgImage})`,
         }}
-        className="relative z-10 w-full rounded-2xl border border-orange-300/20 p-6 shadow-lg md:p-10"
-      >
-        {/* Intro Section */}
-        <div className="mb-6 flex flex-col items-start gap-8 md:flex-row">
-          <p className="flex-1 text-justify text-sm leading-relaxed text-gray-900 md:text-base">
-            <span className="font-bold">Steeltech Industries Limited</span> is
-            one of the leading companies of Bangladesh. It has been
-            manufacturing and distributing world-class stainless-steel pipes (in
-            premium and standard categories) since{" "}
-            <span className="font-semibold">2003</span>. With strict adherence
-            to quality, foreign expertise, high-quality raw materials, and above
-            all, integrity and trust, Steeltech Industries has been a pioneer in
-            the country’s stainless-steel piping industry since its inception.
-          </p>
+      />
 
-          <div className="group relative flex w-32 shrink-0 flex-col justify-center overflow-hidden rounded-xl">
-            <img
-              src={imagePathForLanding.since2003}
-              alt="Since 2003"
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+      {/* Diagonal gradient */}
+      <div className="absolute inset-0 bg-linear-to-br from-white/80 via-white/70 to-white/1" />
+
+      <div className="relative z-10 mx-auto max-w-7xl space-y-4  ">
+        {/* Top Intro */}
+        <div className=" grid gap-6 lg:grid-cols-[1fr_220px] lg:items-start">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-[#2d2d2d] md:text-5xl">
+              Bangladesh’s Pioneer in Stainless Steel Piping
+            </h2>
+
+            <p className="mt-4 max-w-4xl text-base leading-8 text-[#4a4a4a] md:text-2xl md:leading-10">
+              Leading the stainless steel piping industry in Bangladesh for over
+              20 years, Steeltech Limited has been manufacturing and exporting
+              premium stainless steel pipes since 2003 with a focus on quality,
+              integrity, and innovation.
+            </p>
           </div>
+
+          <Image
+            src={imagePathForLanding.since2003}
+            alt="Since 2003"
+            width={400}
+            height={400}
+            className="h-full w-full object-cover brightness-[0.88] contrast-[1.05] saturate-[1.05] transition duration-500 group-hover:scale-105"
+          />
         </div>
 
-        {/* Secondary Intro */}
-        <p className="mb-8 text-justify text-sm leading-relaxed text-gray-900 md:text-base">
-          The attention to detail of Steeltech Industries Ltd can be seen in
-          every aspect of our operation. Our products are manufactured keeping
-          the tropical weather of Bangladesh in mind, making them most suitable
-          for all construction works. The precise weight, thickness, and size of
-          our products, features like rust-free durability, innovativeness, and
-          quality control at every step by manufacturing experts have gained us{" "}
-          <span className="font-semibold">ISO 9001-2015 certification</span> in
-          recognition of our dedication towards our products, stakeholders, and
-          the environment.
-        </p>
+        {/* Features */}
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {features.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-[22px] border border-white/60 bg-white/55 p-5 shadow-md backdrop-blur-sm"
+            >
+              <div className="mb-4 flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center ">
+                  <Image
+                    src={item.iconImage}
+                    alt={item.title}
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 object-contain"
+                  />
+                </div>
 
-        {/* Features & Projects Grid */}
-        <div className="mb-5 flex w-full flex-col gap-5">
-          <div
-            style={{
-              borderColor: "#c2c2c2",
-            }}
-            className="flex flex-1 items-center justify-between rounded-xl border bg-white/50 p-5 shadow-sm"
-          >
-            <div className="flex-1 pr-4">
-              <h4 className="mb-3 text-sm font-semibold text-gray-900 md:text-base">
-                Pioneer in Bangladesh
-              </h4>
+                <h3 className="text-xl font-bold leading-7 text-[#ed8c2f] md:text-2xl">
+                  {item.title}
+                </h3>
+              </div>
 
-              <p className="mb-4 text-sm leading-relaxed text-gray-700">
-                A trusted name in stainless steel piping, known for consistent
-                quality, durable finish, and reliable performance.
+              <p className="text-base leading-7 text-[#444] md:text-lg">
+                {item.description}
               </p>
-
-              <div className="flex flex-wrap gap-2 text-[10px] font-medium tracking-wide text-gray-900 md:text-xs">
-                {features.slice(0, 3).map((feature, index) => (
-                  <Badge
-                    className="rounded-full bg-gradient-to-br from-[#2a1d17]/90 to-[#111721]/90 px-3 py-1 text-white"
-                    key={index}
-                  >
-                    {feature.title}
-                  </Badge>
-                ))}
-              </div>
             </div>
+          ))}
+        </div>
 
-            <div className="flex flex-col items-center justify-center gap-3 border-l border-gray-600/20 pl-4">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#ed8c2f]/20 to-transparent blur-lg" />
+        {/* Projects */}
+        <div>
+          <h3 className="text-2xl font-bold text-[#2d2d2d] md:text-4xl">
+            Trusted by Landmark Projects Across Bangladesh
+          </h3>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="group relative h-62.5 overflow-hidden rounded-[18px] border border-white/70 shadow-[0_8px_24px_rgba(0,0,0,0.28)]"
+              >
                 <Image
-                  src={imagePathForLanding.companyprofileIsoImage}
-                  alt="ISO Certified"
-                  width={85}
-                  height={85}
-                  className="relative h-16 w-16 rounded-full object-contain drop-shadow-[0_4px_12px_rgba(237,140,47,0.3)] md:h-[85px] md:w-[85px]"
+                  width={400}
+                  height={250}
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
-              </div>
-              <span className="text-center text-xs font-semibold text-gray-800 md:text-sm">
-                {features[3].title}
-              </span>
-            </div>
-          </div>
 
-          <div
-            style={{
-              borderColor: "#c2c2c2",
-            }}
-            className="w-full flex-1 flex-col rounded-xl border bg-white/50 p-5 shadow-sm md:flex-row"
-          >
-            <h4 className="mb-3 text-sm font-semibold text-gray-900 md:text-base">
-              Trusted Projects
-            </h4>
-            <div className="mb-2 flex flex-wrap items-start gap-2">
-              {projects.map((project, index) => (
-                <Badge
-                  className="rounded-full bg-gradient-to-br from-[#2a1d17]/90 to-[#111721]/90 px-3 py-1 text-white shadow-[0_8px_16px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.08)]"
-                  key={index}
-                >
-                  <CheckCircle className="mr-1 h-3 w-3 text-green-500" />
-                  {project.title}
-                </Badge>
-              ))}
-            </div>
+                {/* overall cinematic dark overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-black/10" />
+
+                {/* warm orange glow at bottom like reference */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#ed8c2f]/55 via-[#b95f1d]/20 to-transparent" />
+
+                {/* subtle inner vignette */}
+                <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35),inset_0_-40px_80px_rgba(0,0,0,0.35)]" />
+
+                {/* title */}
+                <div className="absolute inset-x-0 bottom-0 px-4 pb-5">
+                  <h4
+                    className="text-center text-[22px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#f6dfb0]"
+                    style={{
+                      textShadow:
+                        "0 2px 0 rgba(86,45,10,0.95), 0 4px 10px rgba(0,0,0,0.55)",
+                    }}
+                  >
+                    {project.title}
+                  </h4>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default FloatingCompanyIntro;
-// import { Badge } from "@/components/ui/badge";
-// import { imagePathForLanding } from "@/constants/imagePath";
-// import {
-//   CheckCircle,
-//   Factory,
-//   Globe2,
-//   ShieldCheck,
-//   Award,
-//   Building2,
-//   Plane,
-//   Tent,
-//   GraduationCap,
-// } from "lucide-react";
-// import Image from "next/image";
-
-// const features = [
-//   {
-//     title: "Premium Stainless Steel",
-//     description: "Manufactured with highest quality raw materials",
-//     icon: Factory,
-//   },
-//   {
-//     title: "Export Quality",
-//     description: "Strict adherence to international standards",
-//     icon: Globe2,
-//   },
-//   {
-//     title: "Rust-Resistant Durability",
-//     description: "Engineered for the tropical climate of Bangladesh",
-//     icon: ShieldCheck,
-//   },
-//   {
-//     title: "ISO 9001:2015 Certified",
-//     description: "Certified for quality management excellence",
-//     icon: Award,
-//     isIso: true,
-//   },
-// ];
-
-// const projects = [
-//   { title: "Hatirjheel", icon: Building2 },
-//   { title: "Hazrat Shahjalal Int. Airport", icon: Plane },
-//   { title: "Bangladesh Army Tent Project", icon: Tent },
-//   { title: "North South University", icon: GraduationCap },
-// ];
-
-// const FloatingCompanyIntro = () => {
-//   return (
-//     <div className="relative w-full max-w-6xl overflow-hidden rounded-2xl ">
-//       <div
-//         style={{
-//           backgroundColor: "#e4e4e4d6",
-//         }}
-//         className="relative z-10 w-full rounded-2xl border border-orange-300/20 p-6 shadow-lg md:p-10"
-//       >
-//         {/* Intro Section */}
-//         <div className="mb-6 flex flex-col items-start gap-8 md:flex-row">
-//           <p className="flex-1 text-justify text-sm leading-relaxed text-gray-900 md:text-base">
-//             <span className="font-bold">Steeltech Industries Limited</span> is
-//             one of the leading companies of Bangladesh. It has been
-//             manufacturing and distributing world-class stainless-steel pipes (in
-//             premium and standard categories) since{" "}
-//             <span className="font-semibold">2003</span>. With strict adherence
-//             to quality, foreign expertise, high-quality raw materials, and above
-//             all, integrity and trust, Steeltech Industries has been a pioneer in
-//             the country’s stainless-steel piping industry since its inception.
-//           </p>
-
-//           <div className="group relative flex w-32 shrink-0 flex-col justify-center overflow-hidden rounded-xl">
-//             <img
-//               src={imagePathForLanding.since2003}
-//               alt="Since 2003"
-//               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-//             />
-//           </div>
-//         </div>
-
-//         {/* Secondary Intro */}
-//         <p className="mb-8 text-justify text-sm leading-relaxed text-gray-900 md:text-base">
-//           The attention to detail of Steeltech Industries Ltd can be seen in
-//           every aspect of our operation. Our products are manufactured keeping
-//           the tropical weather of Bangladesh in mind, making them most suitable
-//           for all construction works. The precise weight, thickness, and size of
-//           our products, features like rust-free durability, innovativeness, and
-//           quality control at every step by manufacturing experts have gained us{" "}
-//           <span className="font-semibold">ISO 9001-2015 certification</span> in
-//           recognition of our dedication towards our products, stakeholders, and
-//           the environment.
-//         </p>
-
-//         {/* Features & Projects Grid */}
-//         <div className="mb-5 flex w-full flex-col gap-5">
-//           <div
-//             style={{
-//               borderColor: "#c2c2c2",
-//             }}
-//             className="flex flex-1 items-center justify-between rounded-xl border bg-white/50 p-5 shadow-sm"
-//           >
-//             <div className="flex-1 pr-4">
-//               <h4 className="mb-3 text-sm font-semibold text-gray-900 md:text-base">
-//                 Pioneer in Bangladesh
-//               </h4>
-
-//               <p className="mb-4 text-sm leading-relaxed text-gray-700">
-//                 A trusted name in stainless steel piping, known for consistent
-//                 quality, durable finish, and reliable performance.
-//               </p>
-
-//               <div className="flex flex-wrap gap-2 text-[10px] font-medium tracking-wide text-gray-900 md:text-xs">
-//                 {features.slice(0, 3).map((feature, index) => (
-//                   <Badge
-//                     className="rounded-full bg-gradient-to-br from-[#2a1d17]/90 to-[#111721]/90 px-3 py-1 text-white"
-//                     key={index}
-//                   >
-//                     {feature.title}
-//                   </Badge>
-//                 ))}
-//               </div>
-//             </div>
-
-//             <div className="flex flex-col items-center justify-center gap-3 border-l border-gray-600/20 pl-4">
-//               <div className="relative">
-//                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#ed8c2f]/20 to-transparent blur-lg" />
-//                 <Image
-//                   src={imagePathForLanding.companyprofileIsoImage}
-//                   alt="ISO Certified"
-//                   width={85}
-//                   height={85}
-//                   className="relative h-16 w-16 rounded-full object-contain drop-shadow-[0_4px_12px_rgba(237,140,47,0.3)] md:h-[85px] md:w-[85px]"
-//                 />
-//               </div>
-//               <span className="text-center text-xs font-semibold text-gray-800 md:text-sm">
-//                 {features[3].title}
-//               </span>
-//             </div>
-//           </div>
-
-//           <div
-//             style={{
-//               borderColor: "#c2c2c2",
-//             }}
-//             className="w-full flex-1 flex-col rounded-xl border bg-white/50 p-5 shadow-sm md:flex-row"
-//           >
-//             <h4 className="mb-3 text-sm font-semibold text-gray-900 md:text-base">
-//               Trusted Projects
-//             </h4>
-//             <div className="mb-2 flex flex-wrap items-start gap-2">
-//               {projects.map((project, index) => (
-//                 <Badge
-//                   className="rounded-full bg-gradient-to-br from-[#2a1d17]/90 to-[#111721]/90 px-3 py-1 text-white shadow-[0_8px_16px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.08)]"
-//                   key={index}
-//                 >
-//                   <CheckCircle className="mr-1 h-3 w-3 text-green-500" />
-//                   {project.title}
-//                 </Badge>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default FloatingCompanyIntro;

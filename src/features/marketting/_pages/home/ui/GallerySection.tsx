@@ -32,18 +32,13 @@ const GallerySection = () => {
       <div className="container mx-auto px-6 md:px-16 lg:px-24">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#ed8c2f]">
+          <h4 className="mb-2 font-bold uppercase tracking-wider text-[#ed8c2f]">
             Gallery Preview
-          </p>
+          </h4>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900">
+          <h2 className="mb-12 text-3xl font-extrabold text-gray-900 md:text-5xl">
             Explore Our Visual Showcase
           </h2>
-
-          <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-gray-600">
-            Discover our factory, products, events, and promotional highlights
-            through a premium visual experience.
-          </p>
         </div>
 
         {/* Gallery Grid */}

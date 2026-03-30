@@ -53,50 +53,43 @@ const recognitions = [
 const CertificateAndRecognition = () => {
   return (
     <section className="py-8  border-t bg-gradient-to-b from-white via-[#fdfaf6] to-white">
-      <div className="container mx-auto px-6 md:px-10 lg:px-16">
-        {/* Badge */}
-        <div className="flex items-center justify-center gap-3 mb-5">
-          <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#e8c88a]" />
-          <span className="text-[10.5px] font-semibold tracking-[0.18em] uppercase text-[#b8621a] bg-[#fff8ee] border border-[#f5c87a] px-4 py-1.5 rounded-full">
-            Certifications & Recognition
-          </span>
-          <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#e8c88a]" />
-        </div>
+      <div className="container mx-auto px-6 md:px-10 lg:px-16 text-center">
+        <h4 className="mb-2 font-bold uppercase tracking-wider text-[#ed8c2f]">
+          Certifications & Recognition
+        </h4>
 
-        {/* Heading */}
-        <h2 className=" text-[clamp(30px,4.5vw,50px)] font-bold text-gray-900 text-center leading-[1.15] mb-4">
-          Our Certificates & <span className="text-[#ed8c2f]">Industry</span>{" "}
-          <div className="text-[#ed8c2f]"> Recognition</div>
+        <h2 className="mb-12 text-3xl font-extrabold text-gray-900 md:text-5xl">
+          Industry-Leading Certifications & Recognitions
         </h2>
 
         {/* Certificate Cards */}
         {/* Certificate Cards */}
-<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
-  {certificates.map((item, i) => (
-    <div
-      key={i}
-      className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[#f5c87a] hover:-translate-y-1.5 transition-all duration-300"
-      style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}
-    >
-      <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#f8f8f8]">
-        <Image
-          src={item.img}
-          alt={item.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
+          {certificates.map((item, i) => (
+            <div
+              key={i}
+              className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[#f5c87a] hover:-translate-y-1.5 transition-all duration-300"
+              style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}
+            >
+              <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#f8f8f8]">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
 
-        <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="bg-black/55 px-4 py-3">
-            <p className="text-white text-[13px] font-medium leading-snug text-center">
-              {item.title}
-            </p>
-          </div>
+                <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="bg-black/55 px-4 py-3">
+                    <p className="text-white text-[13px] font-medium leading-snug text-center">
+                      {item.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
-  ))}
-</div>
 
         {/* Recognition Divider */}
         <div className="flex items-center gap-3 my-7">

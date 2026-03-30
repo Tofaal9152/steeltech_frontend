@@ -113,13 +113,13 @@ const Stats = () => {
     <section className="relative overflow-hidden border-t border-gray-200 bg-[#f8f8f8] py-4">
       <div className="container mx-auto container rounded-[28px] px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight text-gray-900 md:text-5xl">
+          <h4 className="mb-2 font-bold uppercase tracking-wider text-[#ed8c2f]">
             Our Strength in Numbers
+          </h4>
+
+          <h2 className="mb-12 text-3xl font-extrabold text-gray-900 md:text-5xl">
+            Key Company Statistics & Growth Metrics
           </h2>
-          <p className="mt-4 text-base text-gray-500 md:text-lg">
-            These key figures reflect our growth, production capability, and
-            strong presence across Bangladesh.
-          </p>
         </div>
 
         <div className="relative hidden min-h-[620px] lg:block">

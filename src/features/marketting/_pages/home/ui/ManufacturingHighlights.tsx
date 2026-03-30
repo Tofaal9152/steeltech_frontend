@@ -1,362 +1,144 @@
-import React from "react";
-import {
-  ArrowDown,
-  Package,
-  Scissors,
-  ShieldCheck,
-  Sparkles,
-  Truck,
-  Wrench,
-  Search,
-} from "lucide-react";
-import { imagePathForLanding } from "@/constants/imagePath";
+"use client";
 
-type ManufacturingStep = {
-  step: string;
+import { StickyScroll } from "@/components/sticky-scroll-reveal";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+
+type ProcessItem = {
   title: string;
   description: string;
-  icon: React.ElementType;
+  image: string;
+  step: string;
+  phase: string;
 };
 
-const manufacturingSteps: ManufacturingStep[] = [
+const processItems: ProcessItem[] = [
   {
     step: "01",
+    phase: "INPUT",
     title: "Coil Slitting",
     description:
       "Steel coils are slit into precise widths for accurate downstream pipe production.",
-    icon: Scissors,
+    image: "/images/hero/manufacture/1.jpg",
   },
   {
     step: "02",
+    phase: "ACTIVE",
     title: "Pipe Forming",
     description:
-      "Slit coils are shaped into strong, uniform pipes through precision rolling.",
-    icon: Wrench,
+      "Slit coils are shaped into strong, uniform pipes using advanced forming and precision netting technology.",
+    image: "/images/hero/manufacture/2.jpg",
   },
   {
     step: "03",
+    phase: "ANALYSIS",
     title: "Automated QC",
     description:
-      "Automated inspection checks dimensional accuracy, consistency, and finish quality.",
-    icon: ShieldCheck,
+      "Automated inspection checks for defects, dimension accuracy, and consistency.",
+    image: "/images/hero/manufacture/3.jpg",
   },
   {
     step: "04",
-    title: "Polish",
+    phase: "TRACKING",
+    title: "Weight and Count Tracking",
     description:
-      "Pipes are polished for a refined surface finish and premium visual appearance.",
-    icon: Sparkles,
+      "Each pipe is automatically tracked for weight and quantity to ensure production accuracy, inventory visibility, and process control.",
+    image: "/images/hero/manufacture/7.jpg", // replace with dedicated image if available
   },
   {
     step: "05",
-    title: "Manual QC",
+    phase: "FINISH",
+    title: "Polish",
     description:
-      "Experienced inspectors perform final checks before the products move forward.",
-    icon: Search,
+      "Pipes are polished for a refined surface finish and premium visual appearance standard.",
+    image: "/images/hero/manufacture/4.jpg",
   },
   {
     step: "06",
-    title: "Packing",
+    phase: "AUDIT",
+    title: "Manual QC",
     description:
-      "Finished pipes are securely packed to ensure safe storage and transportation.",
-    icon: Package,
+      "Experienced inspectors perform final checks before the products move to logistics.",
+    image: "/images/hero/manufacture/5.jpg",
   },
   {
     step: "07",
+    phase: "LOGISTICS",
+    title: "Packing",
+    description:
+      "Finished pipes are securely packed to ensure safe storage and long-distance transport.",
+    image: "/images/hero/manufacture/6.jpg",
+  },
+  {
+    step: "08",
+    phase: "COMPLETION",
     title: "Delivery",
     description:
-      "Products are dispatched through a reliable delivery network with timely handling.",
-    icon: Truck,
+      "Products are dispatched through a reliable delivery network with timely handling and real-time tracking.",
+    image: "/images/hero/manufacture/7.jpg",
   },
 ];
 
-const FlowConnector = ({
-  orientation = "horizontal",
-}: {
-  orientation?: "horizontal" | "vertical";
-}) => {
-  if (orientation === "vertical") {
-    return (
-      <div className="relative flex h-14 items-center justify-center">
-        <div className="relative h-full w-[2px] overflow-hidden rounded-full bg-white/10">
-          <div className="beam-vertical absolute inset-0 bg-gradient-to-b from-transparent via-[#ed8c2f] to-transparent" />
+const stickyContent = processItems.map((item) => ({
+  title: `${item.step} ${item.title}`,
+  description: item.description,
+  content: (
+    <div className="group relative h-full w-full overflow-hidden rounded-[24px] border border-white/50 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
+      <div className="relative h-full w-full">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover transition duration-500 group-hover:scale-105"
+          priority={item.step === "01"}
+        />
+      </div>
+
+      {/* overall dark cinematic overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+
+      {/* warm orange glow at bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#ed8c2f]/55 via-[#b95f1d]/20 to-transparent" />
+
+      {/* subtle inner vignette */}
+      <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.28),inset_0_-40px_80px_rgba(0,0,0,0.35)]" />
+
+      {/* bottom caption */}
+      <div className="absolute inset-x-0 bottom-0 px-4 pb-5">
+        <div className="flex flex-col items-center text-center">
+          <span className="mb-2 rounded-full border border-white/20 bg-white/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#f6dfb0] backdrop-blur-sm">
+            {item.step} {item.phase}
+          </span>
+
+          <h4
+            className="text-center text-[22px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#f6dfb0]"
+            style={{
+              textShadow:
+                "0 2px 0 rgba(86,45,10,0.95), 0 4px 10px rgba(0,0,0,0.55)",
+            }}
+          >
+            {item.title}
+          </h4>
         </div>
       </div>
-    );
-  }
-
-  return (
-    <div className="relative hidden h-[2px] w-16 shrink-0 overflow-hidden rounded-full bg-white/10 lg:block">
-      <div className="beam-horizontal absolute inset-0 bg-gradient-to-r from-transparent via-[#ed8c2f] to-transparent" />
     </div>
-  );
-};
-
-const StepCard = ({
-  icon: Icon,
-  step,
-  title,
-  description,
-  index,
-}: ManufacturingStep & { index: number }) => {
-  return (
-    <div
-      className="fade-up group relative w-full overflow-hidden rounded-[28px] border border-white/10  p-6 text-left shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#ed8c2f]/40 hover:bg-white/[0.09] hover:shadow-[0_20px_60px_rgba(237,140,47,0.18)] lg:w-[250px]"
-      style={{ animationDelay: `${index * 120}ms` }}
-    >
-      <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-        <div className="shine absolute -left-1/3 top-0 h-full w-1/3 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      </div>
-
-      <div className="mb-5 flex items-start justify-between gap-4">
-        <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#ed8c2f]/30 bg-gradient-to-br from-[#ed8c2f] to-[#f5b067] text-white shadow-[0_10px_30px_rgba(237,140,47,0.35)] transition duration-500 group-hover:scale-110 group-hover:rotate-3">
-          <Icon className="h-6 w-6" />
-          <div className="glow-pulse absolute inset-0 rounded-2xl border border-white/20" />
-        </div>
-
-        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-[0.22em] text-white/70">
-          STEP {step}
-        </span>
-      </div>
-
-      <h3 className="mb-3 text-xl font-bold text-white">{title}</h3>
-      <p className="text-sm leading-7 text-white/70">{description}</p>
-    </div>
-  );
-};
-
-const ImageCard = ({
-  src,
-  alt,
-  title,
-}: {
-  src: string;
-  alt: string;
-  title: string;
-}) => {
-  return (
-    <div className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
-      <img
-        src={src}
-        alt={alt}
-        className="h-[260px] w-full object-cover transition duration-700 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#071019]/90 via-[#071019]/30 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f0b276]">
-          Manufacturing
-        </p>
-        <h4 className="mt-1 text-lg font-bold text-white">{title}</h4>
-      </div>
-    </div>
-  );
-};
+  ),
+}));
 
 const ManufacturingHighlights = () => {
-  const topRow = manufacturingSteps.slice(0, 4);
-  const bottomRow = manufacturingSteps.slice(4).reverse();
-
   return (
-    <section className="relative overflow-hidden border-t border-white/10 bg-[#071019] py-20 text-white">
-      {/* Background Decor */}
-      <div className="absolute inset-0">
-        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#ed8c2f]/12 blur-3xl" />
-        <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-[#ed8c2f]/10 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_35%)]" />
-        <div className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:48px_48px]" />
+    <section className="relative rounded-[40px] bg-gradient-to-b from-white via-[#fffaf5] to-[#fff7ef] px-4 py-14 md:px-8 md:py-20 xl:px-10">
+      <div className="mx-auto mb-14 max-w-4xl text-center">
+        <h4 className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-[#ed8c2f]">
+          Process Overview
+        </h4>
+
+        <h2 className="text-4xl font-extrabold tracking-tight text-neutral-950 md:text-6xl">
+          Advanced Manufacturing Process Flow
+        </h2>
       </div>
 
-      <div className="relative mx-auto container px-6 md:px-12 lg:px-20">
-        {/* Header */}
-        <div className="mx-auto mb-16 max-w-4xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#ed8c2f]/25 bg-[#ed8c2f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#f3b77b]">
-            Manufacturing Highlights
-          </div>
-
-          <h2 className="text-3xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
-            Advanced Manufacturing
-            <span className="block bg-gradient-to-r from-white to-[#f2bb85] bg-clip-text text-transparent">
-              Process Flow
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/70 md:text-lg">
-            From coil slitting to final delivery, every stage is engineered for
-            precision, consistency, finish quality, and dependable output.
-          </p>
-        </div>
-
-        {/* Main Process Box */}
-        <div className="relative overflow-hidden rounded-[36px] ">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent" />
-
-          {/* Mobile Layout */}
-          <div className="relative z-10 flex flex-col gap-0 lg:hidden">
-            {manufacturingSteps.map((item, index) => (
-              <React.Fragment key={item.title}>
-                <StepCard {...item} index={index} />
-                {index !== manufacturingSteps.length - 1 && (
-                  <FlowConnector orientation="vertical" />
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Desktop Snake Layout */}
-          <div className="relative z-10 hidden lg:block">
-            {/* Top Row */}
-            <div className="flex items-stretch justify-center">
-              {topRow.map((item, index) => (
-                <React.Fragment key={item.title}>
-                  <StepCard {...item} index={index} />
-                  {index !== topRow.length - 1 && <FlowConnector />}
-                </React.Fragment>
-              ))}
-            </div>
-
-            {/* Down Flow */}
-            <div className="my-8 flex justify-end pr-12">
-              <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-[#ed8c2f]/30 bg-[#ed8c2f]/10 text-[#ed8c2f] shadow-[0_0_30px_rgba(237,140,47,0.18)]">
-                <div className="glow-pulse absolute inset-0 rounded-full border border-[#ed8c2f]/20" />
-                <ArrowDown className="h-7 w-7" />
-              </div>
-            </div>
-
-            {/* Bottom Row Reverse */}
-            <div className="flex items-stretch justify-center">
-              {bottomRow.map((item, index) => (
-                <React.Fragment key={item.title}>
-                  <StepCard {...item} index={index + 4} />
-                  {index !== bottomRow.length - 1 && <FlowConnector />}
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Caption */}
-        <div className="mx-auto mt-8 max-w-3xl text-center">
-          <p className="text-sm leading-7 text-white/60 md:text-base">
-            Every stage is monitored to maintain dimensional accuracy, surface
-            finish, and reliable delivery performance.
-          </p>
-        </div>
-
-        {/* Images */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <ImageCard
-            src={imagePathForLanding.manufacturing}
-            alt="Manufacturing"
-            title="Production Floor Operations"
-          />
-          <ImageCard
-            src={imagePathForLanding.steelguard}
-            alt="Steelguard QC Device"
-            title="Automated Quality Inspection"
-          />
-          <ImageCard
-            src={imagePathForLanding.loadcell}
-            alt="Load Cell Device"
-            title="Load & Handling Precision"
-          />
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes beamHorizontal {
-          0% {
-            transform: translateX(-120%);
-            opacity: 0;
-          }
-          20% {
-            opacity: 1;
-          }
-          80% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(220%);
-            opacity: 0;
-          }
-        }
-
-        @keyframes beamVertical {
-          0% {
-            transform: translateY(-120%);
-            opacity: 0;
-          }
-          20% {
-            opacity: 1;
-          }
-          80% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(220%);
-            opacity: 0;
-          }
-        }
-
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(24px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes glowPulse {
-          0% {
-            opacity: 0.35;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.8;
-            transform: scale(1.06);
-          }
-          100% {
-            opacity: 0.35;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes shine {
-          0% {
-            transform: translateX(-180%) rotate(12deg);
-            opacity: 0;
-          }
-          30% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(420%) rotate(12deg);
-            opacity: 0;
-          }
-        }
-
-        .beam-horizontal {
-          animation: beamHorizontal 2.8s linear infinite;
-        }
-
-        .beam-vertical {
-          animation: beamVertical 2.2s linear infinite;
-        }
-
-        .fade-up {
-          animation: fadeUp 0.8s ease both;
-        }
-
-        .glow-pulse {
-          animation: glowPulse 2.4s ease-in-out infinite;
-        }
-
-        .group:hover .shine {
-          animation: shine 1s ease forwards;
-        }
-      `}</style>
+      <StickyScroll content={stickyContent} contentClassName="bg-white" />
     </section>
   );
 };
