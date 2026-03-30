@@ -29,7 +29,7 @@ export function ProductCard({ product, className = "" }: Props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-black/10 transition duration-300 group-hover:from-black/75 group-hover:via-black/35 group-hover:to-black/40" />
 
         <div className="absolute right-4 top-4 z-10">
-          <Badge className="inline-flex rounded-full bg-orange-500/80 text-sm font-semibold text-white backdrop-blur-md shadow-lg">
+          <Badge variant={"secondary"}>
             {product.type}
           </Badge>
         </div>

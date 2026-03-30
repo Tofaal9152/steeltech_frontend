@@ -6,7 +6,7 @@ type GallaryContentProps = {
 };
 
 const galleryData: Record<string, any[]> = {
-  "Factory Images": [
+  "factory": [
     {
       id: "f1",
       img: "/images/gallery/factory/1.jpg",
@@ -100,7 +100,7 @@ const galleryData: Record<string, any[]> = {
       height: 470,
     },
   ],
-  "Product Images": [
+  "product": [
     // design
     {
       id: "p1",
@@ -227,7 +227,7 @@ const galleryData: Record<string, any[]> = {
       height: 450,
     },
   ],
-  "Event Images": [
+  "event": [
      { id: "e11", img: "/images/gallery/tour/1.jpg", type: "image", height: 380 },
   { id: "e12", img: "/images/gallery/tour/2.jpg", type: "image", height: 540 },
   { id: "e13", img: "/images/gallery/tour/3.jpg", type: "image", height: 310 },
@@ -270,7 +270,7 @@ const galleryData: Record<string, any[]> = {
   { id: "e44", img: "/images/gallery/tour/4.jpg", type: "image", height: 610 },
   { id: "e45", img: "/images/gallery/tour/5.jpg", type: "image", height: 450 },
   ],
-  "Promotional Videos": [
+  "video": [
     {
       id: "v1",
       type: "video",
@@ -294,7 +294,12 @@ const galleryData: Record<string, any[]> = {
     },
   ],
 };
-
+// const TABS = [
+//   { id: "factory", label: "Factory Images" },
+//   { id: "product", label: "Product Images" },
+//   { id: "event", label: "Event Images" },
+//   { id: "video", label: "Promotional Videos" },
+// ];
 const GallaryContent = ({ activeTab }: GallaryContentProps) => {
   const items = galleryData[activeTab] || [];
 

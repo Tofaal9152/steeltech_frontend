@@ -29,7 +29,7 @@ const galleryItems = [
 const GallerySection = () => {
   return (
     <section className="relative overflow-hidden border-t border-gray-200 py-16 ">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24">
         {/* Header */}
         <div className="text-center mb-14">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#ed8c2f]">

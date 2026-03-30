@@ -38,9 +38,9 @@ const ClientsTrustedBy = () => {
   return (
     <section className="py-8 bg-white border-t border-gray-100 overflow-hidden relative">
       {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px]  blur-3xl rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full container h-[400px]  blur-3xl rounded-full pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+      <div className="relative z-10 container mx-auto px-6 md:px-16 lg:px-24">
         
         {/* --- Header --- */}
         <div className="text-center mb-16">
@@ -158,7 +158,7 @@ export default ClientsTrustedBy;
 // const ClientsTrustedBy = () => {
 //   return (
 //     <section className="py-24 bg-gray-50 border-t border-gray-200">
-//       <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+//       <div className="container mx-auto px-6 md:px-16 lg:px-24">
 //         {/* Header */}
 //         <div className="text-center mb-16">
 //           <p className="text-[#ed8c2f] font-bold uppercase tracking-wider mb-3">

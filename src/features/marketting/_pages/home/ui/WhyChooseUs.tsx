@@ -32,7 +32,7 @@ const WhyChooseUs = () => {
 
   return (
     <section className="pb-20 pt-8 bg-gray-50 border-t border-gray-200">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+      <div className="container mx-auto px-6 md:px-16 lg:px-24">
         <div className="text-center mb-16">
           <h4 className="text-[#ed8c2f] font-bold uppercase tracking-wider mb-3">
             Why Choose Us

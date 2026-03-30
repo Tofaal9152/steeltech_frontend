@@ -53,7 +53,7 @@ const recognitions = [
 const CertificateAndRecognition = () => {
   return (
     <section className="py-8  border-t bg-gradient-to-b from-white via-[#fdfaf6] to-white">
-      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16">
         {/* Badge */}
         <div className="flex items-center justify-center gap-3 mb-5">
           <div className="h-px w-20 bg-gradient-to-r from-transparent to-[#e8c88a]" />

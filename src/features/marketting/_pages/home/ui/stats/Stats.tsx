@@ -111,7 +111,7 @@ const StatsCard = ({
 const Stats = () => {
   return (
     <section className="relative overflow-hidden border-t border-gray-200 bg-[#f8f8f8] py-4">
-      <div className="container mx-auto max-w-[1400px] rounded-[28px] px-6">
+      <div className="container mx-auto container rounded-[28px] px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold leading-tight text-gray-900 md:text-5xl">
             Our Strength in Numbers
@@ -152,7 +152,7 @@ const Stats = () => {
 
         <div className="lg:hidden">
           <div className="flex justify-center">
-            <div className="w-full max-w-[320px] sm:max-w-[380px]">
+            <div className="w-full container">
               <BangladeshMap />
             </div>
           </div>

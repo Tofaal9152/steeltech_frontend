@@ -166,7 +166,7 @@ const ManufacturingHighlights = () => {
         <div className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] [background-size:48px_48px]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+      <div className="relative mx-auto container px-6 md:px-12 lg:px-20">
         {/* Header */}
         <div className="mx-auto mb-16 max-w-4xl text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#ed8c2f]/25 bg-[#ed8c2f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#f3b77b]">

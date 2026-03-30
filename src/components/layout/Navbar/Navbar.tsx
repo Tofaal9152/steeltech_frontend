@@ -54,7 +54,7 @@ const Navbar = () => {
   }
   `}
     >
-      <div className="relative mx-auto flex w-full max-w-[1400px] items-center justify-between">
+      <div className="relative mx-auto flex w-full container items-center justify-between">
         {/* Logo */}
         <Link href={"/"} className="flex items-center gap-3 text-white">
           <Image

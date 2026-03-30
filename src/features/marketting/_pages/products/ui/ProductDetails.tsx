@@ -18,7 +18,7 @@ const ProductDetails = ({ params }: { params: { slug: string } }) => {
       : [DEMO_IMAGE, DEMO_IMAGE, DEMO_IMAGE];
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-white">
+    <div className="container mx-auto p-6 bg-white">
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Left Side: Images */}
         <div className="flex-1">

@@ -31,7 +31,7 @@ export default CompanyIntro;
 //       {/* Dark gradient overlay to make the text pop */}
 //       <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-//       <div className="relative z-10 max-w-[1400px] w-full mx-auto flex flex-col items-center">
+//       <div className="relative z-10 container w-full mx-auto flex flex-col items-center">
 //         {/* Header Section (Fixed Design to match image) */}
 //         <div className="text-center mb-12 w-full">
 //           <p
@@ -60,7 +60,7 @@ export default CompanyIntro;
 //         </div>
 //         {/* Content Card Layout (Centered in the middle) */}
 //         <div className="flex justify-center w-full">
-//           <div className="w-full max-w-[1000px] bg-[#111721]/70 opacity-75 backdrop-blur-xl border border-gray-500/30 rounded-2xl p-6 md:p-10 shadow-[0_0_50px_rgba(0,0,0,0.4)]">
+//           <div className="w-full container bg-[#111721]/70 opacity-75 backdrop-blur-xl border border-gray-500/30 rounded-2xl p-6 md:p-10 shadow-[0_0_50px_rgba(0,0,0,0.4)]">
 //             {/* Top Paragraph & Badge */}
 //             <div className="flex flex-col md:flex-row gap-8 mb-6 items-start">
 //               <p className="flex-1 text-gray-300 leading-relaxed text-sm md:text-base text-justify">

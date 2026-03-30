@@ -6,7 +6,7 @@ import { ProductsGrid } from "../../products/ui/products-grid";
 export default function ProductCategories() {
   return (
     <section id="products" className="relative border-t border-gray-200 bg-gray-50 py-8">
-      <div className="mx-auto max-w-[1400px] px-6 text-center md:px-16 lg:px-24">
+      <div className="mx-auto container px-6 text-center md:px-16 lg:px-24">
         <h4 className="mb-2 font-bold uppercase tracking-wider text-[#ed8c2f]">
           Our Offerings
         </h4>
@@ -16,7 +16,7 @@ export default function ProductCategories() {
         </h2>
 
         {/* Products Wrapper */}
-        <div className="relative overflow-hidden max-h-[520px]">
+        <div className="relative overflow-hidden max-h-200">
           
           {/* Products Grid */}
           <ProductsGrid products={productsList} />
