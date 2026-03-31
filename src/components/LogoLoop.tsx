@@ -365,20 +365,20 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           : ((item as any).alt ?? (item as any).title);
 
         const inner = (item as any).href ? (
-          <a
+          <p
             className={cx(
               'inline-flex items-center no-underline rounded',
               'transition-opacity duration-200 ease-linear',
               'hover:opacity-80',
               'focus-visible:outline focus-visible:outline-current focus-visible:outline-offset-2'
             )}
-            href={(item as any).href}
+            // href={(item as any).href}
             aria-label={itemAriaLabel || 'logo link'}
-            target="_blank"
-            rel="noreferrer noopener"
+            // target="_blank"
+            // rel="noreferrer noopener"
           >
             {content}
-          </a>
+          </p>
         ) : (
           content
         );

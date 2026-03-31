@@ -1,26 +1,27 @@
 import { imagePathForLanding } from "@/constants/imagePath";
 import Image from "next/image";
+import { BadgeCheck, Globe2, Medal, ShieldCheck } from "lucide-react";
 
 const features = [
   {
     title: "Premium Stainless Steel",
     description: "Manufactured with highest quality raw materials",
-    iconImage: imagePathForLanding.premiumSteelIcon,
+    icon: Medal,
   },
   {
-    title: "Export Quality",
+    title: "Export Quality Assurance",
     description: "Strict adherence to international standards",
-    iconImage: imagePathForLanding.exportQualityIcon,
+    icon: Globe2,
   },
   {
     title: "Rust-Resistant Durability",
     description: "Engineered for the tropical climate of Bangladesh",
-    iconImage: imagePathForLanding.rustResistantIcon,
+    icon: ShieldCheck,
   },
   {
     title: "ISO 9001:2015 Certified",
     description: "Certified for quality management excellence",
-    iconImage: imagePathForLanding.isoCertifiedIcon,
+    icon: BadgeCheck,
   },
 ];
 
@@ -44,25 +45,20 @@ const projects = [
     image: "https://myunigate.com/wp-content/uploads/2025/06/nsu-1024x538.jpeg",
   },
 ];
-
 const FloatingCompanyIntro = () => {
   return (
-    <section className="relative overflow-hidden rounded-[28px] border border-white/20 bg-[#d9d8da] px-4 py-8 shadow-xl md:px-8 md:py-12">
-      {/* Background */}
-      {/* Background */}
+    <section className="relative overflow-hidden rounded-[28px] border border-orange-300/20 px-4 py-8 shadow-lg md:px-8 md:py-12">
+      {/* 🔥 NEW BACKGROUND STYLE (copied from your 2nd code) */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-100"
         style={{
-          backgroundImage: `url(${imagePathForLanding.companyProfileBgImage})`,
+          backgroundColor: "#e4e4e4d6",
         }}
+        className="absolute inset-0 backdrop-blur-[2px]"
       />
 
-      {/* Diagonal gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-white/80 via-white/70 to-white/1" />
-
-      <div className="relative z-10 mx-auto max-w-7xl space-y-4  ">
+      <div className="relative z-10 mx-auto max-w-7xl space-y-4">
         {/* Top Intro */}
-        <div className=" grid gap-6 lg:grid-cols-[1fr_220px] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-[1fr_220px] lg:items-start">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-[#2d2d2d] md:text-5xl">
               Bangladesh’s Pioneer in Stainless Steel Piping
@@ -81,38 +77,36 @@ const FloatingCompanyIntro = () => {
             alt="Since 2003"
             width={400}
             height={400}
-            className="h-full w-full object-cover brightness-[0.88] contrast-[1.05] saturate-[1.05] transition duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover brightness-[0.92] contrast-[1.03] saturate-[1.02]"
           />
         </div>
 
         {/* Features */}
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {features.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-[22px] border border-white/60 bg-white/55 p-5 shadow-md backdrop-blur-sm"
-            >
-              <div className="mb-4 flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center ">
-                  <Image
-                    src={item.iconImage}
-                    alt={item.title}
-                    width={48}
-                    height={48}
-                    className="h-12 w-12 object-contain"
-                  />
+          {features.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={index}
+                className="rounded-[22px] border border-white/30 bg-white/20 p-5 shadow-[0_10px_28px_rgba(15,23,42,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/25 hover:shadow-[0_14px_34px_rgba(15,23,42,0.12)]"
+              >
+                <div className="mb-4 flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/25 ring-1 ring-white/25">
+                    <Icon className="h-6 w-6 text-[#ed8c2f]" />
+                  </div>
+
+                  <h3 className="text-xl font-bold leading-7 text-[#ed8c2f] md:text-2xl">
+                    {item.title}
+                  </h3>
                 </div>
 
-                <h3 className="text-xl font-bold leading-7 text-[#ed8c2f] md:text-2xl">
-                  {item.title}
-                </h3>
+                <p className="text-base leading-7 text-[#444] md:text-lg">
+                  {item.description}
+                </p>
               </div>
-
-              <p className="text-base leading-7 text-[#444] md:text-lg">
-                {item.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Projects */}
@@ -135,22 +129,15 @@ const FloatingCompanyIntro = () => {
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
 
-                {/* overall cinematic dark overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-black/10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/10" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/70 via-black/40 to-transparent" />
 
-                {/* warm orange glow at bottom like reference */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#ed8c2f]/55 via-[#b95f1d]/20 to-transparent" />
-
-                {/* subtle inner vignette */}
-                <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35),inset_0_-40px_80px_rgba(0,0,0,0.35)]" />
-
-                {/* title */}
                 <div className="absolute inset-x-0 bottom-0 px-4 pb-5">
                   <h4
-                    className="text-center text-[22px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#f6dfb0]"
+                    className="text-center text-[22px] font-extrabold leading-[1.15] tracking-[-0.02em] text-white"
                     style={{
                       textShadow:
-                        "0 2px 0 rgba(86,45,10,0.95), 0 4px 10px rgba(0,0,0,0.55)",
+                        "0 2px 4px rgba(0,0,0,0.9), 0 6px 16px rgba(0,0,0,0.7)",
                     }}
                   >
                     {project.title}

@@ -1,56 +1,61 @@
-import React from "react";
+
+import { imagePathForLanding } from "@/constants/imagePath";
 import { ArrowRight, PlayCircle } from "lucide-react";
 import Link from "next/link";
-import { imagePathForLanding } from "@/constants/imagePath";
 
 const galleryItems = [
   {
     title: "Factory Images",
     type: "image",
     image: imagePathForLanding.galary1,
+    src: "/gallery?tab=factory",
   },
   {
     title: "Product Images",
     type: "image",
     image: imagePathForLanding.galary2,
+    src: "/gallery?tab=product",
   },
   {
     title: "Event Images",
     type: "image",
     image: imagePathForLanding.galary3,
+    src: "/gallery?tab=event",
   },
   {
     title: "Promotional Videos",
     type: "video",
     image: imagePathForLanding.galary4,
+    src: "/gallery?tab=video",
   },
 ];
 
 const GallerySection = () => {
   return (
     <section className="relative overflow-hidden border-t border-gray-200 py-16 ">
-      <div className="container mx-auto px-6 md:px-16 lg:px-24">
+      <div className="container mx-auto px-4 md:px-0">
         {/* Header */}
-        <div className="text-center mb-14">
-          <h4 className="mb-2 font-bold uppercase tracking-wider text-[#ed8c2f]">
+        <div className="text-center mb-8 sm:mb-10 md:mb-14">
+          <h4 className="mb-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ed8c2f]">
             Gallery Preview
           </h4>
 
-          <h2 className="mb-12 text-3xl font-extrabold text-gray-900 md:text-5xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">
             Explore Our Visual Showcase
           </h2>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 md:gap-10 gap-16">
           {galleryItems.map((item, index) => (
-            <div
+            <Link
+              href={item.src}
               key={index}
               className="group relative h-[320px] [perspective:24em]"
             >
               {/* Image Back Plate (Replaced Gradient) */}
               <div
-                className="absolute inset-0 rounded-[2rem] bg-cover bg-center overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.83,0,0.17,1)] rotate-[7deg] origin-[100%_100%] group-hover:rotate-[12deg] group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:translate-z-4"
+                className="absolute inset-0 rounded-[2rem] bg-cover bg-center overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.83,0,0.17,1)] md:rotate-[7deg] rotate-[7deg] mr-12 sm:mr-0 origin-[100%_100%] group-hover:rotate-[12deg] group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:translate-z-4"
                 style={{
                   backgroundImage: `url(${item.image})`,
                   boxShadow: "0.8em -0.8em 1.4em rgba(0,0,0,0.15)",
@@ -111,7 +116,7 @@ const GallerySection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -7,13 +7,18 @@ import ManufacturingHighlights from "./ManufacturingHighlights";
 import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
 import ClientsTrustedBy from "./ClientsTrustedBy";
 import GallerySection from "./GallerySection";
+import CompanyIntro from "./CompanyProfile_ScrollImage/CompanyIntro";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
-      <ScrollImageSequence />
-      {/* <CompanyIntro /> */}
+      <div className="hidden md:block">
+        <ScrollImageSequence />
+      </div>
+      <div className="md:hidden block">
+        <CompanyIntro />
+      </div>
       <ProductCategories />
       <WhyChooseUs />
       <Stats />

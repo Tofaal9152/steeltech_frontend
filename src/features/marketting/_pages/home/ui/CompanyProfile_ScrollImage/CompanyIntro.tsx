@@ -1,7 +1,167 @@
-import FloatingCompanyIntro from "./FloatingCompanyIntro";
+import { imagePathForLanding } from "@/constants/imagePath";
+import Image from "next/image";
+import { BadgeCheck, Globe2, Medal, ShieldCheck } from "lucide-react";
+
+const features = [
+  {
+    title: "Premium Stainless Steel",
+    description: "Manufactured with highest quality raw materials",
+    icon: Medal,
+  },
+  {
+    title: "Export Quality",
+    description: "Strict adherence to international standards",
+    icon: Globe2,
+  },
+  {
+    title: "Rust-Resistant Durability",
+    description: "Engineered for the tropical climate of Bangladesh",
+    icon: ShieldCheck,
+  },
+  {
+    title: "ISO 9001:2015 Certified",
+    description: "Certified for quality management excellence",
+    icon: BadgeCheck,
+  },
+];
+
+const projects = [
+  {
+    title: "Hatirjheel",
+    image:
+      "https://media.licdn.com/dms/image/v2/D5622AQHI6USo8BQSBg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1680160683510?e=1776297600&v=beta&t=cE83hUjbPdh5PvXTU08jOw1iPNZNjV10cz4MYYjWTsU",
+  },
+  {
+    title: "Hazrat Shahjalal Int. Airport",
+    image:
+      "https://d2u0ktu8omkpf6.cloudfront.net/4951c0f5936563cda82b655106aac23cf5ba1b8d6efdeb7d.jpeg",
+  },
+  {
+    title: "Bangladesh Army Tent Project",
+    image: "https://senakalyan.org/dynamic_gallery/1706676717.jpg",
+  },
+  {
+    title: "North South University",
+    image: "https://myunigate.com/wp-content/uploads/2025/06/nsu-1024x538.jpeg",
+  },
+];
 
 const CompanyIntro = () => {
-  return <FloatingCompanyIntro />;
+  return (
+    <section className="relative overflow-hidden bg-[#d9d8da] px-4 py-8 shadow-xl sm:px-5 md:px-8 md:py-12 lg:px-10">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-100"
+        style={{
+          backgroundImage: `url(${imagePathForLanding.companyProfileBgImage})`,
+        }}
+      />
+      <div className="absolute inset-0 bg-white/35" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-white/20" />
+
+      <div className="relative z-10 mx-auto max-w-7xl space-y-8 md:space-y-10">
+        {/* Top Intro */}
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-center">
+          <div className="space-y-4 text-center lg:text-left">
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#ed8c2f] sm:text-sm">
+              Our Legacy of Excellence
+            </p>
+
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
+              Bangladesh’s Pioneer in Stainless Steel Piping
+            </h2>
+
+          </div>
+            <p className="mx-auto max-w-3xl text-sm leading-7 text-[#4a4a4a] sm:text-base md:text-lg md:leading-8 lg:mx-0 lg:text-xl lg:leading-9">
+              Leading the stainless steel piping industry in Bangladesh for over
+              20 years, Steeltech Limited has been manufacturing and exporting
+              premium stainless steel pipes since 2003 with a focus on quality,
+              integrity, and innovation.
+            </p>
+
+          <div className="mx-auto w-full max-w-[170px] sm:max-w-[190px] md:max-w-[220px] lg:mx-0">
+            <Image
+              src={imagePathForLanding.since2003}
+              alt="Since 2003"
+              width={400}
+              height={400}
+              className="h-auto w-full object-contain brightness-[0.92] contrast-[1.03] saturate-[1.02]"
+            />
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {features.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={index}
+                className="rounded-[18px] border border-white/80 bg-white/80 p-4 shadow-[0_10px_28px_rgba(15,23,42,0.08)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(15,23,42,0.12)] sm:rounded-[20px] sm:p-5"
+              >
+                <div className="mb-3 flex items-start gap-3 sm:mb-4 sm:gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] bg-gradient-to-br from-[#fff4e7] via-[#ffe6c8] to-[#ffd39a] ring-1 ring-[#ed8c2f]/20 shadow-[0_10px_18px_rgba(237,140,47,0.18)] sm:h-14 sm:w-14 sm:rounded-[18px]">
+                    <Icon
+                      className="h-6 w-6 text-[#d97706] sm:h-7 sm:w-7"
+                      strokeWidth={2.2}
+                    />
+                  </div>
+
+                  <h3 className="text-lg font-bold leading-6 text-[#b86516] sm:text-xl md:text-[22px]">
+                    {item.title}
+                  </h3>
+                </div>
+
+                <p className="text-sm leading-6 text-[#444] sm:text-base sm:leading-7 md:text-lg">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Projects */}
+        <div>
+          <h3 className="text-center text-xl font-bold text-[#2d2d2d] sm:text-2xl md:text-3xl lg:text-4xl">
+            Trusted by Landmark Projects Across Bangladesh
+          </h3>
+
+          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 md:mt-6">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="group relative h-[200px] overflow-hidden rounded-[14px] border border-white/70 shadow-[0_8px_24px_rgba(0,0,0,0.28)] sm:h-[220px] sm:rounded-[16px] md:h-[240px] lg:h-[250px] xl:rounded-[18px]"
+              >
+                <Image
+                  width={400}
+                  height={250}
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/75 via-black/40 to-transparent md:h-24" />
+                <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25),inset_0_-40px_80px_rgba(0,0,0,0.6)]" />
+
+                <div className="absolute inset-x-0 bottom-0 px-3 pb-3 sm:px-4 sm:pb-4 md:pb-5">
+                  <h4
+                    className="text-center text-[16px] font-bold leading-tight tracking-[-0.02em] text-white sm:text-[18px] md:text-[20px] lg:text-[22px] lg:font-extrabold"
+                    style={{
+                      textShadow:
+                        "0 2px 4px rgba(0,0,0,0.9), 0 6px 16px rgba(0,0,0,0.7)",
+                    }}
+                  >
+                    {project.title}
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default CompanyIntro;

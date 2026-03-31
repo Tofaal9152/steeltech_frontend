@@ -6,10 +6,10 @@ type Props = {
 };
 
 const layoutClasses = [
-  "md:[grid-column:1] md:[grid-row:1/span_6]", // pipe 1 = top left
-  "md:[grid-column:1] md:[grid-row:7/span_6]", // pipe 2 = bottom left
-  "md:[grid-column:2] md:[grid-row:5/span_8]", // pipe 3 = bottom right (boro)
-  "md:[grid-column:2] md:[grid-row:1/span_4]", // pipe 4 = top right (choto)
+  "lg:[grid-column:1] lg:[grid-row:1/span_6]",
+  "lg:[grid-column:1] lg:[grid-row:7/span_6]",
+  "lg:[grid-column:2] lg:[grid-row:5/span_8]",
+  "lg:[grid-column:2] lg:[grid-row:1/span_4]",
 ];
 
 function chunkProducts(products: ProductListItem[], size: number) {
@@ -26,7 +26,7 @@ export function ProductsGrid({ products }: Props) {
   const groups = chunkProducts(products, 4);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 sm:space-y-5 md:space-y-6">
       {groups.map((group, groupIndex) => {
         const isCustomLayout = group.length === 4;
 
@@ -35,7 +35,7 @@ export function ProductsGrid({ products }: Props) {
             key={groupIndex}
             className={
               isCustomLayout
-                ? "grid grid-cols-1 gap-4 md:grid-cols-2 md:auto-rows-[72px]"
+                ? "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:auto-rows-[64px] xl:auto-rows-[72px]"
                 : "grid grid-cols-1 gap-4 sm:grid-cols-2"
             }
           >

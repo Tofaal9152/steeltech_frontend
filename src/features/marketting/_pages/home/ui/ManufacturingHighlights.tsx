@@ -1,7 +1,4 @@
-"use client";
-
 import { StickyScroll } from "@/components/sticky-scroll-reveal";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 type ProcessItem = {
@@ -43,7 +40,7 @@ const processItems: ProcessItem[] = [
     title: "Weight and Count Tracking",
     description:
       "Each pipe is automatically tracked for weight and quantity to ensure production accuracy, inventory visibility, and process control.",
-    image: "/images/hero/manufacture/7.jpg", // replace with dedicated image if available
+    image: "/images/hero/manufacture/7.jpg",
   },
   {
     step: "05",
@@ -83,7 +80,7 @@ const stickyContent = processItems.map((item) => ({
   title: `${item.step} ${item.title}`,
   description: item.description,
   content: (
-    <div className="group relative h-full w-full overflow-hidden rounded-[24px] border border-white/50 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
+    <div className="group relative h-full w-full overflow-hidden rounded-[18px] sm:rounded-[20px] md:rounded-[24px] border border-white/50 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
       <div className="relative h-full w-full">
         <Image
           src={item.image}
@@ -95,26 +92,26 @@ const stickyContent = processItems.map((item) => ({
       </div>
 
       {/* overall dark cinematic overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
 
-      {/* warm orange glow at bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#ed8c2f]/55 via-[#b95f1d]/20 to-transparent" />
+      {/* bottom dark glow */}
+      <div className="absolute inset-x-0 bottom-0 h-20 sm:h-24 md:h-28 bg-gradient-to-t from-black/70 via-black/35 to-transparent" />
 
       {/* subtle inner vignette */}
-      <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.28),inset_0_-40px_80px_rgba(0,0,0,0.35)]" />
+      <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.24),inset_0_-40px_80px_rgba(0,0,0,0.35)]" />
 
       {/* bottom caption */}
-      <div className="absolute inset-x-0 bottom-0 px-4 pb-5">
+      <div className="absolute inset-x-0 bottom-0 px-3 pb-3 sm:px-4 sm:pb-4 md:pb-5">
         <div className="flex flex-col items-center text-center">
-          <span className="mb-2 rounded-full border border-white/20 bg-white/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#f6dfb0] backdrop-blur-sm">
+          <span className="mb-2 rounded-full border border-white/20 bg-white/12 px-2.5 py-1 text-[9px] sm:text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white/90 backdrop-blur-sm">
             {item.step} {item.phase}
           </span>
 
           <h4
-            className="text-center text-[22px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#f6dfb0]"
+            className="text-center text-[16px] sm:text-[18px] md:text-[22px] font-bold md:font-extrabold leading-tight tracking-[-0.02em] text-white"
             style={{
               textShadow:
-                "0 2px 0 rgba(86,45,10,0.95), 0 4px 10px rgba(0,0,0,0.55)",
+                "0 2px 4px rgba(0,0,0,0.9), 0 6px 16px rgba(0,0,0,0.7)",
             }}
           >
             {item.title}
@@ -127,13 +124,16 @@ const stickyContent = processItems.map((item) => ({
 
 const ManufacturingHighlights = () => {
   return (
-    <section className="relative rounded-[40px] bg-gradient-to-b from-white via-[#fffaf5] to-[#fff7ef] px-4 py-14 md:px-8 md:py-20 xl:px-10">
-      <div className="mx-auto mb-14 max-w-4xl text-center">
-        <h4 className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-[#ed8c2f]">
+    <section
+      id="manufacturing"
+      className="relative rounded-[24px] sm:rounded-[30px] md:rounded-[40px] bg-gradient-to-b from-white via-[#fffaf5] to-[#fff7ef] px-4 py-10 sm:px-5 sm:py-12 md:px-8 md:py-16 xl:px-10 xl:py-20"
+    >
+      <div className="mx-auto mb-8 sm:mb-10 md:mb-14 container text-center">
+        <h4 className="mb-2 sm:mb-3 text-xs sm:text-sm font-bold uppercase tracking-[0.18em] sm:tracking-[0.24em] text-[#ed8c2f]">
           Process Overview
         </h4>
 
-        <h2 className="text-4xl font-extrabold tracking-tight text-neutral-950 md:text-6xl">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl xl:text-6xl font-extrabold tracking-tight text-neutral-950 leading-tight">
           Advanced Manufacturing Process Flow
         </h2>
       </div>

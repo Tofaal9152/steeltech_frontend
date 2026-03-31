@@ -10,6 +10,7 @@ import React, {
 import { gsap } from "gsap";
 import { Play } from "lucide-react";
 import { imagePathForLanding } from "@/constants/imagePath";
+import Image from "next/image";
 
 const useMedia = (
   queries: string[],
@@ -63,7 +64,7 @@ const preloadImages = async (urls: string[]): Promise<void> => {
     urls.map(
       (src) =>
         new Promise<void>((resolve) => {
-          const img = new Image();
+          const img = new window.Image();
           img.src = src;
           img.onload = img.onerror = () => resolve();
         }),
@@ -394,8 +395,10 @@ const Masonry: React.FC<MasonryProps> = ({
                   Your browser does not support the video tag.
                 </video>
               ) : (
-                <img
+                <Image
                   src={selectedItem.img}
+                  width={1200}
+                  height={800}
                   alt={selectedItem.title || "gallery item"}
                   className="h-auto max-h-[70vh] w-full object-contain"
                 />
