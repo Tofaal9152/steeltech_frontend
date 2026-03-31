@@ -8,6 +8,8 @@ import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
 import ClientsTrustedBy from "./ClientsTrustedBy";
 import GallerySection from "./GallerySection";
 import CompanyIntro from "./CompanyProfile_ScrollImage/CompanyIntro";
+import { Suspense } from "react";
+import { Loader } from "lucide-react";
 
 const HomePage = () => {
   return (
@@ -25,6 +27,7 @@ const HomePage = () => {
       <ManufacturingHighlights />
       <CertificateAndRecognitaion />
       <ClientsTrustedBy />
+
       <GallerySection />
     </div>
   );
