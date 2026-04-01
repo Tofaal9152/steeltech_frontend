@@ -1,7 +1,4 @@
-"use client";
-
 import LogoLoop from "@/components/LogoLoop";
-import Link from "next/link";
 
 // Formatted for the LogoLoop component (using src and alt)
 const clientLogos = [

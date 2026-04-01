@@ -2,9 +2,8 @@ import CertificationPage from "@/features/marketting/_pages/certificattions/Cert
 
 const page = () => {
   return (
-    <div>
-      {/* <CertificationPage /> */}
-      Comment out for now, will implement later. --- IGNORE ---
+    <div className="bg-gray-100 pt-16">
+      <CertificationPage />
     </div>
   );
 };

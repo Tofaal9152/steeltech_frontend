@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="border-t border-gray-200 bg-gray-50 pt-10 pb-12 sm:pt-12 sm:pb-14 md:pt-14 md:pb-16 lg:pt-16 lg:pb-20">
+    <section className="border-t border-gray-200 bg-gray-50 pt-10 pb-12 sm:pt-12 sm:pb-14 md:pt-14 md:pb-16 lg:pt-16 lg:pb-20 min-h-screen">
       <div className="mx-auto container px-4 sm:px-6 md:px-8">
         <div className="mb-8 text-center sm:mb-10 md:mb-12">
           <h4 className="mb-2 sm:mb-3 text-xs sm:text-sm font-bold uppercase tracking-[0.18em] sm:tracking-wider text-[#ed8c2f]">

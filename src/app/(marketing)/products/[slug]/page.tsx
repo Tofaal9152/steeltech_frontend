@@ -3,7 +3,7 @@ import ProductDetailsPage from "@/features/marketting/_pages/products/ui/Slug/Pr
 const page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
   return (
-    <div>
+       <div className="bg-gray-100 pt-16">
       <ProductDetailsPage params={{ slug }} />
     </div>
   );

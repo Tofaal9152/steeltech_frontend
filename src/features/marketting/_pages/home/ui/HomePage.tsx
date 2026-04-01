@@ -15,10 +15,10 @@ const HomePage = () => {
   return (
     <div>
       <Hero />
-      <div className="hidden md:block">
+      <div className="hidden xl:block">
         <ScrollImageSequence />
       </div>
-      <div className="md:hidden block">
+      <div className="xl:hidden block">
         <CompanyIntro />
       </div>
       <ProductCategories />

@@ -12,7 +12,9 @@ import { Menu, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -25,9 +27,9 @@ const navItems = [
 const Navbar = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const isGalleryPage = pathname === "/gallery";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,24 +38,73 @@ const Navbar = () => {
 
     handleScroll();
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!navRef.current) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const showAnim = gsap
+        .from(navRef.current, {
+          yPercent: -100,
+          paused: true,
+          duration: 0.25,
+          ease: "power2.out",
+        })
+        .progress(1);
+
+      const trigger = ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: (self) => {
+          const currentY = self.scroll();
+
+          if (open) {
+            showAnim.play();
+            return;
+          }
+
+          // Top area: always show navbar
+          if (currentY < 140) {
+            showAnim.play();
+            return;
+          }
+
+          if (self.direction === -1) {
+            showAnim.play();
+          } else {
+            showAnim.reverse();
+          }
+        },
+      });
+
+      return () => {
+        trigger.kill();
+      };
+    }, navRef);
+
+    return () => ctx.revert();
+  }, [open, pathname]);
+
   const navTheme = isHomePage && !scrolled;
-  const navWrapperClass = isHomePage
-    ? navTheme
-      ? "absolute top-0 left-0"
-      : "fixed top-0 left-0 bg-white/80 backdrop-blur-xl border-b border-black/5 "
-    : `sticky top-0 left-0  bg-white/80 backdrop-blur-xl border-b border-black/5 `;
+
+  // ✅ keep navbar fixed always
+  const navWrapperClass = navTheme
+    ? "fixed top-0 left-0 bg-transparent"
+    : "fixed top-0 left-0 bg-white/70 backdrop-blur-xl border-b border-black/5";
 
   return (
     <nav
-      className={`z-50 w-full border-b transition-all duration-300 ${
+      ref={navRef}
+      className={`z-50 w-full will-change-transform transition-all duration-300 ${
         navTheme ? "border-transparent" : "border-black/5"
       } ${navWrapperClass}`}
     >
-      <div className="mx-auto flex h-[74px] container items-center justify-between px-4 sm:px-6 md:h-[82px] md:px-8 lg:px-10">
-        {/* Logo */}
+      <div className="container mx-auto flex h-[74px] items-center justify-between px-4 sm:px-6 md:h-[82px] md:px-8 lg:px-10">
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3">
           <Image
             src={imagePathForNavbar.navLogo}
@@ -72,7 +123,6 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop Menu */}
         <div className="hidden xl:flex xl:items-center xl:gap-3">
           <div
             className={`flex items-center gap-1 rounded-full p-1.5 transition-all duration-300 ${
@@ -88,11 +138,11 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ease-in-out ${
                     active
                       ? "bg-[#ed8c2f] text-white shadow-[0_8px_20px_rgba(237,140,47,0.35)]"
                       : navTheme
-                        ? "text-white hover:bg-white/12"
+                        ? "text-white hover:bg-white/5"
                         : "text-[#0f172a] hover:bg-orange-50 hover:text-[#ed8c2f]"
                   }`}
                 >
@@ -102,8 +152,7 @@ const Navbar = () => {
             })}
           </div>
         </div>
-
-        {/* Mobile Menu Button */}
+        <div></div>
         <div className="xl:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>

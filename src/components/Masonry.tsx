@@ -1,5 +1,8 @@
 "use client";
 
+import { gsap } from "gsap";
+import { Maximize2 } from "lucide-react";
+import Image from "next/image";
 import React, {
   useEffect,
   useLayoutEffect,
@@ -7,11 +10,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { gsap } from "gsap";
-import { Play } from "lucide-react";
-import { imagePathForLanding } from "@/constants/imagePath";
-import Image from "next/image";
-
 const useMedia = (
   queries: string[],
   values: number[],
@@ -341,7 +339,13 @@ const Masonry: React.FC<MasonryProps> = ({
             onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
             onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
           >
-            <div className="relative w-full h-full overflow-hidden rounded-[16px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)]">
+            <div className="relative w-full h-full overflow-hidden rounded-[16px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] group">
+              <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition  ">
+                <div className=" backdrop-blur-md p-2 rounded-full shadow-md hover:scale-110 transition bg-white/90">
+                  <Maximize2 className="w-4 h-4 text-black" />
+                </div>
+              </div>
+
               <div
                 className="w-full h-full bg-cover bg-center transition-transform duration-500"
                 style={{ backgroundImage: `url(${item.img})` }}

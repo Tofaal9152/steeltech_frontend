@@ -16,7 +16,7 @@ const processItems: ProcessItem[] = [
     title: "Coil Slitting",
     description:
       "Steel coils are slit into precise widths for accurate downstream pipe production.",
-    image: "/images/hero/manufacture/1.jpg",
+    image: "/images/hero/manufacture/coil_slitting.jpg",
   },
   {
     step: "02",
@@ -24,7 +24,7 @@ const processItems: ProcessItem[] = [
     title: "Pipe Forming",
     description:
       "Slit coils are shaped into strong, uniform pipes using advanced forming and precision netting technology.",
-    image: "/images/hero/manufacture/2.jpg",
+    image: "/images/hero/manufacture/pipe_forming.png",
   },
   {
     step: "03",
@@ -32,7 +32,7 @@ const processItems: ProcessItem[] = [
     title: "Automated QC",
     description:
       "Automated inspection checks for defects, dimension accuracy, and consistency.",
-    image: "/images/hero/manufacture/3.jpg",
+    image: "/images/hero/manufacture/automated_qc.jpg",
   },
   {
     step: "04",
@@ -40,7 +40,7 @@ const processItems: ProcessItem[] = [
     title: "Weight and Count Tracking",
     description:
       "Each pipe is automatically tracked for weight and quantity to ensure production accuracy, inventory visibility, and process control.",
-    image: "/images/hero/manufacture/7.jpg",
+    image: "/images/hero/manufacture/weight_load_cell.jpg",
   },
   {
     step: "05",
@@ -48,23 +48,23 @@ const processItems: ProcessItem[] = [
     title: "Polish",
     description:
       "Pipes are polished for a refined surface finish and premium visual appearance standard.",
-    image: "/images/hero/manufacture/4.jpg",
+    image: "/images/hero/manufacture/1.jpg",
   },
-  {
-    step: "06",
-    phase: "AUDIT",
-    title: "Manual QC",
-    description:
-      "Experienced inspectors perform final checks before the products move to logistics.",
-    image: "/images/hero/manufacture/5.jpg",
-  },
+  // {
+  //   step: "06",
+  //   phase: "AUDIT",
+  //   title: "Manual QC",
+  //   description:
+  //     "Experienced inspectors perform final checks before the products move to logistics.",
+  //   image: "/images/hero/manufacture/5.jpg",
+  // },
   {
     step: "07",
     phase: "LOGISTICS",
     title: "Packing",
     description:
       "Finished pipes are securely packed to ensure safe storage and long-distance transport.",
-    image: "/images/hero/manufacture/6.jpg",
+    image: "/images/hero/manufacture/packaing.png",
   },
   {
     step: "08",
@@ -72,7 +72,7 @@ const processItems: ProcessItem[] = [
     title: "Delivery",
     description:
       "Products are dispatched through a reliable delivery network with timely handling and real-time tracking.",
-    image: "/images/hero/manufacture/7.jpg",
+    image: "/images/hero/manufacture/delivery.png",
   },
 ];
 
@@ -126,7 +126,7 @@ const ManufacturingHighlights = () => {
   return (
     <section
       id="manufacturing"
-      className="relative rounded-[24px] sm:rounded-[30px] md:rounded-[40px] bg-gradient-to-b from-white via-[#fffaf5] to-[#fff7ef] px-4 py-10 sm:px-5 sm:py-12 md:px-8 md:py-16 xl:px-10 xl:py-20"
+      className="relative rounded-[24px] sm:rounded-[30px] md:rounded-[40px]  px-4 py-10 sm:px-5 sm:py-12 md:px-8 md:py-16 xl:px-10 xl:py-20"
     >
       <div className="mx-auto mb-8 sm:mb-10 md:mb-14 container text-center">
         <h4 className="mb-2 sm:mb-3 text-xs sm:text-sm font-bold uppercase tracking-[0.18em] sm:tracking-[0.24em] text-[#ed8c2f]">

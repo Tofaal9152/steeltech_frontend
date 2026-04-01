@@ -60,7 +60,7 @@ const FloatingCompanyIntro = () => {
         {/* Top Intro */}
         <div className="grid gap-6 lg:grid-cols-[1fr_220px] lg:items-start">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-[#2d2d2d] md:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#2d2d2d] lg:text-4xl xl:text-5xl">
               Bangladesh’s Pioneer in Stainless Steel Piping
             </h2>
 
@@ -77,7 +77,7 @@ const FloatingCompanyIntro = () => {
             alt="Since 2003"
             width={400}
             height={400}
-            className="h-full w-full object-cover brightness-[0.92] contrast-[1.03] saturate-[1.02]"
+            className="h-full w-full object-cover "
           />
         </div>
 

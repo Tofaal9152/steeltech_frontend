@@ -1,16 +1,15 @@
-"use client";
-
 import { BD_DISTRICT_PATH } from "./bd-paths";
 
 export default function BangladeshMap() {
   const MAP_FILL_COLOR = "#f6e7c8";
   const MAP_STROKE_COLOR = "#ed8c2f";
-  const SHADOW_COLOR = "#ffa500"; 
+  const SHADOW_COLOR = "#ffa500";
 
   return (
-    <div className="w-full flex items-center justify-center">
-      
-      <style dangerouslySetInnerHTML={{ __html: `
+    <div className="w-full flex items-center justify-center ">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes districtJump {
           0%, 100% {
             transform: translateY(0);
@@ -28,10 +27,13 @@ export default function BangladeshMap() {
           transform-box: fill-box;
           transform-origin: bottom center;
         }
-      `}} />
+      `,
+        }}
+      />
 
       <svg
-        viewBox="0 0 1555 2140"
+        viewBox="-45 -20 1595 2180"
+        preserveAspectRatio="xMidYMid meet"
         className="w-full h-auto max-h-165"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -44,12 +46,12 @@ export default function BangladeshMap() {
                 id={shadowId}
                 d={d.path}
                 fill={SHADOW_COLOR}
-                opacity="0.7" 
-                className="animate-district" 
+                opacity="0.7"
+                className="animate-district"
                 style={{
                   animationDelay: `${index * 0.08}s`,
-                  filter: 'blur(6px)', 
-                  transform: 'translate(10px, 10px)', 
+                  filter: "blur(6px)",
+                  transform: "translate(10px, 10px)",
                 }}
               />
               {/* মূল জেলা পাথ */}

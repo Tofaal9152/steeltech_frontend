@@ -92,11 +92,11 @@ const Footer = () => {
       <div className="mx-auto container">
         <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-12 lg:gap-10">
           {/* LEFT */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-6">
             <div className="h-full rounded-[20px] sm:rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.25)] p-4 sm:p-5 flex flex-col">
               {/* Header */}
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-wide text-[#ed8c2f]">
+                <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-wide text-[#ed8c2f]">
                   STEELTECH
                 </h2>
 
@@ -129,7 +129,7 @@ const Footer = () => {
                     key={index}
                     className="rounded-xl sm:rounded-2xl border border-white/10 bg-white/5 px-3 sm:px-4 py-3 sm:py-4 text-gray-300 transition hover:bg-white/10"
                   >
-                    <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4 ">
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#ed8c2f]" />
                       <div className="text-sm sm:text-base leading-6 sm:leading-7">
                         {content}
@@ -142,10 +142,10 @@ const Footer = () => {
           </div>
 
           {/* RIGHT MAP */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-6">
             <div className="h-full rounded-[20px] sm:rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.25)] p-4 sm:p-5 flex flex-col">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 mb-4 sm:mb-5">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#ed8c2f]">
+                <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold text-[#ed8c2f]">
                   FIND US HERE
                 </h2>
 

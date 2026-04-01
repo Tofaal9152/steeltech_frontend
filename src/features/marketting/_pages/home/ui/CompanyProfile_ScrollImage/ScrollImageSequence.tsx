@@ -31,12 +31,6 @@ const ScrollImageSequence = () => {
     const baseNumber = 49;
 
     return Array.from({ length: TOTAL_FRAMES }, (_, i) => {
-      console.log(
-        "TOTAL_FRAMES:",
-        TOTAL_FRAMES,
-        "baseNumber + i:",
-        baseNumber + i,
-      );
       return `/scroll-image/${baseNumber + i}.webp`;
     });
   }, []);

@@ -1,11 +1,10 @@
-"use client";
 import { steeltechPipeCatalog } from "@/lib/productData";
 
 const DEMO_IMAGE =
   "https://thumbs.dreamstime.com/b/stack-shiny-chrome-metal-pipes-industrial-background-texture-steel-tubes-seamless-silver-metallic-image-design-glossy-object-356005446.jpg";
 
 const ProductDetails = ({ params }: { params: { slug: string } }) => {
-  const product:any = steeltechPipeCatalog.products.find(
+  const product: any = steeltechPipeCatalog.products.find(
     (p) => p.slug === params.slug,
   );
 

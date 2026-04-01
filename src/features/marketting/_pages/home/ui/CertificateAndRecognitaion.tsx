@@ -1,6 +1,5 @@
-import {
-  ArrowRight
-} from "lucide-react";
+import { LogoLoop } from "@/components/LogoLoop";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -48,9 +47,8 @@ const recognitions = [
 
 const CertificateAndRecognition = () => {
   return (
-    <section className="border-t bg-gradient-to-b from-white via-[#fdfaf6] to-white py-10 sm:py-12 md:py-16">
+    <section className="border-t bg-gradient-to-b from-white via-[#fdfaf6] to-white py-10 sm:py-12 md:py-16 min-h-screen">
       <div className="mx-auto container px-4 sm:px-6 md:px-8 text-center">
-
         {/* Header */}
         <h4 className="mb-2 text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#ed8c2f]">
           Certifications & Recognition
@@ -97,30 +95,23 @@ const CertificateAndRecognition = () => {
         </div>
 
         {/* Recognition */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10">
-          {recognitions.map((item, i) => (
-            <div
-              key={i}
-              className="bg-white border border-gray-100 rounded-xl sm:rounded-2xl py-4 sm:py-5 px-3 sm:px-4 flex flex-col items-center gap-2 min-h-[110px] sm:min-h-[120px] justify-center text-center transition duration-300 hover:border-[#f5c87a]"
-            >
-              <div className="relative h-9 sm:h-10 md:h-11 w-full">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-
-              <p className="text-[12px] sm:text-[13px] font-medium text-gray-700 leading-tight">
-                {item.title}
-              </p>
-
-              <p className="text-[10px] sm:text-[11px] text-gray-400 leading-snug">
-                {item.sub}
-              </p>
-            </div>
-          ))}
+        <div className="mb-8 sm:mb-10">
+          <LogoLoop
+            logos={recognitions.map((item) => ({
+              src: item.img,
+              alt: item.title,
+              href: "#",
+            }))}
+            speed={100}
+            direction="right"
+            logoHeight={70}
+            gap={100}
+            hoverSpeed={20}
+            scaleOnHover={true}
+            fadeOut={true}
+            fadeOutColor="#ffffff"
+            ariaLabel="Recognized & Tested By"
+          />
         </div>
 
         {/* CTA */}
