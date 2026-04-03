@@ -1,11 +1,17 @@
+import ClientsAndPartners from "./ClientsAndPartners";
 import Leadership from "./Leadership";
+import LeadershipStats from "./LeadershipStats";
+import NotableProjects from "./notable-projects/NotableProjects";
 import ProfileMissionVisson from "./ProfileMissionVisson";
 
 const AboutPage = () => {
   return (
-    <div className="container mx-auto px-4 md:px-0 py-10">
+    <div >
       <ProfileMissionVisson />
+      <NotableProjects />
       <Leadership />
+      <LeadershipStats />
+      <ClientsAndPartners/>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { imagePathForLanding } from "@/constants/imagePath";
 import Image from "next/image";
 import { BadgeCheck, Globe2, Medal, ShieldCheck } from "lucide-react";
+import { projects } from "./CompanyIntro";
 
 const features = [
   {
@@ -25,29 +26,11 @@ const features = [
   },
 ];
 
-const projects = [
-  {
-    title: "Hatirjheel",
-    image:
-      "https://media.licdn.com/dms/image/v2/D5622AQHI6USo8BQSBg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1680160683510?e=1776297600&v=beta&t=cE83hUjbPdh5PvXTU08jOw1iPNZNjV10cz4MYYjWTsU",
-  },
-  {
-    title: "Hazrat Shahjalal Int. Airport",
-    image:
-      "https://d2u0ktu8omkpf6.cloudfront.net/4951c0f5936563cda82b655106aac23cf5ba1b8d6efdeb7d.jpeg",
-  },
-  {
-    title: "Bangladesh Army Tent Project",
-    image: "https://senakalyan.org/dynamic_gallery/1706676717.jpg",
-  },
-  {
-    title: "North South University",
-    image: "https://myunigate.com/wp-content/uploads/2025/06/nsu-1024x538.jpeg",
-  },
-];
+
 const FloatingCompanyIntro = () => {
   return (
-    <section className="relative overflow-hidden rounded-[28px] border border-orange-300/20 px-4 py-8 shadow-lg md:px-8 md:py-12">
+    <section className="relative overflow-hidden rounded-[28px] border border-orange-300/20 px-4 py-8 shadow-lg md:px-8 md:py-12 xl:scale-70 2xl:scale-100">
+    {/* <section className="relative overflow-hidden rounded-[28px] border border-orange-300/20 px-4 py-8 shadow-lg md:px-8 md:py-12 xl:scale-70 2xl:scale-100"> */}
       {/* 🔥 NEW BACKGROUND STYLE (copied from your 2nd code) */}
       <div
         style={{
@@ -58,17 +41,18 @@ const FloatingCompanyIntro = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl space-y-4">
         {/* Top Intro */}
-        <div className="grid gap-6 lg:grid-cols-[1fr_220px] lg:items-start">
+        <div className="grid lg:grid-cols-[1fr_240px] lg:items-start ">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-[#2d2d2d] lg:text-4xl xl:text-5xl">
-              Bangladesh’s Pioneer in Stainless Steel Piping
+              Our Legacy of Excellence{" "}
             </h2>
 
-            <p className="mt-4 max-w-4xl text-base leading-8 text-[#4a4a4a] md:text-2xl md:leading-10">
-              Leading the stainless steel piping industry in Bangladesh for over
-              20 years, Steeltech Limited has been manufacturing and exporting
-              premium stainless steel pipes since 2003 with a focus on quality,
-              integrity, and innovation.
+            <p className="mt-4  text-base leading-8 text-[#4a4a4a] md:text-2xl md:leading-10">
+              Since 2003, Steeltech Industries Ltd. has manufactured and
+              exported high-quality stainless steel pipes in Bangladesh, using
+              global expertise and certified materials, trusted nationwide for
+              durability across infrastructure, residential, and industrial
+              applications and sectors.
             </p>
           </div>
 
@@ -77,7 +61,7 @@ const FloatingCompanyIntro = () => {
             alt="Since 2003"
             width={400}
             height={400}
-            className="h-full w-full object-cover "
+            className="h-full w-full object-cover p-2 "
           />
         </div>
 

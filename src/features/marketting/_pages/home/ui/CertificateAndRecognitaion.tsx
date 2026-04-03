@@ -13,8 +13,8 @@ const certificates = [
     title: "Certificate of Incorporation",
   },
   {
-    img: "/images/hero/certificates/DCCI.jpg",
-    title: "DCCI Membership Certificate",
+    img: "/images/hero/certificates/BIN.jpg",
+    title: "Value Added Tax (VAT) Registration",
   },
   {
     img: "/images/hero/certificates/TradeMark.jpg",
@@ -71,7 +71,7 @@ const CertificateAndRecognition = () => {
                   src={item.img}
                   alt={item.title}
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className=" transition duration-500 group-hover:scale-105"
                 />
 
                 {/* hover label (desktop only feel) */}

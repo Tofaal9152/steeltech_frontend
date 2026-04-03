@@ -10,12 +10,14 @@ const features = [
   },
   {
     title: "Export Quality",
-    description: "Strict adherence to international standards",
+    description:
+      "Every product meets international export standards with batch-level traceability and documented quality assurance.",
     icon: Globe2,
   },
   {
     title: "Rust-Resistant Durability",
-    description: "Engineered for the tropical climate of Bangladesh",
+    description:
+      "Engineered for Bangladesh's high-humidity, salt-air coastal and tropical conditions. Corrosion-tested for long-term performance.",
     icon: ShieldCheck,
   },
   {
@@ -25,24 +27,25 @@ const features = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
-    title: "Hatirjheel",
+    title: "Tejgaon-Bijoy\nSharani Bypass",
     image:
-      "https://media.licdn.com/dms/image/v2/D5622AQHI6USo8BQSBg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1680160683510?e=1776297600&v=beta&t=cE83hUjbPdh5PvXTU08jOw1iPNZNjV10cz4MYYjWTsU",
+      "https://i.ytimg.com/vi/atBXVzteD0g/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBYv0l7cdnRPkhJKpLBLyIC-v-78w",
   },
   {
     title: "Hazrat Shahjalal Int. Airport",
     image:
-      "https://d2u0ktu8omkpf6.cloudfront.net/4951c0f5936563cda82b655106aac23cf5ba1b8d6efdeb7d.jpeg",
+      "/images/hero/company-profile/projects/hazrat-shahjalal-int-airport.jpeg",
   },
   {
     title: "Bangladesh Army Tent Project",
-    image: "https://senakalyan.org/dynamic_gallery/1706676717.jpg",
+    image:
+      "/images/hero/company-profile/projects/bangladesh-army-tent-project.jpg",
   },
   {
     title: "North South University",
-    image: "https://myunigate.com/wp-content/uploads/2025/06/nsu-1024x538.jpeg",
+    image: "/images/hero/company-profile/projects/north-south-university.jpg",
   },
 ];
 
@@ -67,16 +70,23 @@ const CompanyIntro = () => {
             </p>
 
             <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
-              Bangladesh’s Pioneer in Stainless Steel Piping
+              Our Legacy of Excellence{" "}
             </h2>
-
           </div>
-            <p className="mx-auto max-w-3xl text-sm leading-7 text-[#4a4a4a] sm:text-base md:text-lg md:leading-8 lg:mx-0 lg:text-xl lg:leading-9">
-              Leading the stainless steel piping industry in Bangladesh for over
-              20 years, Steeltech Limited has been manufacturing and exporting
-              premium stainless steel pipes since 2003 with a focus on quality,
-              integrity, and innovation.
+          <div className="mx-auto max-w-3xl space-y-3 text-sm leading-7 text-[#4a4a4a] sm:text-base md:text-lg md:leading-8 lg:mx-0 lg:text-xl lg:leading-9">
+            <p>
+              Since 2003, Steeltech Industries Ltd. has manufactured and
+              exported world-class stainless steel pipes from Bangladesh. With
+              foreign technical expertise, ISO 9001:2015 certification, and raw
+              materials sourced from globally trusted mills, every pipe is built
+              to perform in Bangladesh&apos;s demanding tropical climate.
             </p>
+            <p>
+              Our products are trusted in landmark infrastructure projects,
+              residential construction, and industrial applications across all
+              64 districts.
+            </p>
+          </div>
 
           <div className="mx-auto w-full max-w-[170px] sm:max-w-[190px] md:max-w-[220px] lg:mx-0">
             <Image

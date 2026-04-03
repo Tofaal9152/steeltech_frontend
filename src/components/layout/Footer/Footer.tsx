@@ -97,7 +97,7 @@ const Footer = () => {
               {/* Header */}
               <div>
                 <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-wide text-[#ed8c2f]">
-                  STEELTECH
+                  Steeltech Industries Ltd.
                 </h2>
 
                 <p className="mt-3 text-sm sm:text-[15px] md:text-base leading-7 text-gray-300">
@@ -175,7 +175,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="mt-6 sm:mt-8 border-t border-white/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm text-gray-400">
-          <p>© 2026 SteelTech. All rights reserved.</p>
+          <p>© 2026 Steeltech Industries Ltd. All rights reserved.</p>
           <p>
             Developed by{" "}
             <span className="text-[#ed8c2f] font-semibold">Ongshak</span>

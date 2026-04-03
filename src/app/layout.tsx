@@ -20,9 +20,9 @@ const michroma = Michroma({
 });
 
 export const metadata: Metadata = {
-  title: "SteelTech",
+  title: "Steeltech Industries Ltd.",
   description:
-    "SteelTech is a leading manufacturer and supplier of high-quality steel pipes, tubes, and fittings, serving a wide range of industries with durable and innovative solutions.",
+    "Steeltech Industries Ltd. is a leading manufacturer and supplier of high-quality steel pipes, tubes, and fittings, serving a wide range of industries with durable and innovative solutions.",
 };
 
 export default function RootLayout({

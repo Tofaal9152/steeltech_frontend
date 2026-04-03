@@ -72,7 +72,7 @@ const CertificationPage = () => {
                     src={item.img}
                     alt={item.title}
                     fill
-                    className="object-contain transition duration-500 group-hover:scale-105 cursor-pointer"
+                    className="object-contain transition duration-500 group-hover:scale-105 cursor-pointer bg-[#f8f8f8]"
                   />
                 }
                 title={item.title}

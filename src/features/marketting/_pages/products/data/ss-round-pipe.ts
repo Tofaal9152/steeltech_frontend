@@ -7,7 +7,7 @@ export const ssRoundPipe = {
   grade: ["201"],
   finish: ["mirror polish", "shiny finish"],
   description:
-    "SS Round Pipes made by world famous coil and latest advanced technology with mirror polish finish, ensured thickness and size, affordable price, just-in-time delivery, and laser print branding.",
+    "Steeltech Industries Ltd.'s SS Round Pipes are manufactured from internationally sourced coil stock using precision forming and automated quality control. Available in diameters from 3/8” to 4” and thicknesses from 0.4mm to 3.0mm, each pipe features a mirror polish finish, verified thickness consistency, and laser-printed branding for easy identification on-site.",
   features: [
     "Made by world famous coil and latest advanced technology",
     "Perfect mirror polish with shiny finish and longevity",

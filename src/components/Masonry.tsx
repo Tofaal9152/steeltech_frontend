@@ -10,6 +10,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+
 const useMedia = (
   queries: string[],
   values: number[],
@@ -78,6 +79,7 @@ interface Item {
   videoUrl?: string;
   height: number;
   title?: string;
+  caption?: string;
 }
 
 interface GridItem extends Item {
@@ -106,20 +108,23 @@ const Masonry: React.FC<MasonryProps> = ({
   stagger = 0.05,
   animateFrom = "bottom",
   scaleOnHover = true,
-  hoverScale = 0.95,
+  hoverScale = 0.97,
   blurToFocus = true,
   colorShiftOnHover = false,
 }) => {
-  const columns = useMedia(
-    [
-      "(min-width:1500px)",
-      "(min-width:1000px)",
-      "(min-width:600px)",
-      "(min-width:400px)",
-    ],
-    [5, 4, 3, 2],
-    1,
-  );
+  const hasVideo = items.some((item) => (item.type ?? "image") === "video");
+
+  const columns = hasVideo
+    ? useMedia(
+        ["(min-width:1024px)", "(min-width:640px)"],
+        [2, 2],
+        1,
+      )
+    : useMedia(
+        ["(min-width:1280px)", "(min-width:768px)", "(min-width:480px)"],
+        [3, 3, 2],
+        1,
+      );
 
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
   const [imagesReady, setImagesReady] = useState(false);
@@ -167,14 +172,15 @@ const Masonry: React.FC<MasonryProps> = ({
     if (!width) return { grid: [], totalHeight: 0 };
 
     const colHeights = new Array(columns).fill(0);
-    const gap = 16;
+    const gap = 20;
     const totalGaps = (columns - 1) * gap;
     const columnWidth = (width - totalGaps) / columns;
 
     const grid = items.map((child) => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      const height = child.height / 2;
+      const height =
+        (child.type ?? "image") === "video" ? child.height : child.height / 1.35;
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -329,51 +335,72 @@ const Masonry: React.FC<MasonryProps> = ({
         className="relative w-full"
         style={{ height: `${totalHeight}px` }}
       >
-        {grid.map((item) => (
-          <div
-            key={item.id}
-            data-key={item.id}
-            className="absolute box-content cursor-pointer"
-            style={{ willChange: "transform, width, height, opacity" }}
-            onClick={() => setSelectedItem(item)}
-            onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
-            onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
-          >
-            <div className="relative w-full h-full overflow-hidden rounded-[16px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] group">
-              <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition  ">
-                <div className=" backdrop-blur-md p-2 rounded-full shadow-md hover:scale-110 transition bg-white/90">
-                  <Maximize2 className="w-4 h-4 text-black" />
-                </div>
-              </div>
+        {grid.map((item) => {
+          const isVideo = (item.type ?? "image") === "video";
 
-              <div
-                className="w-full h-full bg-cover bg-center transition-transform duration-500"
-                style={{ backgroundImage: `url(${item.img})` }}
-              />
-
-              {(item.type ?? "image") === "video" && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg">
-                    <div className="ml-1 h-0 w-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-white" />
+          return (
+            <div
+              key={item.id}
+              data-key={item.id}
+              className="absolute box-content cursor-pointer"
+              style={{ willChange: "transform, width, height, opacity" }}
+              onClick={() => setSelectedItem(item)}
+              onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
+              onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
+            >
+              <div className="group relative h-full w-full overflow-hidden rounded-[20px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)]">
+                <div className="absolute right-3 top-3 z-10 opacity-0 transition group-hover:opacity-100">
+                  <div className="rounded-full bg-white/90 p-2 shadow-md backdrop-blur-md transition hover:scale-110">
+                    <Maximize2 className="h-4 w-4 text-black" />
                   </div>
                 </div>
-              )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                {isVideo ? (
+                  <div
+                    className="h-full w-full bg-cover bg-center transition-transform duration-500"
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  />
+                ) : (
+                  <div
+                    className="h-full w-full bg-cover bg-center transition-transform duration-500"
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  />
+                )}
+
+                {/* Video play indicator */}
+                {isVideo && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-black/30 shadow-lg backdrop-blur-md">
+                      <div className="ml-1 h-0 w-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-white" />
+                    </div>
+                  </div>
+                )}
+
+                {/* Gradient overlay + caption */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+
+                {item.caption && (
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5">
+                    <p className="text-sm font-medium leading-6 text-white sm:text-[15px]">
+                      {item.caption}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {selectedItem && (
         <div
           ref={overlayRef}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 p-4 md:p-8 backdrop-blur-md w-full h-full"
+          className="fixed inset-0 z-[9999] flex h-full w-full items-center justify-center bg-black/75 p-4 backdrop-blur-md md:p-8"
           onClick={closeModal}
         >
           <div
             ref={modalRef}
-            className="relative w-full max-w-5xl rounded-[24px] border border-white/10 bg-[#0b0b0b] p-3 md:p-4 shadow-2xl"
+            className="relative w-full max-w-5xl rounded-[24px] border border-white/10 bg-[#0b0b0b] p-3 shadow-2xl md:p-4"
             onClick={(e) => e.stopPropagation()}
             style={{ perspective: "1200px" }}
           >
@@ -403,15 +430,15 @@ const Masonry: React.FC<MasonryProps> = ({
                   src={selectedItem.img}
                   width={1200}
                   height={800}
-                  alt={selectedItem.title || "gallery item"}
+                  alt={selectedItem.title || selectedItem.caption || "gallery item"}
                   className="h-auto max-h-[70vh] w-full object-contain"
                 />
               )}
             </div>
 
-            {selectedItem.title && (
-              <div className="px-2 pt-4 text-sm md:text-base font-medium text-white/90">
-                {selectedItem.title}
+            {(selectedItem.caption || selectedItem.title) && (
+              <div className="px-2 pt-4 text-sm font-medium text-white/90 md:text-base">
+                {selectedItem.caption || selectedItem.title}
               </div>
             )}
           </div>

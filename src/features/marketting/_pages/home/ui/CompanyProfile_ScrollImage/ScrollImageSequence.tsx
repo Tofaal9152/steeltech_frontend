@@ -210,7 +210,7 @@ const ScrollImageSequence = () => {
 
       <div
         ref={introRef}
-        className="absolute bottom-10 left-0 right-0 z-30 flex justify-center px-4 opacity-0 md:px-10"
+        className="absolute  xl:bottom-4 2xl:bottom-10 left-0 right-0 z-30 flex justify-center px-4 opacity-0 md:px-10"
       >
         <FloatingCompanyIntro />
       </div>

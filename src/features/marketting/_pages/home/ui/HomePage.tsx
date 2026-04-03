@@ -3,7 +3,7 @@ import ScrollImageSequence from "./CompanyProfile_ScrollImage/ScrollImageSequenc
 import ProductCategories from "./ProductCategories";
 import WhyChooseUs from "./WhyChooseUs";
 import Stats from "./stats/Stats";
-import ManufacturingHighlights from "./ManufacturingHighlights";
+import ManufacturingHighlights from "./manufacturingHighlights/ManufacturingHighlights";
 import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
 import ClientsTrustedBy from "./ClientsTrustedBy";
 import GallerySection from "./GallerySection";

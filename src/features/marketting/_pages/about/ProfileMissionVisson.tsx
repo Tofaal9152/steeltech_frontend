@@ -1,14 +1,13 @@
 import {
-  ArrowRight,
   Award,
   BadgeCheck,
   Building2,
   CheckCircle2,
   Factory,
+  SatelliteIcon,
   Target,
-  Telescope,
+  Telescope
 } from "lucide-react";
-import Link from "next/link";
 
 const featuredProjects = [
   "Hatirjheel",
@@ -45,13 +44,14 @@ const stats = [
 ];
 const ProfileMissionVisson = () => {
   return (
-    <div>
+    <div className="container mx-auto px-4 md:px-0 py-10">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold"> About Steeltech</h1>
-        <p className="text-muted-foreground mt-2">
-          Steeltech Industries Ltd. is one of Bangladesh’s leading stainless
-          steel manufacturers, focused on quality, reliability, and long-term
-          customer trust.
+        <h1 className="text-3xl font-bold"> About Steeltech Industries Ltd.</h1>
+        <p className="text-muted-foreground mt-2 max-w-6xl">
+          Steeltech Industries Ltd. is Bangladesh&apos;s most established
+          stainless steel pipe manufacturer — trusted since 2003 by
+          infrastructure developers, architects, and fabricators across the
+          country.
         </p>
       </div>
 
@@ -84,8 +84,8 @@ const ProfileMissionVisson = () => {
               performs well in Bangladesh’s tropical weather and remains
               suitable for a wide range of construction and industrial uses.
               Precise weight, thickness, and size control, along with rust-free
-              quality and continuous innovation, help Steeltech maintain a
-              dependable standard.
+              quality and continuous innovation, help Steeltech Industries Ltd.
+              maintain a dependable standard.
             </p>
 
             <p>
@@ -121,7 +121,7 @@ const ProfileMissionVisson = () => {
           <div className="mt-6 rounded-[20px] border border-gray-100 bg-[#fafafa] p-4 sm:mt-8 sm:rounded-[24px] sm:p-6">
             <div className="mb-4 flex items-center gap-2">
               <h3 className="text-base font-bold text-[#111827] sm:text-lg">
-                Why Steeltech
+                Why Steeltech Industries Ltd.
               </h3>
             </div>
 
@@ -143,18 +143,14 @@ const ProfileMissionVisson = () => {
                 <Target className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/80 sm:text-xs">
-                  Mission
-                </p>
-                <h3 className="text-xl font-bold sm:text-2xl">
-                  What drives us
-                </h3>
+                <p className="text-xl font-bold  sm:text-2xl">Mission</p>
               </div>
             </div>
 
             <p className="text-sm leading-7 text-white/95 sm:text-base sm:leading-8">
-              To become the number one stainless steel manufacturing company of
-              Bangladesh.
+              To set the national benchmark for stainless steel manufacturing
+              through consistently superior product quality, reliable supply,
+              and innovation in production technology.
             </p>
           </div>
 
@@ -164,53 +160,61 @@ const ProfileMissionVisson = () => {
                 <Telescope className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#ed8c2f] sm:text-xs">
-                  Vision
-                </p>
-                <h3 className="text-xl font-bold text-[#111827] sm:text-2xl">
-                  Where we are going
-                </h3>
+                <p className="text-xl font-bold  sm:text-2xl">Vision</p>
               </div>
             </div>
 
             <p className="text-sm leading-7 text-gray-700 sm:text-base sm:leading-8">
-              To always provide the people of Bangladesh with world-class
-              stainless steel pipes, tubes, flat bars, angles, and rods for all
-              kinds of commercial and residential establishments.
+              To make world-class stainless steel products — pipes, tubes, flat
+              bars, angles, and rods — accessible to every commercial and
+              residential project in Bangladesh, while building a manufacturing
+              ecosystem that drives local employment and industrial
+              self-reliance.
             </p>
           </div>
 
-          <div className="rounded-[22px] border border-[#ed8c2f]/15 bg-white p-5 sm:rounded-[28px] sm:p-6 md:p-8">
-            <div className="mb-4 flex items-center gap-3">
-              <BadgeCheck className="h-6 w-6 text-[#ed8c2f]" />
-              <h3 className="text-xl font-bold text-[#111827] sm:text-2xl">
-                Notable Projects
-              </h3>
+          {/* <div className="rounded-[22px] border border-[#ed8c2f]/15 bg-white p-5 sm:rounded-[28px] sm:p-6 md:p-8">
+            <div className="mb-4 flex items-start gap-3 sm:items-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ed8c2f]/10 text-[#ed8c2f] sm:h-12 sm:w-12">
+                <BadgeCheck className="h-6 w-6 text-[#ed8c2f]" />
+              </div>
+              <div>
+                <p className="text-xl font-bold  sm:text-2xl">
+                  {" "}
+                  Notable Projects
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {featuredProjects.map((project, index) => (
                 <span
                   key={index}
-                  className="rounded-full border border-[#ed8c2f]/15 bg-white px-3 py-2 text-xs font-medium text-gray-700 sm:px-4 sm:text-sm"
+                  className="rounded-full border border-[#ed8c2f]/15  px-2 py-2 text-xs font-medium text-gray-700 sm:px-4 sm:text-sm bg-[#ed8c2f]  text-white shadow-[0_8px_24px_rgba(237,140,47,0.18)]"
                 >
                   {project}
                 </span>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className="rounded-[22px] border border-[#ed8c2f]/15 bg-white p-5  sm:rounded-[28px] sm:p-6 md:p-8">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ed8c2f] sm:text-xs">
-              Strategy
-            </p>
-            <h3 className="mt-2 text-xl font-bold sm:text-2xl">
-              Quality-led growth and market expansion
-            </h3>
+            <div className="mb-4 flex items-start gap-3 sm:items-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ed8c2f]/10 text-[#ed8c2f] sm:h-12 sm:w-12">
+                <SatelliteIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <div>
+                <p className="text-xl font-bold  sm:text-2xl"> Strategy</p>
+              </div>
+            </div>
+
             <p className="mt-4 text-sm leading-7 ">
-              Steeltech continues to focus on quality products, retailer and
-              fabricator satisfaction, increased sales volume, and stronger
-              market share in stainless-steel pipes and decorative products.
+              Steeltech Industries Ltd.&apos;s growth strategy is built on four
+              pillars: maintaining the highest product standards, deepening
+              retailer and fabricator relationships across all 64 districts,
+              expanding into decorative and architectural pipe segments, and
+              investing in manufacturing technology that improves consistency
+              and reduces waste.
             </p>
           </div>
         </div>

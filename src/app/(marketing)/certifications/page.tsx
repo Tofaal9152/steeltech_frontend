@@ -2,7 +2,7 @@ import CertificationPage from "@/features/marketting/_pages/certificattions/Cert
 
 const page = () => {
   return (
-    <div className="bg-gray-100 pt-16">
+    <div className="bg-gray-100 ">
       <CertificationPage />
     </div>
   );

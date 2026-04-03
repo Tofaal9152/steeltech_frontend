@@ -6,24 +6,28 @@ import Link from "next/link";
 const galleryItems = [
   {
     title: "Factory Images",
+    description: "Inside our 50,000 sq. meter manufacturing facility.",
     type: "image",
     image: imagePathForLanding.galary1,
     src: "/gallery?tab=factory",
   },
   {
     title: "Product Images",
+    description: "Close-up views of our stainless steel pipe range.",
     type: "image",
     image: imagePathForLanding.galary2,
     src: "/gallery?tab=product",
   },
   {
     title: "Event Images",
+    description: "Highlights from industry events and partner visits.",
     type: "image",
     image: imagePathForLanding.galary3,
     src: "/gallery?tab=event",
   },
   {
     title: "Promotional Videos",
+    description: "Watch our manufacturing process and product showcases.",
     type: "video",
     image: imagePathForLanding.galary4,
     src: "/gallery?tab=video",
@@ -105,7 +109,7 @@ const GallerySection = () => {
                       {item.title}
                     </h3>
                     <p className="mt-2 text-sm text-white/90  translate-y-2 transition-all duration-500 ">
-                      Premium curated visuals from our brand journey.
+                      {item.description}
                     </p>
                     {/* <p className="mt-2  text-white/90 opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0  text-2xl font-bold leading-tight drop-shadow-md">
                        {item.title}

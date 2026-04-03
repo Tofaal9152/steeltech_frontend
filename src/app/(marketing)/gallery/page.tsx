@@ -5,7 +5,7 @@ import { Suspense } from "react";
 const page = () => {
   return (
     <Suspense fallback={<Loader className="animate-spin" />}>
-      <div className="bg-gray-100 pt-20">
+      <div className="bg-gray-100 ">
         <Galary />
       </div>
     </Suspense>

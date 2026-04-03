@@ -24,8 +24,8 @@ export const StickyScroll = ({
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const breakpoints = content.map((_, index) =>
-      index / Math.max(content.length - 1, 1),
+    const breakpoints = content.map(
+      (_, index) => index / Math.max(content.length - 1, 1),
     );
 
     const closestBreakpointIndex = breakpoints.reduce(
@@ -134,7 +134,7 @@ export const StickyScroll = ({
             contentClassName,
           )}
         >
-          <div className="relative h-[500px] w-full">
+          <div className="relative h-[650px] xl:h-[720px]  w-full flex items-center justify-center">
             {content[activeCard]?.content ?? null}
           </div>
         </div>
