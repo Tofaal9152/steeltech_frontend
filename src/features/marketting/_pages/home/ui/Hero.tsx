@@ -38,7 +38,7 @@ import Link from "next/link";
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto flex h-[calc(100vh-96px)] w-full container flex-col justify-center px-6 md:px-16 lg:px-24">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#ee8727] md:text-base">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#ed8c2f] md:text-base">
             Welcome to Steeltech Industries Ltd.
           </p>
 

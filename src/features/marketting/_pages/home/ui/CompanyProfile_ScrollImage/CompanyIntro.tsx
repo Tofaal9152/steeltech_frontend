@@ -61,19 +61,19 @@ const CompanyIntro = () => {
       <div className="absolute inset-0 bg-white/35" />
       <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-white/20" />
 
-      <div className="relative z-10 mx-auto max-w-7xl space-y-8 md:space-y-10">
+      <div className="relative z-10 mx-auto container space-y-8 md:space-y-10">
         {/* Top Intro */}
-        <div className="grid gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-center">
-          <div className="space-y-4 text-center lg:text-left">
+        <div className="grid gap-6 md:gap-8 items-center justify-center ">
+          <div className="space-y-4 text-center ">
             <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#ed8c2f] sm:text-sm">
-              Our Legacy of Excellence
+              Company Profile
             </p>
 
             <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
               Our Legacy of Excellence{" "}
             </h2>
           </div>
-          <div className="mx-auto max-w-3xl space-y-3 text-sm leading-7 text-[#4a4a4a] sm:text-base md:text-lg md:leading-8 lg:mx-0 lg:text-xl lg:leading-9">
+          <div className="mx-auto max-w-3xl space-y-3 text-sm leading-7 text-[#4a4a4a] sm:text-base md:text-lg md:leading-8 lg:mx-0 lg:text-xl lg:leading-9 text-center">
             <p>
               Since 2003, Steeltech Industries Ltd. has manufactured and
               exported world-class stainless steel pipes from Bangladesh. With
@@ -88,7 +88,7 @@ const CompanyIntro = () => {
             </p>
           </div>
 
-          <div className="mx-auto w-full max-w-[170px] sm:max-w-[190px] md:max-w-[220px] lg:mx-0">
+          <div className="mx-auto w-full max-w-[170px] sm:max-w-[190px] md:max-w-[220px]">
             <Image
               src={imagePathForLanding.since2003}
               alt="Since 2003"

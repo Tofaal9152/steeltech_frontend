@@ -76,7 +76,8 @@ interface Item {
   type?: "image" | "video";
   img: string;
   url?: string;
-  videoUrl?: string;
+  localVideoUrl?: string;
+  youtubeUrl?: string;
   height: number;
   title?: string;
   caption?: string;
@@ -115,11 +116,7 @@ const Masonry: React.FC<MasonryProps> = ({
   const hasVideo = items.some((item) => (item.type ?? "image") === "video");
 
   const columns = hasVideo
-    ? useMedia(
-        ["(min-width:1024px)", "(min-width:640px)"],
-        [2, 2],
-        1,
-      )
+    ? useMedia(["(min-width:1024px)", "(min-width:640px)"], [2, 2], 1)
     : useMedia(
         ["(min-width:1280px)", "(min-width:768px)", "(min-width:480px)"],
         [3, 3, 2],
@@ -180,7 +177,9 @@ const Masonry: React.FC<MasonryProps> = ({
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
       const height =
-        (child.type ?? "image") === "video" ? child.height : child.height / 1.35;
+        (child.type ?? "image") === "video"
+          ? child.height
+          : child.height / 1.35;
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -413,34 +412,42 @@ const Masonry: React.FC<MasonryProps> = ({
 
             <div className="overflow-hidden rounded-[18px] bg-black">
               {(selectedItem.type ?? "image") === "video" ? (
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  poster={selectedItem.img}
-                  className="h-auto max-h-[70vh] w-full object-contain bg-black"
-                >
-                  <source src={selectedItem.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                selectedItem.youtubeUrl ? (
+                  <div className="aspect-video w-full max-h-[70vh] bg-black">
+                    <iframe
+                      src={getEmbedUrl(selectedItem.youtubeUrl)}
+                      title={selectedItem.title || "video"}
+                      className="h-full w-full rounded-[18px]"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    poster={selectedItem.img}
+                    className="h-auto max-h-[70vh] w-full rounded-[18px] bg-black object-contain"
+                  >
+                    <source src={selectedItem.localVideoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )
               ) : (
                 <Image
                   src={selectedItem.img}
                   width={1200}
                   height={800}
-                  alt={selectedItem.title || selectedItem.caption || "gallery item"}
+                  alt={
+                    selectedItem.title || selectedItem.caption || "gallery item"
+                  }
                   className="h-auto max-h-[70vh] w-full object-contain"
                 />
               )}
             </div>
-
-            {(selectedItem.caption || selectedItem.title) && (
-              <div className="px-2 pt-4 text-sm font-medium text-white/90 md:text-base">
-                {selectedItem.caption || selectedItem.title}
-              </div>
-            )}
           </div>
         </div>
       )}
@@ -449,3 +456,15 @@ const Masonry: React.FC<MasonryProps> = ({
 };
 
 export default Masonry;
+const getEmbedUrl = (url: string) => {
+  if (!url) return "";
+  if (url.includes("youtube.com/watch")) {
+    const videoId = new URL(url).searchParams.get("v");
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  }
+  if (url.includes("youtu.be/")) {
+    const videoId = url.split("youtu.be/")[1]?.split("?")[0];
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  }
+  return url;
+};

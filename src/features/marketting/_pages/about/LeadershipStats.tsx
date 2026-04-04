@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
-
 const stats = [
   {
     value: "25,000+",
@@ -27,18 +23,18 @@ const LeadershipStats = () => {
       <div className="mb-8">
         <h1 className="text-3xl font-bold">Leadership Stats</h1>
         <p className="text-muted-foreground mt-2 max-w-6xl">
-            Steeltech Industries Ltd. has a rich history of growth and success in the stainless steel pipe industry. With over 15 years of experience, we have produced over 25,000 tons of high-quality products, supported by a dedicated team of 500+ employees and a strong network of 120+ suppliers across Bangladesh.
+          Steeltech Industries Ltd. has a rich history of growth and success in
+          the stainless steel pipe industry. With over 15 years of experience,
+          we have produced over 25,000 tons of high-quality products, supported
+          by a dedicated team of 500+ employees and a strong network of 120+
+          suppliers across Bangladesh.
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
         {stats.map((item, index) => (
-          <motion.div
+          <div
             key={item.label}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.45, delay: index * 0.08 }}
             className="rounded-2xl border border-[#ed8c2f]/10 bg-white px-4 py-6 text-center shadow-sm"
           >
             <h3 className="text-2xl font-extrabold text-[#ed8c2f] sm:text-3xl md:text-4xl">
@@ -47,7 +43,7 @@ const LeadershipStats = () => {
             <p className="mt-2 text-sm font-medium text-gray-700 sm:text-base">
               {item.label}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

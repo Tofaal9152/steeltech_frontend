@@ -61,7 +61,7 @@ export const Card = ({
     if (!open) return null;
 
     return (
-      <AnimatePresence>
+      <AnimatePresence >
         <div className="fixed inset-0 z-[9999] flex min-h-screen items-center justify-center p-4 sm:p-6">
           {/* Backdrop */}
           <motion.div
