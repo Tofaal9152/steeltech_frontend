@@ -1,11 +1,6 @@
 import Masonry from "@/components/Masonry";
-import { GalleryItem } from "../data/gallery-data";
 
-type GalleryMasonryProps = {
-  items: GalleryItem[];
-};
-
-const GalleryMasonry = ({ items }: GalleryMasonryProps) => {
+const GalleryMasonry = ({ items }: any) => {
   return (
     <div className="w-full h-full ">
       <Masonry
