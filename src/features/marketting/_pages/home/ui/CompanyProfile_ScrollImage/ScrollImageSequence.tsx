@@ -187,12 +187,12 @@ const ScrollImageSequence = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-white"
     >
       <img
         ref={imageRef}
         alt="Scroll sequence"
-        className="absolute inset-0 h-full w-full select-none object-cover"
+        className="xl:absolute xl:inset-0xl: xl:h-full xl:w-full xl:select-none xl:object-cover"
         draggable={false}
       />
 
@@ -200,8 +200,8 @@ const ScrollImageSequence = () => {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-black/70 to-transparent" />
 
       {!isReady && (
-        <div className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-black text-white">
-          <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-white" />
+        <div className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-white text-black">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#ed8c2f] border-t-transparent" />
           <p className="mt-4 text-sm font-medium">
             Loading sequence... {blockingProgress}%
           </p>
@@ -210,7 +210,7 @@ const ScrollImageSequence = () => {
 
       <div
         ref={introRef}
-        className="absolute  xl:bottom-4 2xl:bottom-10 left-0 right-0 z-30 flex justify-center px-4 opacity-0 md:px-10"
+        className="absolute xl:bottom-4 2xl:bottom-10 left-0 right-0 z-30 flex justify-center px-4 opacity-0 md:px-10"
       >
         <FloatingCompanyIntro />
       </div>

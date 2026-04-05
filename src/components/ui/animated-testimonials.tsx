@@ -39,7 +39,7 @@ export const AnimatedTestimonials = ({
       {/* CHANGED: Replaced "items-start" with "items-stretch" so both columns are always equal height */}
       <div className="grid grid-cols-1 items-stretch gap-16 md:grid-cols-[380px_minmax(0,1fr)] lg:grid-cols-[420px_minmax(0,1fr)]">
         <div className="w-full">
-          <div className="relative h-[280px] w-full sm:h-[340px] md:h-[420px]">
+          <div className="relative h-[380px] w-full sm:h-[340px] md:h-[420px]">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div

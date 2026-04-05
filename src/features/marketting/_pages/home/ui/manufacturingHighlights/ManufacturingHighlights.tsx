@@ -1,6 +1,7 @@
 import { StickyScroll } from "@/components/sticky-scroll-reveal";
 import Image from "next/image";
 import { processItems } from "./process-data";
+import { ManufacturingHighlightsMobileView } from "./ManufacturingHighlightsMobileView";
 
 const stickyContent = processItems.map((item) => ({
   title: `${item.step} ${item.title}`,
@@ -63,8 +64,12 @@ const ManufacturingHighlights = () => {
           Advanced Manufacturing Process Flow
         </h2>
       </div>
-
-      <StickyScroll content={stickyContent} contentClassName="bg-white" />
+      <div className="xl:flex hidden">
+        <StickyScroll content={stickyContent} contentClassName="bg-white" />
+      </div>
+      <div className="xl:hidden block">
+        <ManufacturingHighlightsMobileView />
+      </div>
     </section>
   );
 };

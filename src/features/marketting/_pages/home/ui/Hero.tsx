@@ -1,81 +1,192 @@
-  import { imagePathForLanding } from "@/constants/imagePath";
-  import {
-    ChevronRight,
-    Facebook,
-    Instagram,
-    Linkedin,
-    Twitter,
-    Youtube,
-  } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { imagePathForLanding } from "@/constants/imagePath";
+import {
+  ChevronRight,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import Link from "next/link";
+import ReactPlayer from "react-player";
 
-  const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/steeltechltd" },
-    { icon: Instagram, href: "https://www.instagram.com/steeltechltd/" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/8742169" },
-    { icon: Twitter, href: "https://twitter.com/steeltechltd1" },
-    { icon: Youtube, href: "https://www.youtube.com/@steeltechltd1" },
-  ];
+const socialLinks = [
+  { icon: Facebook, href: "https://www.facebook.com/steeltechltd" },
+  { icon: Instagram, href: "https://www.instagram.com/steeltechltd/" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/8742169" },
+  { icon: Twitter, href: "https://twitter.com/steeltechltd1" },
+  { icon: Youtube, href: "https://www.youtube.com/@steeltechltd1" },
+];
 
-  const Hero = () => {
-    return (
-      <div className="relative h-screen w-full overflow-hidden font-sans">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
+const Hero = () => {
+  const [playingStarted, setPlayingStarted] = useState(false);
+
+  return (
+    <div className="relative min-h-screen w-full overflow-hidden font-sans">
+      {/* Poster */}
+      <div
+        className={`absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${
+          playingStarted ? "opacity-0" : "opacity-100"
+        }`}
+        style={{ backgroundImage: `url(${imagePathForLanding.heroPoster})` }}
+      />
+
+      {/* Video */}
+      <div
+        className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ${
+          playingStarted ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <ReactPlayer
+          src={imagePathForLanding.heroVideo}
+          playing
           muted
+          loop
           playsInline
-          poster={imagePathForLanding.heroPoster}
+          controls={false}
+          width="100%"
+          height="100%"
           className="absolute inset-0 z-0 h-full w-full object-cover"
+          onPlaying={() => setPlayingStarted(true)}
+          onError={(e) => {
+            console.error("Video error:", e);
+          }}
+        />
+      </div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 z-0 bg-black/50" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex h-[calc(100vh-96px)] w-full container flex-col justify-center px-6 md:px-16 lg:px-24">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#ed8c2f] md:text-base">
+          Welcome to Steeltech Industries Ltd.
+        </p>
+
+        <h1 className="mb-8 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-7xl">
+          BANGLADESH&apos;S NO. 1 STAINLESS STEEL PIPE MANUFACTURER
+        </h1>
+
+        <p className="mb-8 max-w-2xl text-lg font-semibold leading-relaxed text-white/90 sm:text-xl md:text-2xl">
+          Over 20 years of trusted quality. From factory floor to landmark
+          projects across 64 districts.
+        </p>
+
+        <Link
+          href="/products"
+          className="flex w-fit items-center bg-[#ed8c2f] px-8 py-3 text-sm uppercase text-white transition duration-200 shadow-[1px_1px_rgba(237,140,47),2px_2px_rgba(237,140,47),3px_3px_rgba(237,140,47),4px_4px_rgba(237,140,47),5px_5px_0px_0px_rgba(237,140,47)]"
         >
-          <source src={imagePathForLanding.heroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          <span className="text-base font-bold">See Our Products</span>
+          <ChevronRight className="ml-2" />
+        </Link>
+      </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 z-0 bg-black/50" />
+      {/* Social */}
+      <div className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 lg:flex">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-16 w-px bg-white/30" />
 
-        {/* Hero Content */}
-        <div className="relative z-10 mx-auto flex h-[calc(100vh-96px)] w-full container flex-col justify-center px-6 md:px-16 lg:px-24">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#ed8c2f] md:text-base">
-            Welcome to Steeltech Industries Ltd.
-          </p>
+          {socialLinks.map(({ icon: Icon, href }, index) => (
+            <a
+              key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-[#ed8c2f] hover:bg-[#ed8c2f] hover:text-white"
+            >
+              <Icon className="h-4.5 w-4.5" />
+            </a>
+          ))}
 
-          <h1 className="mb-8 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-7xl">
-            BANGLADESH&apos;S NO. 1 STAINLESS STEEL PIPE MANUFACTURER
-          </h1>
-          <p className="mb-8 max-w-2xl text-lg font-semibold leading-relaxed text-white/90 sm:text-xl md:text-2xl">
-            Over 20 years of trusted quality. From factory floor to landmark projects across 64 districts.
-          </p>
-          <Link href={"/products"} className="flex w-fit items-center bg-[#ed8c2f] px-8 py-3 text-sm uppercase text-white transition duration-200 shadow-[1px_1px_rgba(237,140,47),2px_2px_rgba(237,140,47),3px_3px_rgba(237,140,47),4px_4px_rgba(237,140,47),5px_5px_0px_0px_rgba(237,140,47)]">
-            <span className="text-base font-bold">See Our Products</span>
-            <ChevronRight className="ml-2" />
-          </Link>
-        </div>
-
-        {/* Right Side Social Links */}
-        <div className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 lg:flex">
-          <div className="flex flex-col items-center gap-3">
-            <div className="h-16 w-px bg-white/30" />
-
-            {socialLinks.map(({ icon: Icon, href }, index) => (
-              <a
-                key={index}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-[#ed8c2f] hover:bg-[#ed8c2f] hover:text-white"
-              >
-                <Icon className="h-4.5 w-4.5" />
-              </a>
-            ))}
-
-            <div className="h-16 w-px bg-white/30" />
-          </div>
+          <div className="h-16 w-px bg-white/30" />
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default Hero;
+export default Hero;
+//   import { imagePathForLanding } from "@/constants/imagePath";
+//   import {
+//     ChevronRight,
+//     Facebook,
+//     Instagram,
+//     Linkedin,
+//     Twitter,
+//     Youtube,
+//   } from "lucide-react";
+// import Link from "next/link";
+
+//   const socialLinks = [
+//     { icon: Facebook, href: "https://www.facebook.com/steeltechltd" },
+//     { icon: Instagram, href: "https://www.instagram.com/steeltechltd/" },
+//     { icon: Linkedin, href: "https://www.linkedin.com/company/8742169" },
+//     { icon: Twitter, href: "https://twitter.com/steeltechltd1" },
+//     { icon: Youtube, href: "https://www.youtube.com/@steeltechltd1" },
+//   ];
+
+//   const Hero = () => {
+//     return (
+//       <div className="relative h-screen w-full overflow-hidden font-sans">
+//         {/* Background Video */}
+//         <video
+//           autoPlay
+//           loop
+//           muted
+//           playsInline
+//           poster={imagePathForLanding.heroPoster}
+//           className="absolute inset-0 z-0 h-full w-full object-cover"
+//         >
+//           <source src={imagePathForLanding.heroVideo} type="video/mp4" />
+//           Your browser does not support the video tag.
+//         </video>
+
+//         {/* Overlay */}
+//         <div className="absolute inset-0 z-0 bg-black/50" />
+
+//         {/* Hero Content */}
+//         <div className="relative z-10 mx-auto flex h-[calc(100vh-96px)] w-full container flex-col justify-center px-6 md:px-16 lg:px-24">
+//           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#ed8c2f] md:text-base">
+//             Welcome to Steeltech Industries Ltd.
+//           </p>
+
+//           <h1 className="mb-8 max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-7xl">
+//             BANGLADESH&apos;S NO. 1 STAINLESS STEEL PIPE MANUFACTURER
+//           </h1>
+//           <p className="mb-8 max-w-2xl text-lg font-semibold leading-relaxed text-white/90 sm:text-xl md:text-2xl">
+//             Over 20 years of trusted quality. From factory floor to landmark projects across 64 districts.
+//           </p>
+//           <Link href={"/products"} className="flex w-fit items-center bg-[#ed8c2f] px-8 py-3 text-sm uppercase text-white transition duration-200 shadow-[1px_1px_rgba(237,140,47),2px_2px_rgba(237,140,47),3px_3px_rgba(237,140,47),4px_4px_rgba(237,140,47),5px_5px_0px_0px_rgba(237,140,47)]">
+//             <span className="text-base font-bold">See Our Products</span>
+//             <ChevronRight className="ml-2" />
+//           </Link>
+//         </div>
+
+//         {/* Right Side Social Links */}
+//         <div className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 lg:flex">
+//           <div className="flex flex-col items-center gap-3">
+//             <div className="h-16 w-px bg-white/30" />
+
+//             {socialLinks.map(({ icon: Icon, href }, index) => (
+//               <a
+//                 key={index}
+//                 href={href}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-[#ed8c2f] hover:bg-[#ed8c2f] hover:text-white"
+//               >
+//                 <Icon className="h-4.5 w-4.5" />
+//               </a>
+//             ))}
+
+//             <div className="h-16 w-px bg-white/30" />
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   };
+
+//   export default Hero;

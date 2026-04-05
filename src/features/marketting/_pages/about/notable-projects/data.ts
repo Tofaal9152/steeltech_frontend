@@ -10,12 +10,12 @@ type CardItem = {
 // export const projects = [
 //   {
 //     title: "Hatirjheel",
-//     image: "/images/hero/company-profile/projects/hatirjheel.jpeg",
+//     image: "/images/hero/company-profile/projects/hatirjheel.jpg",
 //   },
 //   {
 //     title: "Hazrat Shahjalal Int. Airport",
 //     image:
-//       "/images/hero/company-profile/projects/hazrat-shahjalal-int-airport.jpeg",
+//       "/images/hero/company-profile/projects/hazrat-shahjalal-int-airport.jpg",
 //   },
 //   {
 //     title: "Bangladesh Army Tent Project",
@@ -34,7 +34,7 @@ export const Startupitems: CardItem[] = [
     title: "Hatirjheel",
     subtitle: "Hatirjheel",
     desc: "A landmark urban development project improving traffic flow and city aesthetics in Dhaka.",
-    img: "/images/hero/company-profile/projects/hatirjheel.jpeg",
+    img: "/images/hero/company-profile/projects/hatirjheel.jpg",
     bgClass: "bg-white",
   },
   {

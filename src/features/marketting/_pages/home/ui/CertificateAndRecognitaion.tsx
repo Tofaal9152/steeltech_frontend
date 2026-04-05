@@ -24,22 +24,22 @@ const certificates = [
 
 const recognitions = [
   {
-    img: "/images/hero/certificates/recognition/buet.png",
+    img: "/images/hero/certificates/recognition/buet.jpg",
     title: "BUET",
     sub: "Bangladesh Univ. of Engineering & Technology",
   },
   {
-    img: "/images/hero/certificates/recognition/bsti.png",
+    img: "/images/hero/certificates/recognition/bsti.jpg",
     title: "BSTI",
     sub: "Bangladesh Standards & Testing Institution",
   },
   {
-    img: "/images/hero/certificates/recognition/gov-bd.png",
+    img: "/images/hero/certificates/recognition/gov-bd.jpg",
     title: "Government of Bangladesh",
     sub: "People's Republic of Bangladesh",
   },
   {
-    img: "/images/hero/certificates/recognition/iso.png",
+    img: "/images/hero/certificates/recognition/iso.jpg",
     title: "ISO Certified",
     sub: "International Quality Standard",
   },

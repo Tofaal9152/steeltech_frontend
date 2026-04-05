@@ -21,7 +21,7 @@ export const processItems: ProcessItem[] = [
     title: "Pipe Forming",
     description:
       "Slit coils are shaped into strong, uniform pipes using advanced forming and precision netting technology.",
-    image: "/images/hero/manufacture/pipe_forming.png",
+    image: "/images/hero/manufacture/pipe_forming.jpg",
   },
   {
     step: "03",
@@ -47,21 +47,13 @@ export const processItems: ProcessItem[] = [
       "Pipes are polished for a refined surface finish and premium visual appearance standard.",
     image: "/images/hero/manufacture/polish.jpg",
   },
-  // {
-  //   step: "06",
-  //   phase: "AUDIT",
-  //   title: "Manual QC",
-  //   description:
-  //     "Experienced inspectors perform final checks before the products move to logistics.",
-  //   image: "/images/hero/manufacture/5.jpg",
-  // },
   {
     step: "06",
     phase: "LOGISTICS",
     title: "Packing",
     description:
       "Finished pipes are securely packed to ensure safe storage and long-distance transport.",
-    image: "/images/hero/manufacture/packaing.png",
+    image: "/images/hero/manufacture/packaing.jpg",
   },
   {
     step: "07",
@@ -69,6 +61,6 @@ export const processItems: ProcessItem[] = [
     title: "Delivery",
     description:
       "Products are dispatched through a reliable delivery network with timely handling and real-time tracking.",
-    image: "/images/hero/manufacture/delivery.png",
+    image: "/images/hero/manufacture/delivery.jpg",
   },
 ];

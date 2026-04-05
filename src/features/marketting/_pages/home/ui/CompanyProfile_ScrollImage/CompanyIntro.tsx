@@ -36,7 +36,7 @@ export const projects = [
   {
     title: "Hazrat Shahjalal Int. Airport",
     image:
-      "/images/hero/company-profile/projects/hazrat-shahjalal-int-airport.jpeg",
+      "/images/hero/company-profile/projects/hazrat-shahjalal-int-airport.jpg",
   },
   {
     title: "Bangladesh Army Tent Project",

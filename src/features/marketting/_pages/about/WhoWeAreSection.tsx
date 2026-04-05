@@ -23,9 +23,9 @@ const WhoWeAreSection = () => {
   return (
     <section className="relative overflow-hidden rounded-[20px] sm:rounded-[24px] xl:rounded-[30px]">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 xl:bg-cover xl:bg-center"
         style={{
-          backgroundImage: "url('/images/about/bg-image.png')",
+          backgroundImage: "url('/images/about/bg-image.jpg')",
         }}
       />
 

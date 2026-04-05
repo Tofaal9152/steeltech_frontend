@@ -16,10 +16,10 @@ export default function AppProviders({
         enableSystem
         disableTransitionOnChange
       > */}
-      {/* <PreloaderWrapper> */}
+      <PreloaderWrapper>
         <QueryProvider>{children}</QueryProvider>
         <ScrollToTop />
-      {/* </PreloaderWrapper> */}
+      </PreloaderWrapper>
       {/* <Toaster position="bottom-right" /> */}
       {/* </ThemeProvider> */}
     </>

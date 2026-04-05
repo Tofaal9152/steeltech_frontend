@@ -3,47 +3,47 @@ import LogoLoop from "@/components/LogoLoop";
 // Formatted for the LogoLoop component (using src and alt)
 const clientLogos = [
   {
-    src: "/images/hero/clients/kai.png",
+    src: "/images/hero/clients/kai.jpg",
     alt: "Kai Bangladesh Aluminium Ltd.",
     href: "#",
   },
   {
-    src: "/images/hero/clients/altech.png",
+    src: "/images/hero/clients/altech.jpg",
     alt: "Altech Aluminium Industries Ltd.",
     href: "#",
   },
   {
-    src: "/images/hero/clients/papertech.png",
+    src: "/images/hero/clients/papertech.jpg",
     alt: "Papertech Industries Ltd.",
     href: "#",
   },
   {
-    src: "/images/hero/clients/bilal.png",
+    src: "/images/hero/clients/bilal.jpg",
     alt: "Bilal Trading Pte. Ltd.",
     href: "#",
   },
   {
-    src: "/images/hero/clients/kai-trade.png",
+    src: "/images/hero/clients/kai-trade.jpg",
     alt: "Kai Trade international Ltd.",
     href: "#",
   },
   {
-    src: "/images/hero/clients/everbest.png",
+    src: "/images/hero/clients/everbest.jpg",
     alt: "Everbest Ladders",
     href: "#",
   },
   {
-    src: "/images/hero/clients/kyros.png",
+    src: "/images/hero/clients/kyros.jpg",
     alt: "Kayros Footwear Industries Limited",
     href: "#",
   },
   {
-    src: "/images/hero/clients/metal-tech.png",
+    src: "/images/hero/clients/metal-tech.jpg",
     alt: "Metaltech Industries",
     href: "#",
   },
   {
-    src: "/images/hero/clients/prince.png",
+    src: "/images/hero/clients/prince.jpg",
     alt: "Prince Electricals Ltd.",
     href: "#",
   },

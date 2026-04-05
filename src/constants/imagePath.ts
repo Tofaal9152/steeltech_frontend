@@ -4,14 +4,14 @@ export const imagePath = {
   loading: "/images/loading/loading.gif",
 } as const;
 export const imagePathForNavbar = {
-  navLogo: "/images/navbar/navlogo.png",
+  navLogo: "/images/navbar/navlogo.jpg",
 } as const;
 
 export const imagePathForLanding = {
   // Hero Image
   heroVideo: "/images/hero/herovid.mov",
-  heroPoster: "/images/hero/hero-poster.webp",
-  logo: "/images/logo.png",
+  heroPoster: "/images/hero/hero-poster.jpg",
+  logo: "/images/logo.jpg",
   scrollVideo: "/videos/scroll-video.mp4",
   // company proile
   companyprofile: "/images/hero/company-profile/company-profile.jpg",
@@ -20,12 +20,12 @@ export const imagePathForLanding = {
   since2003: "/images/hero/company-profile/since2003.jpg",
   companyProfileBgImage:
     "/images/hero/company-profile/company-prof-bg-image.jpg",
-  premiumSteelIcon: "/images/hero/company-profile/icon/premium-steel-icon.png",
+  premiumSteelIcon: "/images/hero/company-profile/icon/premium-steel-icon.jpg",
   exportQualityIcon:
-    "/images/hero/company-profile/icon/export-quality-icon.png",
+    "/images/hero/company-profile/icon/export-quality-icon.jpg",
   rustResistantIcon:
-    "/images/hero/company-profile/icon/rust-resistant-icon.png",
-  isoCertifiedIcon: "/images/hero/company-profile/icon/iso-certified-icon.png",
+    "/images/hero/company-profile/icon/rust-resistant-icon.jpg",
+  isoCertifiedIcon: "/images/hero/company-profile/icon/iso-certified-icon.jpg",
   // manufacture
   manufacturing: "/images/hero/manufacturing.jpg",
   steelguard: "/images/hero/steelguard.jpg",

@@ -17,7 +17,7 @@ export function NotableProjectsSlider() {
   ));
 
   return (
-    <div className="py-4">
+    <div className="py-4 pl-4 md:pl-0">
       <AppleCarousel items={cards} />
     </div>
   );
