@@ -95,6 +95,8 @@ const CompanyIntro = () => {
               width={400}
               height={400}
               className="h-auto w-full object-contain brightness-[0.92] contrast-[1.03] saturate-[1.02]"
+              loading="lazy"
+        
             />
           </div>
         </div>
@@ -148,6 +150,8 @@ const CompanyIntro = () => {
                   src={project.image}
                   alt={project.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                 
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />

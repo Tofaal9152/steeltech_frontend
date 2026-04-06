@@ -445,6 +445,7 @@ const Masonry: React.FC<MasonryProps> = ({
                     selectedItem.title || selectedItem.caption || "gallery item"
                   }
                   className="h-auto max-h-[70vh] w-full object-contain"
+                  loading="lazy"
                 />
               )}
             </div>

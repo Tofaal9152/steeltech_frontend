@@ -24,6 +24,8 @@ export default function AppImage({
       alt={alt}
       quality={quality}
       priority={priority}
+      loading="lazy"
+    
     />
   );
 }

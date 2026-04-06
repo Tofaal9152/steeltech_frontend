@@ -63,6 +63,9 @@ const Navbar = () => {
             width={150}
             height={150}
             className="h-14 md:h-16 w-auto "
+            loading="lazy"
+           
+
           />
           <span
             className={`text-lg  ${isHomePage ? "text-white" : "text-white"} md:text-xl font-semibold tracking-[0.18rem] `}

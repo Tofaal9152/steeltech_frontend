@@ -1,9 +1,9 @@
-import Image, { type ImageProps } from 'next/image'
-import { cn } from '@/lib/utils'
+import Image, { type ImageProps } from "next/image";
+import { cn } from "@/lib/utils";
 
-type BlurImageProps = Omit<ImageProps, 'alt'> & {
-  alt?: string
-}
+type BlurImageProps = Omit<ImageProps, "alt"> & {
+  alt?: string;
+};
 
 export const BlurImage = ({
   height,
@@ -13,12 +13,12 @@ export const BlurImage = ({
   alt,
   ...rest
 }: BlurImageProps) => {
-  const blurDataURL = typeof src === 'string' ? src : undefined
+  const blurDataURL = typeof src === "string" ? src : undefined;
 
   return (
     <Image
       className={cn(
-        'h-full w-full transition duration-300',
+        "h-full w-full transition duration-300",
 
         className,
       )}
@@ -29,9 +29,9 @@ export const BlurImage = ({
       draggable={false}
       onDragStart={(e) => e.preventDefault()}
       blurDataURL={blurDataURL}
-      placeholder={blurDataURL ? 'blur' : undefined}
-      alt={alt ? alt : 'Background of a beautiful view'}
+      placeholder={blurDataURL ? "blur" : undefined}
+      alt={alt ? alt : "Background of a beautiful view"}
       {...rest}
     />
-  )
-}
+  );
+};

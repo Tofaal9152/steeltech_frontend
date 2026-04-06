@@ -1,4 +1,3 @@
-
 import { imagePathForLanding } from "@/constants/imagePath";
 import { ArrowRight, PlayCircle } from "lucide-react";
 import Image from "next/image";
@@ -85,6 +84,8 @@ const GallerySection = () => {
                   src={item.image}
                   alt={item.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  loading="lazy"
+                
                 />
 
                 {/* Dark overlay */}

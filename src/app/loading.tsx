@@ -1,21 +1,7 @@
-"use client";
-import { useEffect } from "react";
-import Image from "next/image";
 import { imagePath } from "@/constants/imagePath";
+import Image from "next/image";
 
-interface PreloaderProps {
-  onComplete: () => void;
-}
-
-export default function Preloader({ onComplete }: PreloaderProps) {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onComplete();
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [onComplete]);
-
+const Loading = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center h-screen bg-[#fbfefb]">
       <div className="flex items-center justify-center h-screen w-full">
@@ -27,10 +13,11 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           height={800} // Adjust to match your GIF's actual height
           priority // Prioritizes loading this image above others
           unoptimized // Prevents Next.js from breaking animated GIFs
-          loading="lazy"
 
         />
       </div>
     </div>
   );
-}
+};
+
+export default Loading;

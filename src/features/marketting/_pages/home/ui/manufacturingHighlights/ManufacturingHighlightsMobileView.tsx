@@ -21,6 +21,8 @@ export function ManufacturingHighlightsMobileView() {
             src={item.image}
             alt={item.title}
             className=" w-full rounded-lg object-cover shadow-md md:h-100"
+            loading="lazy"
+      
           />
         </div>
       </div>

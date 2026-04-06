@@ -22,6 +22,8 @@ export function ProductCard({ product, className = "" }: Props) {
             src={product.image}
             alt={product.name}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+            loading="lazy"
+
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-slate-100 px-4 text-center text-sm text-slate-500">
@@ -60,9 +62,7 @@ export function ProductCard({ product, className = "" }: Props) {
               {product.thicknessSummary ? (
                 <div className="flex items-start gap-2">
                   <span className="shrink-0 text-white/80">Thickness:</span>
-                  <span className="font-bold">
-                    {product.thicknessSummary}
-                  </span>
+                  <span className="font-bold">{product.thicknessSummary}</span>
                 </div>
               ) : null}
 

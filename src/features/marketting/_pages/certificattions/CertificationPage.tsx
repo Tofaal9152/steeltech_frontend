@@ -110,6 +110,8 @@ const CertificationPage = () => {
                                 alt={item.title}
                                 fill
                                 className="object-contain p-4"
+                                loading="lazy"
+                               
                               />
                             </div>
                           </div>

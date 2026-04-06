@@ -27,6 +27,7 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
                 quality={100}
                 unoptimized
                 className="h-full max-h-[420px] w-full object-cover cursor-pointer"
+                loading="lazy"
               />
             </Lens>
           ) : (
@@ -58,6 +59,7 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
                     height={400}
                     alt={`${product.product_name}-${index + 1}`}
                     className="h-20 w-full object-cover cursor-pointer"
+                    loading="lazy"
                   />
                 </button>
               );
