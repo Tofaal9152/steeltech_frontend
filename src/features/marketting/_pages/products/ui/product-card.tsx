@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ProductListItem } from "../types/types";
+import Image from "next/image";
 
 type Props = {
   product: ProductListItem;
@@ -15,7 +16,9 @@ export function ProductCard({ product, className = "" }: Props) {
     >
       <div className="relative h-[260px] overflow-hidden sm:h-[300px] md:h-[320px] lg:h-full">
         {product.image ? (
-          <img
+          <Image
+            width={400}
+            height={300}
             src={product.image}
             alt={product.name}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-110"

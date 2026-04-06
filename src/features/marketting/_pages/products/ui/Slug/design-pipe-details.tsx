@@ -21,7 +21,7 @@ export function DesignPipeDetails({ product }: DesignPipeDetailsProps) {
         </section>
       ) : null}
 
-      {product.variants?.length ? (
+      {/* {product.variants?.length ? (
         <section className="rounded-2xl border bg-white p-6">
           <h2 className="mb-4 text-xl font-semibold">Design Availability</h2>
 
@@ -53,7 +53,7 @@ export function DesignPipeDetails({ product }: DesignPipeDetailsProps) {
                 key={image}
                 className="overflow-hidden rounded-2xl border bg-white"
               >
-                <img
+                <Image
                   src={image}
                   alt={product.product_name}
                   className="h-64 w-full object-cover"
@@ -62,7 +62,7 @@ export function DesignPipeDetails({ product }: DesignPipeDetailsProps) {
             ))}
           </div>
         </section>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

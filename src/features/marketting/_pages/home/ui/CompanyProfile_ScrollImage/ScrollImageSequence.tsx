@@ -1,221 +1,209 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import gsap from "gsap";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import FloatingCompanyIntro from "./FloatingCompanyIntro";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-// 49-139
-const TOTAL_FRAMES = 139 - 49 + 1;
+gsap.registerPlugin(ScrollTrigger);
 
-const BLOCKING_FRAMES = 24;
+const START_FRAME = 49;
+const END_FRAME = 139;
+const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
 
-const INITIAL_CONCURRENCY = 8;
-const BACKGROUND_CONCURRENCY = 4;
-
-const ScrollImageSequence = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const imageRef = useRef<HTMLImageElement | null>(null);
+export default function TestIMageSequence() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const canvasWrapRef = useRef<HTMLDivElement | null>(null);
   const introRef = useRef<HTMLDivElement | null>(null);
 
-  const loadedImagesRef = useRef<(HTMLImageElement | null)[]>(
-    Array(TOTAL_FRAMES).fill(null),
-  );
-
-  const [loadedCount, setLoadedCount] = useState(0);
-  const [isReady, setIsReady] = useState(false);
-
-  const frames = useMemo(() => {
-    const baseNumber = 49;
-
-    return Array.from({ length: TOTAL_FRAMES }, (_, i) => {
-      return `/scroll-image/${baseNumber + i}.webp`;
-    });
-  }, []);
-
-  const renderFrame = (frameIndex: number) => {
-    const target = imageRef.current;
-    if (!target) return;
-
-    let safeIndex = frameIndex;
-
-    if (!loadedImagesRef.current[safeIndex]) {
-      for (let i = safeIndex; i >= 0; i--) {
-        if (loadedImagesRef.current[i]) {
-          safeIndex = i;
-          break;
-        }
-      }
-    }
-
-    const frame = loadedImagesRef.current[safeIndex];
-    if (!frame) return;
-
-    if (target.src !== frame.src) {
-      target.src = frame.src;
-    }
-  };
-
   useEffect(() => {
-    let cancelled = false;
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    const canvasWrap = canvasWrapRef.current;
+    const intro = introRef.current;
 
-    const loadOne = (index: number) =>
-      new Promise<void>((resolve) => {
-        if (loadedImagesRef.current[index]) {
-          resolve();
-          return;
-        }
+    if (!canvas || !container || !canvasWrap || !intro) return;
 
-        const img = new window.Image();
-        img.decoding = "async";
-        img.src = frames[index];
+    const context = canvas.getContext("2d");
+    if (!context) return;
 
-        img.onload = () => {
-          if (cancelled) {
-            resolve();
-            return;
-          }
+    const currentFrame = (index = 0) =>
+      `/scroll-image/${START_FRAME + index}.webp`;
 
-          loadedImagesRef.current[index] = img;
-          setLoadedCount((prev) => prev + 1);
-          resolve();
-        };
+    const images: HTMLImageElement[] = [];
+    const sequence = { frame: 0 };
 
-        img.onerror = () => {
-          resolve();
-        };
-      });
+    const resizeCanvas = () => {
+      const rect = canvasWrap.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    const runQueue = async (indexes: number[], concurrency: number) => {
-      let cursor = 0;
+      canvas.width = Math.floor(rect.width * dpr);
+      canvas.height = Math.floor(rect.height * dpr);
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
 
-      const workers = Array.from({ length: concurrency }, async () => {
-        while (cursor < indexes.length && !cancelled) {
-          const currentIndex = indexes[cursor];
-          cursor += 1;
-          await loadOne(currentIndex);
-        }
-      });
-
-      await Promise.all(workers);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      render();
     };
 
-    const start = async () => {
-      const blockingIndexes = Array.from(
-        { length: BLOCKING_FRAMES },
-        (_, i) => i,
-      );
+    const drawContain = (image: HTMLImageElement) => {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
 
-      const remainingIndexes = Array.from(
-        { length: TOTAL_FRAMES - BLOCKING_FRAMES },
-        (_, i) => i + BLOCKING_FRAMES,
-      );
+      if (!width || !height) return;
 
-      await runQueue(blockingIndexes, INITIAL_CONCURRENCY);
+      context.clearRect(0, 0, width, height);
 
-      if (cancelled) return;
+      const imageAspect = image.naturalWidth / image.naturalHeight;
+      const canvasAspect = width / height;
 
-      renderFrame(0);
-      setIsReady(true);
+      let drawWidth = width;
+      let drawHeight = height;
 
-      if (remainingIndexes.length) {
-        runQueue(remainingIndexes, BACKGROUND_CONCURRENCY);
+      if (imageAspect > canvasAspect) {
+        drawHeight = width / imageAspect;
+      } else {
+        drawWidth = height * imageAspect;
+      }
+
+      const x = (width - drawWidth) / 2;
+      const y = (height - drawHeight) / 2;
+
+      context.drawImage(image, x, y, drawWidth, drawHeight);
+    };
+
+    const drawCover = (image: HTMLImageElement) => {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+
+      if (!width || !height) return;
+
+      context.clearRect(0, 0, width, height);
+
+      const imageAspect = image.naturalWidth / image.naturalHeight;
+      const canvasAspect = width / height;
+
+      let drawWidth = width;
+      let drawHeight = height;
+
+      if (imageAspect > canvasAspect) {
+        drawHeight = height;
+        drawWidth = height * imageAspect;
+      } else {
+        drawWidth = width;
+        drawHeight = width / imageAspect;
+      }
+
+      const x = (width - drawWidth) / 2;
+      const y = (height - drawHeight) / 2;
+
+      context.drawImage(image, x, y, drawWidth, drawHeight);
+    };
+
+    const render = () => {
+      const image = images[Math.round(sequence.frame)];
+      if (!image) return;
+
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        drawContain(image);
+      } else {
+        drawCover(image);
       }
     };
 
-    start();
+    for (let i = 0; i < TOTAL_FRAMES; i += 1) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.push(img);
+    }
 
-    return () => {
-      cancelled = true;
+    images[0].onload = () => {
+      resizeCanvas();
+      render();
     };
-  }, [frames]);
 
-  useGSAP(
-    () => {
-      if (!isReady) return;
+    const resizeObserver = new ResizeObserver(() => {
+      resizeCanvas();
+    });
 
-      const section = sectionRef.current;
-      const intro = introRef.current;
-      if (!section || !intro) return;
+    resizeObserver.observe(canvasWrap);
+    window.addEventListener("resize", resizeCanvas);
 
-      const frameState = { frame: 0 };
-
+    const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: section,
+          trigger: container,
           start: "top top",
-          end: "+=2500",
-          scrub: true,
+          end: "+=3000",
           pin: true,
+          scrub: 0.6,
+          markers: false,
           anticipatePin: 1,
         },
       });
 
-      tl.to(frameState, {
+      tl.to(sequence, {
         frame: TOTAL_FRAMES - 1,
         ease: "none",
-        snap: "frame",
         duration: 4,
-        onUpdate: () => {
-          renderFrame(Math.round(frameState.frame));
-        },
-      });
-
-      tl.fromTo(
+        onUpdate: render,
+      }).fromTo(
         intro,
-        { yPercent: 40, opacity: 0 },
-        { yPercent: 0, opacity: 1, duration: 1.5, ease: "power2.out" },
+        {
+          yPercent: 120,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          immediateRender: false,
+        },
+        ">-0.3",
       );
+    }, container);
 
-      return () => {
-        tl.scrollTrigger?.kill();
-        tl.kill();
-      };
-    },
-    { dependencies: [isReady], scope: sectionRef },
-  );
-
-  const blockingProgress = Math.min(
-    100,
-    Math.round(
-      (Math.min(loadedCount, BLOCKING_FRAMES) / BLOCKING_FRAMES) * 100,
-    ),
-  );
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", resizeCanvas);
+      ctx.revert();
+    };
+  }, []);
 
   return (
     <section
-      ref={sectionRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-white"
+      ref={containerRef}
+      className="relative h-screen w-full overflow-hidden bg-white"
     >
-      <img
-        ref={imageRef}
-        alt="Scroll sequence"
-        className="xl:absolute xl:inset-0xl: xl:h-full xl:w-full xl:select-none xl:object-cover"
-        draggable={false}
-      />
-
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-black/70 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-black/70 to-transparent" />
-
-      {!isReady && (
-        <div className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-white text-black">
-          <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#ed8c2f] border-t-transparent" />
-          <p className="mt-4 text-sm font-medium">
-            Loading sequence... {blockingProgress}%
-          </p>
+      <div className="absolute inset-0 flex items-center justify-center ">
+        <div
+          ref={canvasWrapRef}
+          className="
+            relative
+            h-[38vh]
+            w-full
+            
+            md:h-full
+            md:max-w-none
+          "
+        >
+          <canvas ref={canvasRef} className="block h-full w-full" />
         </div>
-      )}
+      </div>
 
       <div
         ref={introRef}
-        className="absolute xl:bottom-4 2xl:bottom-10 left-0 right-0 z-30 flex justify-center  opacity-0 md:px-10"
+        className="pointer-events-none absolute inset-x-0 bottom-8 z-20 flex justify-center  opacity-0 will-change-transform will-change-opacity md:bottom-10"
       >
         <FloatingCompanyIntro />
       </div>
+
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-black/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-black/70 to-transparent" />
     </section>
   );
-};
-
-export default ScrollImageSequence;
+}

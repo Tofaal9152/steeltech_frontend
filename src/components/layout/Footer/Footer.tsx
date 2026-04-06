@@ -9,6 +9,7 @@ import {
   Twitter,
   Youtube,
   ExternalLink,
+  PhoneCall,
 } from "lucide-react";
 
 const socialLinks = [
@@ -59,17 +60,28 @@ const contactItems = [
     icon: Phone,
     content: (
       <a
-        href="tel:+8802222297927"
+        href="tel:+01755-668888"
         className="hover:text-white transition-colors"
       >
-        +8802222297927
+        +880 1755-668888
       </a>
     ),
   },
   {
-    icon: Printer,
-    content: <span>880-2222285489</span>,
+    icon: PhoneCall,
+    content: (
+      <a
+        href="tel:+8801713378222"
+        className="hover:text-white transition-colors"
+      >
+        +880 1713-378222
+      </a>
+    ),
   },
+  // {
+  //   icon: Printer,
+  //   content: <span>880-2222285489</span>,
+  // },
   {
     icon: Mail,
     content: (

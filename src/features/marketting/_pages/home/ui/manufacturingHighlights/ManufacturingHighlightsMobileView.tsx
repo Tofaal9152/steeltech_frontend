@@ -1,5 +1,6 @@
 import { Timeline } from "@/components/ui/timeline";
 import { processItems } from "./process-data";
+import Image from "next/image";
 
 export function ManufacturingHighlightsMobileView() {
   const data = processItems.map((item,index) => ({
@@ -14,7 +15,9 @@ export function ManufacturingHighlightsMobileView() {
         </p>
 
         <div className="grid grid-cols-1">
-          <img
+          <Image
+            width={400}
+            height={300}
             src={item.image}
             alt={item.title}
             className=" w-full rounded-lg object-cover shadow-md md:h-100"

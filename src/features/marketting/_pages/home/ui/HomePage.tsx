@@ -1,6 +1,4 @@
-import CertificateAndRecognitaion from "./CertificateAndRecognitaion";
 import ClientsTrustedBy from "./ClientsTrustedBy";
-import CompanyIntro from "./CompanyProfile_ScrollImage/CompanyIntro";
 import ScrollImageSequence from "./CompanyProfile_ScrollImage/ScrollImageSequence";
 import GallerySection from "./GallerySection";
 import Hero from "./Hero";
@@ -18,7 +16,6 @@ const HomePage = () => {
       <WhyChooseUs />
       <Stats />
       <ManufacturingHighlights />
-      <CertificateAndRecognitaion />
       <ClientsTrustedBy />
       <GallerySection />
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Lens } from "@/components/ui/lens";
+import Image from "next/image";
 import { useState } from "react";
 
 type ProductDetailsHeroProps = {
@@ -18,9 +19,13 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
         <div className="overflow-hidden rounded-2xl border bg-white relative z-10">
           {selectedImage ? (
             <Lens hovering={hovering} setHovering={setHovering}>
-              <img
+              <Image
                 src={selectedImage}
                 alt={product.product_name}
+                width={800}
+                height={600}
+                quality={100}
+                unoptimized
                 className="h-full max-h-[420px] w-full object-cover cursor-pointer"
               />
             </Lens>
@@ -47,8 +52,10 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
                       : "border-slate-200 hover:border-orange-300"
                   }`}
                 >
-                  <img
+                  <Image
                     src={image}
+                    width={400}
+                    height={400}
                     alt={`${product.product_name}-${index + 1}`}
                     className="h-20 w-full object-cover cursor-pointer"
                   />

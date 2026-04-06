@@ -1,6 +1,7 @@
 
 import { imagePathForLanding } from "@/constants/imagePath";
 import { ArrowRight, PlayCircle } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const galleryItems = [
@@ -78,7 +79,9 @@ const GallerySection = () => {
                 }}
               >
                 {/* Front Image */}
-                <img
+                <Image
+                  width={400}
+                  height={300}
                   src={item.image}
                   alt={item.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-110"

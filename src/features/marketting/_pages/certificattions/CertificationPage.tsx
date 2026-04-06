@@ -1,5 +1,3 @@
-"use client";
-
 import { AppDialog } from "@/components/shared/AppDialog";
 import { Award, Maximize2 } from "lucide-react";
 import Image from "next/image";
