@@ -1,5 +1,5 @@
 // import { Toaster } from "sonner";
-import PreloaderWrapper from "@/components/PreloaderWrapper";
+// import PreloaderWrapper from "@/components/PreloaderWrapper";
 import QueryProvider from "./query-provider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -16,10 +16,10 @@ export default function AppProviders({
         enableSystem
         disableTransitionOnChange
       > */}
-      <PreloaderWrapper>
+      {/* <PreloaderWrapper> */}
         <QueryProvider>{children}</QueryProvider>
         <ScrollToTop />
-      </PreloaderWrapper>
+      {/* </PreloaderWrapper> */}
       {/* <Toaster position="bottom-right" /> */}
       {/* </ThemeProvider> */}
     </>
