@@ -1,6 +1,7 @@
 import PreloaderWrapper from "@/components/PreloaderWrapper";
 import ScrollToTop from "@/components/ScrollToTop";
 import QueryProvider from "./query-provider";
+import NextTopLoader from "nextjs-toploader";
 
 export default function AppProviders({
   children,
@@ -11,6 +12,7 @@ export default function AppProviders({
     <>
       <PreloaderWrapper>
         <QueryProvider>{children}</QueryProvider>
+        <NextTopLoader showSpinner={false} color="#ed8c2f" />
         <ScrollToTop />
       </PreloaderWrapper>
     </>

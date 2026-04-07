@@ -27,8 +27,6 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           height={800} // Adjust to match your GIF's actual height
           priority // Prioritizes loading this image above others
           unoptimized // Prevents Next.js from breaking animated GIFs
-          loading="lazy"
-
         />
       </div>
     </div>

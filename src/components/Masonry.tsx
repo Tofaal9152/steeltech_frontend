@@ -102,6 +102,19 @@ interface MasonryProps {
   colorShiftOnHover?: boolean;
 }
 
+const getEmbedUrl = (url: string) => {
+  if (!url) return "";
+  if (url.includes("youtube.com/watch")) {
+    const videoId = new URL(url).searchParams.get("v");
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  }
+  if (url.includes("youtu.be/")) {
+    const videoId = url.split("youtu.be/")[1]?.split("?")[0];
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  }
+  return url;
+};
+
 const Masonry: React.FC<MasonryProps> = ({
   items,
   ease = "power3.out",
@@ -162,6 +175,7 @@ const Masonry: React.FC<MasonryProps> = ({
   };
 
   useEffect(() => {
+    setImagesReady(false);
     preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));
   }, [items]);
 
@@ -331,9 +345,25 @@ const Masonry: React.FC<MasonryProps> = ({
     <>
       <div
         ref={containerRef}
-        className="relative w-full"
-        style={{ height: `${totalHeight}px` }}
+        className="relative w-full min-h-[300px]"
+        style={{ height: `${totalHeight > 0 ? totalHeight : 300}px` }}
       >
+        
+        {/* SKELETON LOADER */}
+        {!imagesReady &&
+          grid.map((item) => (
+            <div
+              key={`skeleton-${item.id}`}
+              className="absolute animate-pulse rounded-[20px] bg-gray-200 dark:bg-gray-800"
+              style={{
+                width: item.w,
+                height: item.h,
+                transform: `translate(${item.x}px, ${item.y}px)`,
+              }}
+            />
+          ))}
+
+        {/* REAL CONTENT */}
         {grid.map((item) => {
           const isVideo = (item.type ?? "image") === "video";
 
@@ -341,7 +371,7 @@ const Masonry: React.FC<MasonryProps> = ({
             <div
               key={item.id}
               data-key={item.id}
-              className="absolute box-content cursor-pointer"
+              className="absolute box-content cursor-pointer opacity-0"
               style={{ willChange: "transform, width, height, opacity" }}
               onClick={() => setSelectedItem(item)}
               onMouseEnter={(e) => handleMouseEnter(item.id, e.currentTarget)}
@@ -366,7 +396,6 @@ const Masonry: React.FC<MasonryProps> = ({
                   />
                 )}
 
-                {/* Video play indicator */}
                 {isVideo && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-black/30 shadow-lg backdrop-blur-md">
@@ -375,7 +404,6 @@ const Masonry: React.FC<MasonryProps> = ({
                   </div>
                 )}
 
-                {/* Gradient overlay + caption */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
                 {item.caption && (
@@ -457,15 +485,3 @@ const Masonry: React.FC<MasonryProps> = ({
 };
 
 export default Masonry;
-const getEmbedUrl = (url: string) => {
-  if (!url) return "";
-  if (url.includes("youtube.com/watch")) {
-    const videoId = new URL(url).searchParams.get("v");
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
-  }
-  if (url.includes("youtu.be/")) {
-    const videoId = url.split("youtu.be/")[1]?.split("?")[0];
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
-  }
-  return url;
-};
