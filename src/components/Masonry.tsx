@@ -10,6 +10,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { Badge } from "./ui/badge";
 
 const useMedia = (
   queries: string[],
@@ -404,14 +405,14 @@ const Masonry: React.FC<MasonryProps> = ({
                   </div>
                 )}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" /> */}
 
                 {item.caption && (
-                  <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5">
+                  <Badge className="absolute bottom-2 left-2 z-10 bg-black/50 text-white backdrop-blur-md px-3 py-1 rounded-[12px] max-w-[90%]">
                     <p className="text-sm font-medium leading-6 text-white sm:text-[15px]">
                       {item.caption}
                     </p>
-                  </div>
+                  </Badge>
                 )}
               </div>
             </div>
