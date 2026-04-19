@@ -117,7 +117,13 @@ export const ssSpiralPipe = {
       ],
     },
   ],
-  images: ["/images/products/spiral/spiral1.jpg"],
+  images: [
+    "/images/products/spiral/spiral1.jpg",
+    "/images/products/spiral/spiral2.jpg",
+    "/images/products/spiral/spiral3.jpg",
+    "/images/products/spiral/spiral4.jpg",
+
+  ],
   source_files: {
     docx: ["SS Spiral Pipe.docx"],
     excel: ["spiral g 201.xlsx", "Spiral Economy Grade201.xlsx"],

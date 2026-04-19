@@ -6,6 +6,11 @@ import { ssDesignPipe } from "./ss-design-pipe";
 import { ssHalfRoundPipe } from "./ss-half-round-pipe";
 import { ssRectangularBoxPipe } from "./ss-rectangular-box-pipe";
 import { ssSquareBoxPipe } from "./ss-square-box-pipe";
+import { ssSheet } from "./ss-sheet";
+import { ssRod } from "./ss-rod";
+import { ssAngle } from "./ss-angle";
+import { ssFlatBar } from "./ss-flat-bar";
+import { ssSchedulePipe } from "./ss-schedule-pipe";
 export { productsList };
 
 export const productDetailsBySlug = {
@@ -15,6 +20,11 @@ export const productDetailsBySlug = {
   "ss-square-box-pipe": ssSquareBoxPipe,
   "ss-design-pipe": ssDesignPipe,
   "ss-half-round-pipe": ssHalfRoundPipe,
+  "ss-sheet": ssSheet,
+  "ss-rod": ssRod,
+  "ss-angle": ssAngle,
+  "ss-flat-bar": ssFlatBar,
+  "ss-schedule-pipe": ssSchedulePipe
 };
 
 export const allProductDetails = [
@@ -25,5 +35,10 @@ export const allProductDetails = [
   ssHalfRoundPipe,
   ssRectangularBoxPipe,
   ssSquareBoxPipe,
-  
+  ssSheet,
+  ssRod,
+  ssAngle,
+  ssFlatBar,
+  ssSchedulePipe
+
 ];

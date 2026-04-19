@@ -28,13 +28,22 @@ type CardItem = {
 //   },
 // ];
 export const Startupitems: CardItem[] = [
+  // {
+  //   id: "01",
+  //   tag: "Featured Project",
+  //   title: "Hatirjheel",
+  //   subtitle: "Hatirjheel",
+  //   desc: "A landmark urban development project improving traffic flow and city aesthetics in Dhaka.",
+  //   img: "/images/hero/company-profile/projects/hatirjheel.jpg",
+  //   bgClass: "bg-white",
+  // },
   {
-    id: "01",
+    id: "05",
     tag: "Featured Project",
-    title: "Hatirjheel",
-    subtitle: "Hatirjheel",
-    desc: "A landmark urban development project improving traffic flow and city aesthetics in Dhaka.",
-    img: "/images/hero/company-profile/projects/hatirjheel.jpg",
+    title: "Tejgaon-Bijoy\nSharani Bypass",
+    subtitle: "Tejgaon-Bijoy Sharani Bypass",
+    desc: "A strategic road development project improving connectivity and reducing congestion.",
+    img: "/images/hero/company-profile/projects/tejgaon-bijoy-sharani-bypass.jpg",
     bgClass: "bg-white",
   },
   {
@@ -44,15 +53,6 @@ export const Startupitems: CardItem[] = [
     subtitle: "Hazrat Shahjalal Int. Airport",
     desc: "Major aviation hub infrastructure supporting international and domestic connectivity.",
     img: "/images/hero/company-profile/projects/hazrat-shahjalal-int-airport.jpg",
-    bgClass: "bg-white",
-  },
-  {
-    id: "05",
-    tag: "Featured Project",
-    title: "Tejgaon-Bijoy\nSharani Bypass",
-    subtitle: "Tejgaon-Bijoy Sharani Bypass",
-    desc: "A strategic road development project improving connectivity and reducing congestion.",
-    img: "/images/hero/company-profile/projects/tejgaon-bijoy-sharani-bypass.jpg",
     bgClass: "bg-white",
   },
   {

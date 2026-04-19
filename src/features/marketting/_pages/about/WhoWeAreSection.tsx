@@ -75,7 +75,7 @@ const WhoWeAreSection = () => {
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-3">
+            <div className="mt-8 md:grid hidden grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-3  ">
               {stats.map((item, index) => {
                 const Icon = item.icon;
 

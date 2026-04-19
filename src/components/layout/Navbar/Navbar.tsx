@@ -42,6 +42,12 @@ const productMenuItems = [
   },
   { label: "SS Design Pipe", href: "/products/ss-design-pipe" },
   { label: "SS Half Round Pipe", href: "/products/ss-half-round-pipe" },
+  { label: "SS Sheet", href: "/products/ss-sheet" },
+  { label: "SS Rod", href: "/products/ss-rod" },
+  { label: "SS Angle", href: "/products/ss-angle" },
+  { label: "SS Flat Bar", href: "/products/ss-flat-bar" },
+  { label: "SS Schedule Pipe", href: "/products/ss-schedule-pipe" },
+  // { label: "Mixed Pipe", href: "/products/ss-mixed-pipe" },
 ];
 
 const ProductsDropdown = ({
@@ -106,7 +112,7 @@ const ProductsDropdown = ({
 
 const Navbar = () => {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === "/about";
   const isGalleryPage = pathname === "/gallery";
   const [scrolled, setScrolled] = useState(false);
 
@@ -131,7 +137,7 @@ const Navbar = () => {
                 ? "border border-orange-300/20 bg-white/10 backdrop-blur-xl shadow-lg"
                 : "bg-transparent"
             }`
-          : `sticky top-0 ${isGalleryPage ? "bg-black" : "bg-black/40"} backdrop-blur-sm`
+          : `sticky top-0 bg-black/40 backdrop-blur-sm`
       }`}
     >
       <div className="relative mx-auto flex w-full container items-center justify-between">

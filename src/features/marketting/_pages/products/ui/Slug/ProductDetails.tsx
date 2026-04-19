@@ -7,6 +7,11 @@ import { ProductDetailsHero } from "./product-details-hero";
 import { RoundPipeDetails } from "./round-pipe-details";
 import { SpiralPipeDetails } from "./spiral-pipe-details";
 import { BoxPipeDetails } from "./box-pipe-details";
+import SchedulePipeDetails from "./schedulepipe-details";
+import SheetDetails from "./sheet-details";
+import RodDetails from "./rod-details";
+import AngleDetails from "./angle-details";
+import FlatBarDetails from "./flarbar-details";
 
 type PageProps = {
   params: {
@@ -48,6 +53,15 @@ export default function ProductDetailsPage({ params }: PageProps) {
 
         {product.detailType === "half-round" && (
           <HalfRoundPipeDetails product={product} />
+        )}
+        {product.detailType === "sheet" && <SheetDetails product={product} />}
+        {product.detailType === "rod" && <RodDetails product={product} />}
+        {product.detailType === "angle" && <AngleDetails product={product} />}
+        {product.detailType === "flat-bar" && (
+          <FlatBarDetails product={product} />
+        )}
+        {product.detailType === "schedule-pipe" && (
+          <SchedulePipeDetails product={product} />
         )}
       </div>
     </div>

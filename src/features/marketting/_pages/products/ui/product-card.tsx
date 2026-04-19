@@ -23,7 +23,6 @@ export function ProductCard({ product, className = "" }: Props) {
             alt={product.name}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
             loading="lazy"
-
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-slate-100 px-4 text-center text-sm text-slate-500">
@@ -31,15 +30,15 @@ export function ProductCard({ product, className = "" }: Props) {
           </div>
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10 transition duration-300 group-hover:from-black/80 group-hover:via-black/40 group-hover:to-black/30" />
+        <div className="absolute inset-0 z-10 group-hover:bg-linear-to-t  opacity-70 transition duration-300 group-hover:from-black/75 group-hover:via-black/35 group-hover:opacity-100" />
 
-        <div className="absolute right-3 top-3 z-10 sm:right-4 sm:top-4">
+        <div className="absolute right-3 top-3 z-20 sm:right-4 sm:top-4">
           <Badge variant="secondary" className="text-[10px] sm:text-xs">
             {product.type}
           </Badge>
         </div>
 
-        <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 text-white sm:p-5 md:p-6">
+        <div className="absolute inset-0 z-30 flex flex-col justify-end p-4 text-white sm:p-5 md:p-6">
           <div className="transition-all duration-300 lg:translate-y-6 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
             <h3 className="text-lg font-bold tracking-tight sm:text-xl md:text-2xl">
               {product.name}

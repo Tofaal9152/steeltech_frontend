@@ -69,14 +69,12 @@ const clientLogos = [
 
 const ClientsAndPartners = () => {
   return (
-    <section className="container mx-auto px-4 md:px-0 py-10">
+    <section id="client" className="container mx-auto px-4 md:px-0 py-10">
       <div className="mb-8">
         <h1 className="text-3xl font-bold">Clients & Partners</h1>
         <p className="text-muted-foreground mt-2 text-sm max-w-6xl">
           Steeltech Industries Ltd. is a trusted stainless steel pipe supplier
-          for leading developers, architects, and fabricators in Bangladesh. We
-          support construction, manufacturing, and industrial clients with
-          durable, high-quality products and reliable service.
+          for leading developers, architects, and fabricators in Bangladesh.
         </p>
       </div>
 

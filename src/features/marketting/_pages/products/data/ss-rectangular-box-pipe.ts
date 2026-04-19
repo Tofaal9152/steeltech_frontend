@@ -12,6 +12,7 @@ export const ssRectangularBoxPipe = {
     "/images/products/rectangular/rectangular1.jpg",
     "/images/products/rectangular/rectangular2.jpg",
     "/images/products/rectangular/rectangular3.jpg",
+    "/images/products/rectangular/rectangular4.jpg",
   ],
   size_range: {
     min: "12.7 x 19.05 mm (1/2 x 3/4 inch)",

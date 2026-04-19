@@ -2,7 +2,7 @@ import { NotableProjectsSlider } from "./NotableProjectsSlider";
 
 const NotableProjects = () => {
   return (
-    <div >
+    <div id="projects">
       <div className="container mx-auto px-4 md:px-0 ">
         <h1 className="text-3xl font-bold"> Notable Projects</h1>
         <p className="text-muted-foreground mt-2 max-w-6xl">

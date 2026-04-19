@@ -17,29 +17,11 @@ export type ProductListItem = {
     | "box-family"
     | "box-pipe"
     | "design"
-    | "half-round";
-};
-
-export type ProductDetailsBase = {
-  product_name: string;
-  slug: string;
-  material?: string;
-  grade?: string[];
-  finish?: string[];
-  description?: string;
-  features?: string[];
-  applications?: string[];
-  images?: string[];
-  detailType:
-    | "round"
-    | "spiral"
-    | "box-family"
-    | "design"
     | "half-round"
-    | "box-pipe";
-  source_files?: {
-    docx?: string[];
-    excel?: string[];
-    images?: string[];
-  };
+    | "sheet"
+    | "rod"
+    | "angle"
+    | "flat-bar"
+    | "schedule-pipe"
+    | "mixed-pipe";
 };

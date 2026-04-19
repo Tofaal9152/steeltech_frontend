@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const galleryItems = [
   {
+    id: 1,
     title: "Factory Images",
     description: "Inside our 50,000 sq. meter manufacturing facility.",
     type: "image",
@@ -12,6 +13,7 @@ const galleryItems = [
     src: "/gallery?tab=factory",
   },
   {
+    id: 2,
     title: "Product Images",
     description: "Close-up views of our stainless steel pipe range.",
     type: "image",
@@ -19,6 +21,7 @@ const galleryItems = [
     src: "/gallery?tab=product",
   },
   {
+    id: 3,
     title: "Event Images",
     description: "Highlights from industry events and partner visits.",
     type: "image",
@@ -26,6 +29,7 @@ const galleryItems = [
     src: "/gallery?tab=event",
   },
   {
+    id: 4,
     title: "Promotional Videos",
     description: "Watch our manufacturing process and product showcases.",
     type: "video",

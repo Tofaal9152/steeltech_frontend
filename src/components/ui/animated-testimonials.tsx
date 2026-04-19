@@ -36,7 +36,10 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
   return (
-    <div className="mx-auto w-full px-4 py-8 font-sans antialiased sm:px-6 md:px-8 lg:px-10">
+    <div
+     
+      className="mx-auto w-full px-4 py-8 font-sans antialiased sm:px-6 md:px-8 lg:px-10"
+    >
       {/* CHANGED: Replaced "items-start" with "items-stretch" so both columns are always equal height */}
       <div className="grid grid-cols-1 items-stretch gap-16 md:grid-cols-[380px_minmax(0,1fr)] lg:grid-cols-[420px_minmax(0,1fr)]">
         <div className="w-full">
@@ -81,7 +84,6 @@ export const AnimatedTestimonials = ({
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
                     loading="lazy"
-                  
                   />
                 </motion.div>
               ))}
@@ -90,7 +92,7 @@ export const AnimatedTestimonials = ({
         </div>
 
         {/* h-full and flex-col work together to fill the stretched grid height */}
-        <div className="flex h-full min-w-0 flex-col rounded-3xl bg-white/80 p-1 md:p-2">
+        <div className="flex h-full min-w-0 flex-col rounded-3xl  p-1 md:p-2">
           {/* flex-1 takes up all top space, leaving the buttons perfectly pinned to the bottom */}
           <div className="flex flex-1 flex-col">
             <motion.div
