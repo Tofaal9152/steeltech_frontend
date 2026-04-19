@@ -42,8 +42,7 @@ const slides = [
     title: "Trusted Manufacturing Since 2003",
     subtitle:
       "A journey of innovation, product consistency, and long-term commitment to quality in every stage of production.",
-    image:
-      "/images/about/carousel/abt5.png",
+    image: "/images/about/carousel/abt5.png",
     primaryBtn: "Our Leadership",
     primaryLink: "#leader",
     secondaryBtn: "Clients & Partners",
@@ -106,18 +105,21 @@ const AboutHeroCarousel = () => {
                       {slide.subtitle}
                     </p>
 
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                       {slide.primaryLink.startsWith("#") ? (
                         <Button
                           onClick={() => handleScroll(slide.primaryLink)}
-                          className="h-12 rounded-full bg-[#ed8c2f] px-6 text-white hover:bg-[#d9781d]"
+                          className="h-12 w-full rounded-full bg-[#ed8c2f] px-6 text-white hover:bg-[#d9781d] sm:w-auto"
                         >
                           {slide.primaryBtn}
                           <ArrowRight />
                         </Button>
                       ) : (
-                        <Link href={slide.primaryLink}>
-                          <Button className="h-12 rounded-full bg-[#ed8c2f] px-6 text-white hover:bg-[#d9781d]">
+                        <Link
+                          href={slide.primaryLink}
+                          className="w-full sm:w-auto"
+                        >
+                          <Button className="h-12 w-full rounded-full bg-[#ed8c2f] px-6 text-white hover:bg-[#d9781d] sm:w-auto">
                             {slide.primaryBtn}
                             <ArrowRight />
                           </Button>
@@ -128,15 +130,18 @@ const AboutHeroCarousel = () => {
                         <Button
                           onClick={() => handleScroll(slide.secondaryLink)}
                           variant="outline"
-                          className="h-12 rounded-full border-white/25 bg-white/10 px-6 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
+                          className="h-12 w-full rounded-full border-white/25 bg-white/10 px-6 text-white backdrop-blur-md hover:bg-white/20 hover:text-white sm:w-auto"
                         >
                           {slide.secondaryBtn}
                         </Button>
                       ) : (
-                        <Link href={slide.secondaryLink}>
+                        <Link
+                          href={slide.secondaryLink}
+                          className="w-full sm:w-auto"
+                        >
                           <Button
                             variant="outline"
-                            className="h-12 rounded-full border-white/25 bg-white/10 px-6 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
+                            className="h-12 w-full rounded-full border-white/25 bg-white/10 px-6 text-white backdrop-blur-md hover:bg-white/20 hover:text-white sm:w-auto"
                           >
                             {slide.secondaryBtn}
                           </Button>
