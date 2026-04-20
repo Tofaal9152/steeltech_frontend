@@ -17,9 +17,9 @@ export const ssSchedulePipe = {
     },
   ],
   images: [
-    "/images/products/schedule-pipe/schedule-pipe1.jpg",
-    "/images/products/schedule-pipe/schedule-pipe2.jpg",
-    "/images/products/schedule-pipe/schedule-pipe3.jpg",
-    "/images/products/schedule-pipe/schedule-pipe4.jpg",
+    "/images/products/schedule-pipe/schedule1.jpg",
+    "/images/products/schedule-pipe/schedule2.jpg",
+    "/images/products/schedule-pipe/schedule3.jpg",
+    "/images/products/schedule-pipe/schedule4.jpg",
   ],
 };

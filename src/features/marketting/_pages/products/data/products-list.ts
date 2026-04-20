@@ -192,7 +192,7 @@ export const productsList: ProductListItem[] = [
     grade: ["202", "304"],
     finish: [],
     type: "SS Schedule Pipe",
-    image: "/images/products/schedule-pipe/schedule-pipe1.jpg",
+    image: "/images/products/schedule-pipe/schedule1.jpg",
     variantCount: 2,
     sizeSummary: '1" to 4"',
     thicknessSummary: "10 SCH, 40 SCH",
