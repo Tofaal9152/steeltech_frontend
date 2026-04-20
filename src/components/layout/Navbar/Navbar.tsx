@@ -35,19 +35,19 @@ const productMenuItems = [
   { label: "All Products", href: "/products" },
   { label: "SS Round Pipe", href: "/products/ss-round-pipe" },
   { label: "SS Square Box Pipe", href: "/products/ss-square-box-pipe" },
-  { label: "SS Spiral Pipe", href: "/products/ss-spiral-pipe" },
   {
     label: "SS Rectangular Box Pipe",
     href: "/products/ss-rectangular-box-pipe",
   },
-  { label: "SS Design Pipe", href: "/products/ss-design-pipe" },
   { label: "SS Half Round Pipe", href: "/products/ss-half-round-pipe" },
+  { label: "SS Spiral Pipe", href: "/products/ss-spiral-pipe" },
+  { label: "SS Design Pipe", href: "/products/ss-design-pipe" },
   { label: "SS Sheet", href: "/products/ss-sheet" },
   { label: "SS Rod", href: "/products/ss-rod" },
   { label: "SS Angle", href: "/products/ss-angle" },
   { label: "SS Flat Bar", href: "/products/ss-flat-bar" },
   { label: "SS Schedule Pipe", href: "/products/ss-schedule-pipe" },
-  // { label: "Mixed Pipe", href: "/products/ss-mixed-pipe" },
+  { label: "Mixed Pipe", href: "/products/ss-mixed-pipe" },
 ];
 
 const ProductsDropdown = ({

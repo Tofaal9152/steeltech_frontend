@@ -398,8 +398,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             alt={(item as any).alt ?? ""}
             title={(item as any).title}
             draggable={false}
-            loading="lazy"
-        
+            // loading="lazy"
+            quality={100}
+            unoptimized
           />
         );
 

@@ -1,45 +1,37 @@
-type SpiralPipeDetailsProps = {
+type BoxFamilyDetailsProps = {
   product: any;
 };
 
-function getAllThicknesses(diameterAvailability: any[]) {
-  const allThicknesses = diameterAvailability.flatMap(
+function getAllThicknesses(sizeAvailability: any[]) {
+  const allThicknesses = sizeAvailability.flatMap(
     (item) => item.thickness_mm || []
   );
 
   return [...new Set(allThicknesses)].sort((a, b) => a - b);
 }
 
-export function SpiralPipeDetails({ product }: SpiralPipeDetailsProps) {
+export function RectangularBoxPipeDetails({
+  product,
+}: BoxFamilyDetailsProps) {
   return (
     <div className="space-y-8">
-      {/* {product.specifications ? (
+      {/* {product.size_range ? (
         <section className="rounded-2xl border bg-white p-6">
-          <h2 className="mb-4 text-xl font-semibold">Specifications</h2>
+          <h2 className="mb-4 text-xl font-semibold">Size Range</h2>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl bg-orange-50 p-4">
-              <p className="text-xs text-muted-foreground">Diameter Range</p>
-              <p className="mt-1 font-semibold">
-                {product.specifications.diameter_range?.inch}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-orange-100 bg-orange-50 p-4">
+              <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                Minimum
               </p>
-              <p className="text-sm text-muted-foreground">
-                {product.specifications.diameter_range?.mm}
-              </p>
+              <p className="mt-2 font-semibold">{product.size_range.min}</p>
             </div>
 
-            <div className="rounded-xl bg-orange-50 p-4">
-              <p className="text-xs text-muted-foreground">Thickness Range</p>
-              <p className="mt-1 font-semibold">
-                {product.specifications.thickness_range}
+            <div className="rounded-xl border border-orange-100 bg-orange-50 p-4">
+              <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                Maximum
               </p>
-            </div>
-
-            <div className="rounded-xl bg-orange-50 p-4">
-              <p className="text-xs text-muted-foreground">Length</p>
-              <p className="mt-1 font-semibold">
-                {product.specifications.length}
-              </p>
+              <p className="mt-2 font-semibold">{product.size_range.max}</p>
             </div>
           </div>
         </section>
@@ -48,6 +40,7 @@ export function SpiralPipeDetails({ product }: SpiralPipeDetailsProps) {
       {/* {product.applications?.length ? (
         <section className="rounded-2xl border bg-white p-6">
           <h2 className="mb-4 text-xl font-semibold">Applications</h2>
+
           <div className="flex flex-wrap gap-2">
             {product.applications.map((item: string) => (
               <span
@@ -61,9 +54,57 @@ export function SpiralPipeDetails({ product }: SpiralPipeDetailsProps) {
         </section>
       ) : null} */}
 
+      {/* {product.sizes?.length ? (
+        <section className="rounded-2xl border bg-white p-6">
+          <div className="mb-5">
+            <h2 className="text-xl font-semibold">Available Sizes</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Standard available dimensions for this product.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border">
+            <table className="w-full min-w-[720px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b bg-orange-50">
+                  <th className="border-r px-4 py-3 text-left font-semibold">
+                    SL
+                  </th>
+                  <th className="border-r px-4 py-3 text-left font-semibold">
+                    Size (inch)
+                  </th>
+                  <th className="px-4 py-3 text-left font-semibold">
+                    Size (mm)
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {product.sizes.map((row: any, index: number) => (
+                  <tr
+                    key={`${row.inch}-${row.mm}`}
+                    className="border-b last:border-0 hover:bg-orange-50/40"
+                  >
+                    <td className="border-r px-4 py-3 font-medium">
+                      {index + 1}
+                    </td>
+                    <td className="border-r px-4 py-3 font-medium">
+                      {row.inch}
+                    </td>
+                    <td className="px-4 py-3">{row.mm}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null} */}
+
       {product.variants?.map((variant: any) => {
-        const rows = variant.diameter_availability || [];
+        const rows = variant.size_availability || [];
         const thicknessHeaders = getAllThicknesses(rows);
+
+        if (!rows.length) return null;
 
         return (
           <section
@@ -87,13 +128,13 @@ export function SpiralPipeDetails({ product }: SpiralPipeDetailsProps) {
                       rowSpan={2}
                       className="border-r px-4 py-3 text-left font-semibold"
                     >
-                      DIA (inch)
+                      Size (inch)
                     </th>
                     <th
                       colSpan={thicknessHeaders.length}
                       className="px-4 py-3 text-center font-semibold"
                     >
-                      THICKNESS
+                      Thickness
                     </th>
                   </tr>
                   <tr className="border-b bg-orange-50">
@@ -111,11 +152,11 @@ export function SpiralPipeDetails({ product }: SpiralPipeDetailsProps) {
                 <tbody>
                   {rows.map((row: any) => (
                     <tr
-                      key={`${variant.code}-${row.diameter_inch}`}
+                      key={`${variant.code}-${row.size_inch}`}
                       className="border-b last:border-0"
                     >
                       <td className="border-r px-4 py-3 font-medium">
-                        {row.diameter_inch}
+                        {row.size_inch}
                       </td>
 
                       {thicknessHeaders.map((thickness: number) => {
@@ -123,7 +164,7 @@ export function SpiralPipeDetails({ product }: SpiralPipeDetailsProps) {
 
                         return (
                           <td
-                            key={`${row.diameter_inch}-${thickness}`}
+                            key={`${row.size_inch}-${thickness}`}
                             className="px-4 py-3 text-center"
                           >
                             {available ? (

@@ -10,11 +10,11 @@ export default function AppProviders({
 }) {
   return (
     <>
-      <PreloaderWrapper>
+      {/* <PreloaderWrapper> */}
         <QueryProvider>{children}</QueryProvider>
         <NextTopLoader showSpinner={false} color="#ed8c2f" />
         <ScrollToTop />
-      </PreloaderWrapper>
+      {/* </PreloaderWrapper> */}
     </>
   );
 }

@@ -13,7 +13,7 @@ function getAllThicknesses(diameterAvailability: any[]) {
 export function RoundPipeDetails({ product }: RoundPipeDetailsProps) {
   return (
     <div className="space-y-8">
-      {product.applications?.length ? (
+      {/* {product.applications?.length ? (
         <section className="rounded-2xl border bg-white p-6">
           <h2 className="mb-4 text-xl font-semibold">Applications</h2>
           <div className="flex flex-wrap gap-2">
@@ -27,7 +27,7 @@ export function RoundPipeDetails({ product }: RoundPipeDetailsProps) {
             ))}
           </div>
         </section>
-      ) : null}
+      ) : null} */}
 
       {product.variants?.map((variant: any) => {
         const rows = variant.diameter_availability || [];
@@ -48,7 +48,7 @@ export function RoundPipeDetails({ product }: RoundPipeDetailsProps) {
             </div>
 
             <div className="overflow-x-auto rounded-xl border">
-              <table className="w-full min-w-[900px] border-collapse text-sm">
+              <table className="w-full min-w-[800px] border-collapse text-sm">
                 <thead>
                   <tr className="border-b bg-orange-50">
                     <th
@@ -56,12 +56,6 @@ export function RoundPipeDetails({ product }: RoundPipeDetailsProps) {
                       className="border-r px-4 py-3 text-left font-semibold"
                     >
                       DIA (inch)
-                    </th>
-                    <th
-                      rowSpan={2}
-                      className="border-r px-4 py-3 text-left font-semibold"
-                    >
-                      DIA (mm)
                     </th>
                     <th
                       colSpan={thicknessHeaders.length}
@@ -74,7 +68,7 @@ export function RoundPipeDetails({ product }: RoundPipeDetailsProps) {
                     {thicknessHeaders.map((thickness: number) => (
                       <th
                         key={thickness}
-                        className="px-4 py-3 text-center font-medium whitespace-nowrap"
+                        className="whitespace-nowrap px-4 py-3 text-center font-medium"
                       >
                         {thickness.toFixed(1)} mm
                       </th>
@@ -85,14 +79,11 @@ export function RoundPipeDetails({ product }: RoundPipeDetailsProps) {
                 <tbody>
                   {rows.map((row: any) => (
                     <tr
-                      key={`${variant.code}-${row.diameter_inch}-${row.diameter_mm}`}
+                      key={`${variant.code}-${row.diameter_inch}`}
                       className="border-b last:border-0"
                     >
                       <td className="border-r px-4 py-3 font-medium">
                         {row.diameter_inch}
-                      </td>
-                      <td className="border-r px-4 py-3">
-                        {row.diameter_mm}
                       </td>
 
                       {thicknessHeaders.map((thickness: number) => {

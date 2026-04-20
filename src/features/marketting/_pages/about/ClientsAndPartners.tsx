@@ -3,7 +3,7 @@ import LogoLoop from "@/components/LogoLoop";
 // Formatted for the LogoLoop component (using src and alt)
 const clientLogos = [
   {
-    src: "/images/hero/clients/kai.jpg",
+    src: "/images/hero/clients/kai.png",
     alt: "Kai Bangladesh Aluminium Ltd.",
     href: "#",
     width: 180,
@@ -17,14 +17,14 @@ const clientLogos = [
     height: 100,
   },
   {
-    src: "/images/hero/clients/papertech.jpg",
+    src: "/images/hero/clients/papertech.png",
     alt: "Papertech Industries Ltd.",
     href: "#",
     width: 180,
     height: 100,
   },
   {
-    src: "/images/hero/clients/bilal.jpg",
+    src: "/images/hero/clients/bilal.png",
     alt: "Bilal Trading Pte. Ltd.",
     href: "#",
     width: 180,
@@ -38,14 +38,14 @@ const clientLogos = [
     height: 100,
   },
   {
-    src: "/images/hero/clients/everbest.jpg",
+    src: "/images/hero/clients/everbest.png",
     alt: "Everbest Ladders",
     href: "#",
     width: 180,
     height: 100,
   },
   {
-    src: "/images/hero/clients/kyros.jpg",
+    src: "/images/hero/clients/kyros.png",
     alt: "Kayros Footwear Industries Limited",
     href: "#",
     width: 180,
@@ -59,7 +59,7 @@ const clientLogos = [
     height: 100,
   },
   {
-    src: "/images/hero/clients/prince.jpg",
+    src: "/images/hero/clients/prince.png",
     alt: "Prince Electricals Ltd.",
     href: "#",
     width: 180,

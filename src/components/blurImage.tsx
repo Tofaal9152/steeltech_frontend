@@ -32,6 +32,7 @@ export const BlurImage = ({
       placeholder={blurDataURL ? "blur" : undefined}
       alt={alt ? alt : "Background of a beautiful view"}
       {...rest}
+      unoptimized={true}
     />
   );
 };

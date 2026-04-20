@@ -4,10 +4,10 @@ export const ssRoundPipe = {
   material: "Stainless Steel",
   detailType: "round",
   subcategories: ["round pipe"],
-  grade: ["201"],
+  grade: ["201", "304"],
   finish: ["mirror polish", "shiny finish"],
   description:
-    "Steeltech Industries Ltd.'s SS Round Pipes are manufactured from internationally sourced coil stock using precision forming and automated quality control. Available in diameters from 3/8” to 4” and thicknesses from 0.4mm to 3.0mm, each pipe features a mirror polish finish, verified thickness consistency, and laser-printed branding for easy identification on-site.",
+    "Steeltech Industries Ltd.'s SS Round Pipes are manufactured from internationally sourced coil stock using precision forming and automated quality control. Available in multiple diameters and thicknesses with mirror polish finish, verified thickness consistency, and laser-printed branding for easy identification on-site.",
   features: [
     "Made by world famous coil and latest advanced technology",
     "Perfect mirror polish with shiny finish and longevity",
@@ -35,27 +35,27 @@ export const ssRoundPipe = {
     {
       name: "Standard Grade 201",
       code: "standard-g201",
-      source_file: "Round pipe thickneess g-201.xlsx",
+      source_file: "Grade 201 Items Details for Website.docx",
       diameter_availability: [
-        {
-          diameter_inch: "3/8",
-          diameter_mm: 9.5,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
-        },
         {
           diameter_inch: "1/2",
           diameter_mm: 12.7,
           thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
         },
         {
-          diameter_inch: "5/8",
-          diameter_mm: 15.9,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
-        },
-        {
           diameter_inch: "3/4",
           diameter_mm: 19.05,
           thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          diameter_inch: "3/8",
+          diameter_mm: 9.5,
+          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
+        },
+        {
+          diameter_inch: "5/8",
+          diameter_mm: 15.9,
+          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
         },
         {
           diameter_inch: "7/8",
@@ -70,7 +70,7 @@ export const ssRoundPipe = {
         {
           diameter_inch: "1 1/4",
           diameter_mm: 32.0,
-          thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0, 2.5, 3.0],
+          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0, 2.5, 3.0],
         },
         {
           diameter_inch: "1 1/2",
@@ -82,11 +82,15 @@ export const ssRoundPipe = {
           diameter_mm: 50.8,
           thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0, 2.5, 3.0],
         },
-        { diameter_inch: "2 1/4", diameter_mm: 57.15, thickness_mm: [1.2] },
         {
           diameter_inch: "2 1/2",
           diameter_mm: 63.5,
           thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0, 2.5, 3.0],
+        },
+        {
+          diameter_inch: "2 1/4",
+          diameter_mm: 57.15,
+          thickness_mm: [1.2],
         },
         {
           diameter_inch: "3",
@@ -96,69 +100,132 @@ export const ssRoundPipe = {
         {
           diameter_inch: "4",
           diameter_mm: 101.6,
-          thickness_mm: [1.0, 1.2, 1.5, 2.0, 2.5, 3.0],
+          thickness_mm: [0.8, 1.0, 1.2, 1.5, 2.0, 2.5],
         },
       ],
     },
+
+    // {
+    //   name: "Economy KSP Grade 201",
+    //   code: "economy-ksp-g201",
+    //   source_file: "Round Pipe Economoy KSP Grade201.xlsx",
+    //   diameter_availability: [
+    //     {
+    //       diameter_inch: "3/8",
+    //       diameter_mm: 9.5,
+    //       thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2],
+    //     },
+    //     {
+    //       diameter_inch: "1/2",
+    //       diameter_mm: 12.7,
+    //       thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
+    //     },
+    //     {
+    //       diameter_inch: "5/8",
+    //       diameter_mm: 15.9,
+    //       thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
+    //     },
+    //     {
+    //       diameter_inch: "3/4",
+    //       diameter_mm: 19.05,
+    //       thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "1",
+    //       diameter_mm: 25.4,
+    //       thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "1 1/4",
+    //       diameter_mm: 32.0,
+    //       thickness_mm: [0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "1 1/2",
+    //       diameter_mm: 38.0,
+    //       thickness_mm: [0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "2",
+    //       diameter_mm: 50.8,
+    //       thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "2 1/2",
+    //       diameter_mm: 63.5,
+    //       thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "3",
+    //       diameter_mm: 76.2,
+    //       thickness_mm: [0.8, 1.0, 1.2, 1.5, 2.0],
+    //     },
+    //     {
+    //       diameter_inch: "4",
+    //       diameter_mm: 101.6,
+    //       thickness_mm: [1.0, 1.2, 1.5, 2.0],
+    //     },
+    //   ],
+    // },
     {
-      name: "Economy KSP Grade 201",
-      code: "economy-ksp-g201",
-      source_file: "Round Pipe  Economoy KSP Grade201.xlsx",
+      name: "USA Grade 304",
+      code: "usa-g304",
+      source_file: "Grade 304 Items Details for Website.docx",
       diameter_availability: [
-        {
-          diameter_inch: "3/8",
-          diameter_mm: 9.5,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2],
-        },
         {
           diameter_inch: "1/2",
           diameter_mm: 12.7,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
-        },
-        {
-          diameter_inch: "5/8",
-          diameter_mm: 15.9,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
+          thickness_mm: [1.2, 1.5, 2.0],
         },
         {
           diameter_inch: "3/4",
           diameter_mm: 19.05,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          diameter_inch: "3/8",
+          diameter_mm: 9.5,
+          thickness_mm: [2.0],
+        },
+        {
+          diameter_inch: "5/8",
+          diameter_mm: 15.9,
+          thickness_mm: [1.2, 1.5],
+        },
+        {
+          diameter_inch: "7/8",
+          diameter_mm: 22.23,
+          thickness_mm: [2],
         },
         {
           diameter_inch: "1",
           diameter_mm: 25.4,
-          thickness_mm: [0.4, 0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.2, 1.5, 2.0],
         },
         {
           diameter_inch: "1 1/4",
           diameter_mm: 32.0,
-          thickness_mm: [0.8, 1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.2, 1.5, 2.0],
         },
         {
           diameter_inch: "1 1/2",
           diameter_mm: 38.0,
-          thickness_mm: [0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.0, 1.2, 1.5, 2.0],
         },
         {
           diameter_inch: "2",
           diameter_mm: 50.8,
-          thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.2, 1.5, 2.0],
         },
         {
           diameter_inch: "2 1/2",
           diameter_mm: 63.5,
-          thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.2, 1.5],
         },
         {
           diameter_inch: "3",
           diameter_mm: 76.2,
-          thickness_mm: [0.8, 1.0, 1.2, 1.5, 2.0],
-        },
-        {
-          diameter_inch: "4",
-          diameter_mm: 101.6,
-          thickness_mm: [1.0, 1.2, 1.5, 2.0],
+          thickness_mm: [1.5],
         },
       ],
     },
@@ -171,11 +238,11 @@ export const ssRoundPipe = {
     "/images/products/round/round4.jpg",
   ],
   source_files: {
-    docx: ["SS Round Pipes.docx"],
-    excel: [
-      "Round pipe thickneess g-201.xlsx",
-      "Round Pipe  Economoy KSP Grade201.xlsx",
+    docx: [
+      "Grade 201 Items Details for Website.docx",
+      "Grade 304 Items Details for Website.docx",
     ],
+    excel: ["Round Pipe Economoy KSP Grade201.xlsx"],
     images: [
       "/images/products/round/round1.jpg",
       "/images/products/round/round2.jpg",

@@ -6,9 +6,11 @@ import { useState } from "react";
 
 type ProductDetailsHeroProps = {
   product: any;
+  url: string;
 };
 
-export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
+export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
+  const isMixedPipe = url === "ss-mixed-pipe" || product.detailType === "mixed-pipe";
   const [hovering, setHovering] = useState(false);
   const images = product.images || [];
   const [selectedImage, setSelectedImage] = useState(images[0] || null);
@@ -16,7 +18,7 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
   return (
     <section className="grid gap-8 lg:grid-cols-2">
       <div className="space-y-4">
-        <div className="overflow-hidden rounded-2xl border bg-white relative z-10">
+        <div className="relative z-10 overflow-hidden rounded-2xl border bg-white">
           {selectedImage ? (
             <Lens hovering={hovering} setHovering={setHovering}>
               <Image
@@ -26,7 +28,9 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
                 height={600}
                 quality={100}
                 unoptimized
-                className="h-full max-h-[420px] w-full object-cover cursor-pointer"
+                className={`h-full w-full ${
+                  isMixedPipe ? "max-h-full" : "max-h-105"
+                } cursor-pointer object-cover`}
                 loading="lazy"
               />
             </Lens>
@@ -58,7 +62,7 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
                     width={400}
                     height={400}
                     alt={`${product.product_name}-${index + 1}`}
-                    className="h-20 w-full object-cover cursor-pointer"
+                    className="h-20 w-full cursor-pointer object-cover"
                     loading="lazy"
                   />
                 </button>
@@ -84,47 +88,99 @@ export function ProductDetailsHero({ product }: ProductDetailsHeroProps) {
           ) : null}
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {product.grade?.map((item: string) => (
-            <span
-              key={item}
-              className="rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-700"
-            >
-              Grade {item}
-            </span>
-          ))}
-
-          {product.finish?.map((item: string) => (
-            <span
-              key={item}
-              className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700"
-            >
-              {item}
-            </span>
-          ))}
-
-          {product.shape ? (
-            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-              {product.shape}
-            </span>
-          ) : null}
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border bg-white p-4">
-            <p className="text-xs text-muted-foreground">Material</p>
-            <p className="mt-1 font-semibold">{product.material || "N/A"}</p>
+        {!!product.grade?.length && (
+          <div className="flex flex-wrap gap-2">
+            {product.grade.map((item: string) => (
+              <span
+                key={item}
+                className="rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-700"
+              >
+                Grade {item}
+              </span>
+            ))}
           </div>
+        )}
 
-          <div className="rounded-xl border bg-white p-4">
-            <p className="text-xs text-muted-foreground">Variants</p>
-            <p className="mt-1 font-semibold">
-              {product.variants?.length || 0}
-            </p>
+        {!isMixedPipe ? (
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border bg-white p-4">
+              <p className="text-xs text-muted-foreground">Material</p>
+              <p className="mt-1 font-semibold">{product.material || "N/A"}</p>
+            </div>
+
+            <div className="rounded-xl border bg-white p-4">
+              <p className="text-xs text-muted-foreground">Variants</p>
+              <p className="mt-1 font-semibold">
+                {product.variants?.length || 0}
+              </p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border bg-white p-4">
+                <p className="text-xs text-muted-foreground">Material</p>
+                <p className="mt-1 font-semibold">{product.material || "N/A"}</p>
+              </div>
 
-        {product.features?.length ? (
+              <div className="rounded-xl border bg-white p-4">
+                <p className="text-xs text-muted-foreground">Selling Unit</p>
+                <p className="mt-1 font-semibold">
+                  {product.selling_info?.selling_unit || "Kg"}
+                </p>
+              </div>
+
+              <div className="rounded-xl border bg-white p-4">
+                <p className="text-xs text-muted-foreground">Stock Type</p>
+                <p className="mt-1 font-semibold">
+                  {product.selling_info?.stock_type || "Mixed lot"}
+                </p>
+              </div>
+
+              <div className="rounded-xl border bg-white p-4">
+                <p className="text-xs text-muted-foreground">Selling Method</p>
+                <p className="mt-1 font-semibold">
+                  {product.selling_info?.selling_method || "Sold by total weight"}
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
+              <h2 className="mb-3 text-sm font-semibold text-orange-700">
+                How Mixed Pipe Is Calculated
+              </h2>
+
+              <div className="space-y-2 text-sm text-slate-700">
+                <p>
+                  Mixed Pipe is sold based on the <span className="font-semibold">total weight in kg</span>,
+                  not by fixed size or single pipe type.
+                </p>
+
+                <p>
+                  Example:
+                </p>
+
+                <div className="rounded-xl bg-white p-4 text-sm">
+                  <div className="space-y-1">
+                    <p>Box Pipe: 50 pcs</p>
+                    <p>Round Pipe: 20 pcs</p>
+                    <p>Rectangular Pipe: 20 pcs</p>
+                    <p>Square Box Pipe: 20 pcs</p>
+                  </div>
+
+                  <div className="my-3 border-t border-dashed" />
+
+                  <p className="font-medium">Total: 110 pcs</p>
+                  <p className="mt-2 text-orange-700 font-semibold">
+                    Final price will be calculated by total weight (kg).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {!isMixedPipe && product.features?.length ? (
           <div className="rounded-2xl border bg-orange-50 p-5">
             <h2 className="mb-3 text-sm font-semibold text-orange-700">
               Key Features

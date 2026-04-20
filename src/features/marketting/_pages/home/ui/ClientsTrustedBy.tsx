@@ -1,51 +1,70 @@
 import LogoLoop from "@/components/LogoLoop";
+import ClientsAndPartners from "../../about/ClientsAndPartners";
 
 // Formatted for the LogoLoop component (using src and alt)
 const clientLogos = [
   {
-    src: "/images/hero/clients/kai.jpg",
+    src: "/images/hero/clients/kai.png",
     alt: "Kai Bangladesh Aluminium Ltd.",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
     src: "/images/hero/clients/altech.jpg",
     alt: "Altech Aluminium Industries Ltd.",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
-    src: "/images/hero/clients/papertech.jpg",
+    src: "/images/hero/clients/papertech.png",
     alt: "Papertech Industries Ltd.",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
-    src: "/images/hero/clients/bilal.jpg",
+    src: "/images/hero/clients/bilal.png",
     alt: "Bilal Trading Pte. Ltd.",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
     src: "/images/hero/clients/kai-trade.jpg",
     alt: "Kai Trade international Ltd.",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
-    src: "/images/hero/clients/everbest.jpg",
+    src: "/images/hero/clients/everbest.png",
     alt: "Everbest Ladders",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
-    src: "/images/hero/clients/kyros.jpg",
+    src: "/images/hero/clients/kyros.png",
     alt: "Kayros Footwear Industries Limited",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
     src: "/images/hero/clients/metal-tech.jpg",
     alt: "Metaltech Industries",
     href: "#",
+    width: 180,
+    height: 100,
   },
   {
-    src: "/images/hero/clients/prince.jpg",
+    src: "/images/hero/clients/prince.png",
     alt: "Prince Electricals Ltd.",
     href: "#",
+    width: 180,
+    height: 100,
   },
 ];
 const recognitions = [
@@ -87,18 +106,13 @@ const ClientsTrustedBy = () => {
             Organizations That Trust Us
           </h2>
         </div>
-
-        {/* Logo Marquee */}
+        {/* Logo Marquee */}\
         <div className="mb-2 sm:mb-4 md:mb-6">
           <LogoLoop
-            logos={clientLogos.map((item) => ({
-              ...item,
-              width: 140,
-              height: 70,
-            }))}
+            logos={clientLogos}
             speed={100}
             direction="left"
-            logoHeight={60}
+            logoHeight={100}
             gap={40}
             hoverSpeed={20}
             scaleOnHover={true}
@@ -107,7 +121,6 @@ const ClientsTrustedBy = () => {
             ariaLabel="Our trusted clients"
           />
         </div>
-
         {/* Divider */}
         <div className="flex items-center gap-2 sm:gap-3 my-6 sm:my-7">
           <div className="flex-1 h-px bg-gray-100" />
@@ -116,7 +129,6 @@ const ClientsTrustedBy = () => {
           </span>
           <div className="flex-1 h-px bg-gray-100" />
         </div>
-
         {/* Recognition */}
         <div className="mb-8 sm:mb-10">
           <LogoLoop
@@ -129,7 +141,7 @@ const ClientsTrustedBy = () => {
             }))}
             speed={100}
             direction="right"
-            logoHeight={70}
+            logoHeight={100}
             gap={100}
             hoverSpeed={20}
             scaleOnHover={true}

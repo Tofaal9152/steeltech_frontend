@@ -36,6 +36,7 @@ const ImageBlock = () => (
       alt="Stainless Steel Manufacturing"
       className="h-[320px] w-full rounded-2xl border-2 border-[#ed8c2f] object-cover shadow-xl sm:h-[420px] md:h-[500px] lg:h-[560px] xl:h-[620px]"
       loading="lazy"
+      unoptimized={true}
   
     />
 

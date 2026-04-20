@@ -2,8 +2,11 @@ type HalfRoundPipeDetailsProps = {
   product: any;
 };
 
-function getAllThicknesses(sizes: any[]) {
-  const allThicknesses = sizes.flatMap((item) => item.thickness_mm || []);
+function getAllThicknesses(diameterAvailability: any[]) {
+  const allThicknesses = diameterAvailability.flatMap(
+    (item) => item.thickness_mm || []
+  );
+
   return [...new Set(allThicknesses)].sort((a, b) => a - b);
 }
 
@@ -12,7 +15,7 @@ export function HalfRoundPipeDetails({
 }: HalfRoundPipeDetailsProps) {
   return (
     <div className="space-y-8">
-      {product.applications?.length ? (
+      {/* {product.applications?.length ? (
         <section className="rounded-2xl border bg-white p-6">
           <h2 className="mb-4 text-xl font-semibold">Applications</h2>
           <div className="flex flex-wrap gap-2">
@@ -26,15 +29,15 @@ export function HalfRoundPipeDetails({
             ))}
           </div>
         </section>
-      ) : null}
+      ) : null} */}
 
       {product.variants?.map((variant: any, index: number) => {
-        const rows = variant.sizes || [];
+        const rows = variant.diameter_availability || [];
         const thicknessHeaders = getAllThicknesses(rows);
 
         return (
           <section
-            key={`${variant.name || "variant"}-${index}`}
+            key={`${variant.code || variant.name || "variant"}-${index}`}
             className="rounded-2xl border bg-white p-6"
           >
             <div className="mb-5">
@@ -49,14 +52,14 @@ export function HalfRoundPipeDetails({
             </div>
 
             <div className="overflow-x-auto rounded-xl border">
-              <table className="w-full min-w-[820px] border-collapse text-sm">
+              <table className="w-full min-w-[800px] border-collapse text-sm">
                 <thead>
                   <tr className="border-b bg-orange-50">
                     <th
                       rowSpan={2}
                       className="border-r px-4 py-3 text-left font-semibold"
                     >
-                      WIDTH (mm)
+                      DIA (inch)
                     </th>
                     <th
                       colSpan={thicknessHeaders.length}
@@ -69,7 +72,7 @@ export function HalfRoundPipeDetails({
                     {thicknessHeaders.map((thickness: number) => (
                       <th
                         key={thickness}
-                        className="px-4 py-3 text-center font-medium whitespace-nowrap"
+                        className="whitespace-nowrap px-4 py-3 text-center font-medium"
                       >
                         {thickness.toFixed(1)} mm
                       </th>
@@ -80,11 +83,11 @@ export function HalfRoundPipeDetails({
                 <tbody>
                   {rows.map((row: any) => (
                     <tr
-                      key={`${variant.name}-${row.width_mm}`}
+                      key={`${variant.code || variant.name}-${row.diameter_inch}`}
                       className="border-b last:border-0"
                     >
                       <td className="border-r px-4 py-3 font-medium">
-                        {row.width_mm}
+                        {row.diameter_inch}
                       </td>
 
                       {thicknessHeaders.map((thickness: number) => {
@@ -92,7 +95,7 @@ export function HalfRoundPipeDetails({
 
                         return (
                           <td
-                            key={`${row.width_mm}-${thickness}`}
+                            key={`${row.diameter_inch}-${thickness}`}
                             className="px-4 py-3 text-center"
                           >
                             {available ? (
