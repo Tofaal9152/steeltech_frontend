@@ -3,7 +3,7 @@ export default function SheetDetails({ product }: any) {
     <div className="space-y-8">
       {product.variants?.map((variant: any, index: number) => (
         <section
-          key={`${variant.name}-${index}`}
+          key={`${variant.code || variant.name}-${index}`}
           className="rounded-2xl border bg-white p-6"
         >
           <div className="mb-5">
@@ -29,7 +29,7 @@ export default function SheetDetails({ product }: any) {
               <tbody>
                 {variant.sizes?.map((row: any, rowIndex: number) => (
                   <tr
-                    key={`${variant.name}-${row.category}-${rowIndex}`}
+                    key={`${variant.code || variant.name}-${row.category}-${rowIndex}`}
                     className="border-b last:border-0 hover:bg-orange-50/40"
                   >
                     <td className="border-r px-4 py-3 font-medium">

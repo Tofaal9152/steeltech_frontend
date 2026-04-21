@@ -112,7 +112,7 @@ export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
             <div className="rounded-xl border bg-white p-4">
               <p className="text-xs text-muted-foreground">Variants</p>
               <p className="mt-1 font-semibold">
-                {product.variants?.length || 0}
+                {product.grade?.length || 0}
               </p>
             </div>
           </div>
