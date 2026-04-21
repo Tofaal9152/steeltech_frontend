@@ -5,7 +5,7 @@ type DesignPipeDetailsProps = {
 export function DesignPipeDetails({ product }: DesignPipeDetailsProps) {
   return (
     <div className="space-y-8">
-      {product.applications?.length ? (
+      {/* {product.applications?.length ? (
         <section className="rounded-2xl border bg-white p-6">
           <h2 className="mb-4 text-xl font-semibold">Applications</h2>
           <div className="flex flex-wrap gap-2">
@@ -19,50 +19,54 @@ export function DesignPipeDetails({ product }: DesignPipeDetailsProps) {
             ))}
           </div>
         </section>
-      ) : null}
-
-      {/* {product.variants?.length ? (
-        <section className="rounded-2xl border bg-white p-6">
-          <h2 className="mb-4 text-xl font-semibold">Design Availability</h2>
-
-          <div className="space-y-4">
-            {product.variants.map((variant: any, index: number) => (
-              <div
-                key={`${variant.type || "variant"}-${index}`}
-                className="rounded-xl border bg-orange-50 p-4"
-              >
-                <p className="font-semibold text-orange-700">
-                  {variant.type || "Pattern"}
-                </p>
-                {variant.note ? (
-                  <p className="mt-2 text-sm text-slate-700">{variant.note}</p>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {product.images?.length ? (
-        <section className="rounded-2xl border bg-white p-6">
-          <h2 className="mb-4 text-xl font-semibold">Gallery</h2>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {product.images.map((image: string) => (
-              <div
-                key={image}
-                className="overflow-hidden rounded-2xl border bg-white"
-              >
-                <Image
-                  src={image}
-                  alt={product.product_name}
-                  className="h-64 w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
       ) : null} */}
+
+      {product.variants?.length ? (
+        <section className="rounded-2xl border bg-white p-6">
+          <div className="mb-5">
+            <h2 className="text-xl font-semibold">Design Pipe Specifications</h2>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border">
+            <table className="w-full min-w-[720px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b bg-orange-50">
+                  <th className="border-r px-4 py-3 text-left font-semibold">
+                    Design Pipe
+                  </th>
+                  <th className="border-r px-4 py-3 text-left font-semibold">
+                    Model Start
+                  </th>
+                  <th className="border-r px-4 py-3 text-left font-semibold">
+                    DIA
+                  </th>
+                  <th className="px-4 py-3 text-left font-semibold">
+                    Thickness
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {product.variants.map((variant: any, index: number) => (
+                  <tr
+                    key={`${variant.code || variant.name}-${index}`}
+                    className="border-b last:border-0 hover:bg-orange-50/40"
+                  >
+                    <td className="border-r px-4 py-3 font-medium">
+                      {variant.name}
+                    </td>
+                    <td className="border-r px-4 py-3">
+                      {variant.model_start}
+                    </td>
+                    <td className="border-r px-4 py-3">{variant.dia}</td>
+                    <td className="px-4 py-3">{variant.thickness}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

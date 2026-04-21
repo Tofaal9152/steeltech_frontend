@@ -28,8 +28,25 @@ export const ssDesignPipe = {
   ],
   variants: [
     {
-      type: "Design Patterns",
-      note: "Multiple design patterns available (based on image catalog in design pipe folder)",
+      name: "201 Design Pipe",
+      code: "design-201",
+      model_start: "FCP -",
+      dia: "1/2 - 4",
+      thickness: "0.6 - 1.5",
+    },
+    {
+      name: "KSP 201 Design Pipe",
+      code: "design-ksp-201",
+      model_start: "KSP -",
+      dia: "1/2 - 4",
+      thickness: "0.6 - 1.5",
+    },
+    {
+      name: "USA 304 Design Pipe",
+      code: "design-304",
+      model_start: "FCP -",
+      dia: "1/2 - 3",
+      thickness: "1.0 - 1.5",
     },
   ],
   images: [
