@@ -3,7 +3,7 @@ export const ssRod = {
   slug: "ss-rod",
   material: "Stainless Steel",
   detailType: "rod",
-  grade: ["201", "304"],
+  grade: ["201 Grade", "304 Grade"],
   variants: [
     {
       name: "SS Rod 201",

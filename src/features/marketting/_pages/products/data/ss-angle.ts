@@ -3,7 +3,9 @@ export const ssAngle = {
   slug: "ss-angle",
   material: "Stainless Steel",
   detailType: "angle",
-  grade: ["201", "304"],
+  // SS Angle → 201 Grade, 304 Grade
+
+  grade: ["201 Grade", "304 Grade"],
   variants: [
     {
       name: "SS Angle 201",

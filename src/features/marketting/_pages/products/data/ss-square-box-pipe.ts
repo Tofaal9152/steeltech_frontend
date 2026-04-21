@@ -3,7 +3,8 @@ export const ssSquareBoxPipe = {
   slug: "ss-square-box-pipe",
   material: "Stainless Steel",
   detailType: "square-box-pipe",
-  grade: ["201","KSP 201", "304"],
+  // Square Box Pipe → 201 Grade, KSP 201 Grade, USA 304 Grade
+  grade: ["201 Grade","KSP 201 Grade", "USA 304 Grade"],
   finish: ["mirror polish", "shiny finish"],
   shape: "square",
   description:

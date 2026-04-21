@@ -3,7 +3,8 @@ export const ssHalfRoundPipe = {
   slug: "ss-half-round-pipe",
   material: "Stainless Steel",
   detailType: "half-round",
-  grade: ["201", "304"],
+  // Half Round Pipe → 201 Grade, USA 304 Grade
+  grade: ["201 Grade","USA 304 Grade"],
   shape: "half round",
   finish: ["polished"],
   description:

@@ -3,7 +3,10 @@ export const ssSheet = {
   slug: "ss-sheet",
   material: "Stainless Steel",
   detailType: "sheet",
-  grade: ["201", "304"],
+
+  // Sheet → 201 Grade, 304 Grade, KSP 201 Grade
+
+  grade: ["201 Grade", "304 Grade", "KSP 201 Grade"],
   variants: [
     {
       name: "Sheet 201",

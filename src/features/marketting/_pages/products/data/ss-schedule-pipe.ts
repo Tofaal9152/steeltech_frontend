@@ -3,7 +3,10 @@ export const ssSchedulePipe = {
   slug: "ss-schedule-pipe",
   material: "Stainless Steel",
   detailType: "schedule-pipe",
-  grade: ["202", "304"],
+
+  // Schedule Pipe → Grade 202, Grade 304
+
+  grade: ["202 Grade", "304 Grade"],
   variants: [
     {
       name: "SS Schedule Pipe 202",

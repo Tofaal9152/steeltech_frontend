@@ -3,8 +3,9 @@ export const ssRoundPipe = {
   slug: "ss-round-pipe",
   material: "Stainless Steel",
   detailType: "round",
+  // Round Pipe → 201 Grade, KSP 201 Grade, USA 304 Grade
   subcategories: ["round pipe"],
-  grade: ["201","KSP 201", "304"],
+  grade: ["201 Grade","KSP 201 Grade", "USA 304 Grade"],
   finish: ["mirror polish", "shiny finish"],
   description:
     "Steeltech Industries Ltd.'s SS Round Pipes are manufactured from internationally sourced coil stock using precision forming and automated quality control. Available in multiple diameters and thicknesses with mirror polish finish, verified thickness consistency, and laser-printed branding for easy identification on-site.",

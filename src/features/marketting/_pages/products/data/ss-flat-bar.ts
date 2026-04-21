@@ -3,7 +3,8 @@ export const ssFlatBar = {
   slug: "ss-flat-bar",
   material: "Stainless Steel",
   detailType: "flat-bar",
-  grade: ["201", "304"],
+  // SS Flat Bar → 201 Grade, 304 Grade
+  grade: ["201 Grade", "304 Grade"],
   variants: [
     {
       name: "SS Flat Bar 201",

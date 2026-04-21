@@ -3,7 +3,10 @@ export const ssDesignPipe = {
   slug: "ss-design-pipe",
   material: "Stainless Steel",
   detailType: "design",
-  grade: ["201"],
+
+  // Design Pipe → 201 Design Pipe, KSP 201 Design Pipe, USA 304 Design Pipe
+
+  grade: ["201 Grade", "KSP 201 Grade", "USA 304 Grade"],
   shape: "decorative / design pipe",
   finish: ["mirror polish", "shiny finish"],
   description:

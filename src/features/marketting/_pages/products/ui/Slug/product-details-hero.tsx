@@ -96,7 +96,7 @@ export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
                 key={item}
                 className="rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-700"
               >
-                Grade {item}
+                {item}
               </span>
             ))}
           </div>
