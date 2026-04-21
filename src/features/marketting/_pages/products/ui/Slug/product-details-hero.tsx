@@ -10,7 +10,8 @@ type ProductDetailsHeroProps = {
 };
 
 export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
-  const isMixedPipe = url === "ss-mixed-pipe" || product.detailType === "mixed-pipe";
+  const isMixedPipe =
+    url === "ss-mixed-pipe" || product.detailType === "mixed-pipe";
   const [hovering, setHovering] = useState(false);
   const images = product.images || [];
   const [selectedImage, setSelectedImage] = useState(images[0] || null);
@@ -120,7 +121,9 @@ export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border bg-white p-4">
                 <p className="text-xs text-muted-foreground">Material</p>
-                <p className="mt-1 font-semibold">{product.material || "N/A"}</p>
+                <p className="mt-1 font-semibold">
+                  {product.material || "N/A"}
+                </p>
               </div>
 
               <div className="rounded-xl border bg-white p-4">
@@ -140,7 +143,8 @@ export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
               <div className="rounded-xl border bg-white p-4">
                 <p className="text-xs text-muted-foreground">Selling Method</p>
                 <p className="mt-1 font-semibold">
-                  {product.selling_info?.selling_method || "Sold by total weight"}
+                  {product.selling_info?.selling_method ||
+                    "Sold by total weight"}
                 </p>
               </div>
             </div>
@@ -150,29 +154,29 @@ export function ProductDetailsHero({ product, url }: ProductDetailsHeroProps) {
                 How Mixed Pipe Is Calculated
               </h2>
 
-              <div className="space-y-2 text-sm text-slate-700">
+              <div className="space-y-3 text-sm text-slate-700">
                 <p>
-                  Mixed Pipe is sold based on the <span className="font-semibold">total weight in kg</span>,
-                  not by fixed size or single pipe type.
+                  Mixed Pipe is sold based on the{" "}
+                  <span className="font-semibold">total weight in kg</span>, not
+                  by fixed size or individual pipe count.
                 </p>
 
-                <p>
-                  Example:
-                </p>
+                <div className="rounded-xl bg-white p-4 space-y-2">
+                  <p className="font-medium">
+                    Includes multiple pipe types such as:
+                  </p>
 
-                <div className="rounded-xl bg-white p-4 text-sm">
-                  <div className="space-y-1">
-                    <p>Box Pipe: 50 pcs</p>
-                    <p>Round Pipe: 20 pcs</p>
-                    <p>Rectangular Pipe: 20 pcs</p>
-                    <p>Square Box Pipe: 20 pcs</p>
-                  </div>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Box Pipe</li>
+                    <li>Round Pipe</li>
+                    <li>Rectangular Pipe</li>
+                    <li>Square Box Pipe</li>
+                  </ul>
 
                   <div className="my-3 border-t border-dashed" />
 
-                  <p className="font-medium">Total: 110 pcs</p>
-                  <p className="mt-2 text-orange-700 font-semibold">
-                    Final price will be calculated by total weight (kg).
+                  <p className="text-orange-700 font-semibold">
+                    Final price is calculated based on total weight (kg).
                   </p>
                 </div>
               </div>

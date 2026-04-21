@@ -95,6 +95,63 @@ export const ssSquareBoxPipe = {
       ],
     },
     {
+      name: "Economy KSP Grade 201",
+      code: "economy-ksp-g201",
+      source_file: "Square & box pipe ksp.xlsx",
+      size_availability: [
+        {
+          size_inch: "1/2 x 1/2",
+          size_mm: "12.7 x 12.7",
+          thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5],
+        },
+        {
+          size_inch: "3/4 x 3/4",
+          size_mm: "19.05 x 19.05",
+          thickness_mm: [0.5, 0.6, 0.8, 1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          size_inch: "3/8 x 3/8",
+          size_mm: "9.5 x 9.5",
+          thickness_mm: [0.6, 0.8, 1.0, 1.2],
+        },
+        {
+          size_inch: "5/8 x 5/8",
+          size_mm: "15.9 x 15.9",
+          thickness_mm: [0.8, 1.0, 1.2, 1.5],
+        },
+        {
+          size_inch: "1 x 1",
+          size_mm: "25.4 x 25.4",
+          thickness_mm: [0.5, 0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          size_inch: "1 1/4 x 1 1/4",
+          size_mm: "32 x 32",
+          thickness_mm: [0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          size_inch: "1 1/2 x 1 1/2",
+          size_mm: "38 x 38",
+          thickness_mm: [0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          size_inch: "2 x 2",
+          size_mm: "50.8 x 50.8",
+          thickness_mm: [0.6, 0.7, 0.8, 1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          size_inch: "2 1/2 x 2 1/2",
+          size_mm: "63.5 x 63.5",
+          thickness_mm: [1.0, 1.2, 1.5, 2.0],
+        },
+        {
+          size_inch: "3 x 3",
+          size_mm: "76.2 x 76.2",
+          thickness_mm: [1.0, 1.2, 1.5, 2.0],
+        },
+      ],
+    },
+    {
       name: "USA Grade 304",
       code: "usa-g304",
       source_file: "Grade 304 Items Details for Website.docx",
