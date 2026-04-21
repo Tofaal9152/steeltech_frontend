@@ -4,7 +4,7 @@ export const ssSpiralPipe = {
   material: "Stainless Steel",
   detailType: "spiral",
   subcategories: ["spiral pipe"],
-  grade: ["201", "304"],
+  grade: ["201", "KSP 201", "304"],
   finish: ["polished"],
   description:
     "Stainless steel spiral pipes of international standard quality, widely used for interior and exterior decoration and for manufacturing stainless steel furniture.",

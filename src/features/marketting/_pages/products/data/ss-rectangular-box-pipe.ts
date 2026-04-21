@@ -3,7 +3,7 @@ export const ssRectangularBoxPipe = {
   slug: "ss-rectangular-box-pipe",
   material: "Stainless Steel",
   detailType: "rectangular-box-pipe",
-  grade: ["201", "304"],
+  grade: ["201","KSP 201", "304"],
   finish: ["mirror polish", "shiny finish"],
   shape: "rectangular",
   description:
